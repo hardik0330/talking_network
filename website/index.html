@@ -66,7 +66,7 @@
             "detectRetina": false,
             "maxNativeZoom": 18,
             "maxZoom": 21,
-            "minZoom": 0,
+            "minZoom": 15,
             "noWrap": false,
             "opacity": 1,
             "subdomains": "abc",
@@ -85,30 +85,31 @@
         //     }
 
         layer.setStyle({
-          color: 'blue',
-          opacity: 1,
-          weight: 5
-        })
-        layer.on('mouseover',function(event){
-          layer.setStyle({
-            color: 'red',
-            opacity: 1
-          })
-        });
-        layer.on('mouseover',function(event){
-          layer.bindPopup("OBJECTID:" + feature.properties.OBJECTID + "\nDiameter_m:" + feature.properties
-              .Diameter_m + "\nLength_M:" + feature.properties.length_M + "\nPipe_Material:" + feature
-              .properties
-              .Pipe_Mater + "\nType:" + feature.properties.Type_);
-        });
-        layer.on('mouseout',function(event){
-          layer.setStyle({
             color: 'blue',
-            opacity: 1
-          })
+            opacity: 1,
+            weight: 5
+        })
+        layer.on('mouseover', function (event) {
+            layer.setStyle({
+                color: 'red',
+                opacity: 1
+            })
         });
-        layer.on('mouseout',function(event){
-          layer.closePopup()
+        layer.on('mouseover', function (event) {
+            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties.OBJECTID +
+                "<br>Diameter_m:" + feature.properties
+                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" + feature
+                .properties
+                .Pipe_Mater + "<br>Type:" + feature.properties.Type_);
+        });
+        layer.on('mouseout', function (event) {
+            layer.setStyle({
+                color: 'blue',
+                opacity: 1
+            })
+        });
+        layer.on('mouseout', function (event) {
+            layer.closePopup()
         });
         // if (feature.properties.Type_ == "Existing" || feature.properties.Type_ == "None") {
         //     layer.bindPopup("OBJECTID:" + feature.properties.OBJECTID + "\nDiameter_m:" + feature.properties
