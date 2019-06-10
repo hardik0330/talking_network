@@ -76,20 +76,46 @@
 
 
     function geoJSON_onEachFeature(feature, layer) {
-        layer.on({
-            click: function (event) {
-                layer.setStyle({
-                    color: 'red',
-                    opacity: 0.8
-                })
-            }
+        // layer.on({
+        //     mouseover: function (event) {
+        //         layer.setStyle({
+        //             color: 'red',
+        //             opacity: 0.8
+        //         })
+        //     }
+
+        layer.setStyle({
+          color: 'blue',
+          opacity: 1,
+          weight: 5
+        })
+        layer.on('mouseover',function(event){
+          layer.setStyle({
+            color: 'red',
+            opacity: 1
+          })
         });
-        if (feature.properties.Type_ == "Existing" || feature.properties.Type_ == "None") {
-            layer.bindPopup("OBJECTID:" + feature.properties.OBJECTID + "\nDiameter_m:" + feature.properties
-                .Diameter_m + "\nLength_M:" + feature.properties.length_M + "\nPipe_Material:" + feature
-                .properties
-                .Pipe_Mater + "\nType:" + feature.properties.Type_);
-        }
+        layer.on('mouseover',function(event){
+          layer.bindPopup("OBJECTID:" + feature.properties.OBJECTID + "\nDiameter_m:" + feature.properties
+              .Diameter_m + "\nLength_M:" + feature.properties.length_M + "\nPipe_Material:" + feature
+              .properties
+              .Pipe_Mater + "\nType:" + feature.properties.Type_);
+        });
+        layer.on('mouseout',function(event){
+          layer.setStyle({
+            color: 'blue',
+            opacity: 1
+          })
+        });
+        layer.on('mouseout',function(event){
+          layer.closePopup()
+        });
+        // if (feature.properties.Type_ == "Existing" || feature.properties.Type_ == "None") {
+        //     layer.bindPopup("OBJECTID:" + feature.properties.OBJECTID + "\nDiameter_m:" + feature.properties
+        //         .Diameter_m + "\nLength_M:" + feature.properties.length_M + "\nPipe_Material:" + feature
+        //         .properties
+        //         .Pipe_Mater + "\nType:" + feature.properties.Type_);
+        // // }
     };
     var geoJSON_data = L.geoJson(null, {
         onEachFeature: geoJSON_onEachFeature,
