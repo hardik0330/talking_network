@@ -66,7 +66,7 @@
             "detectRetina": false,
             "maxNativeZoom": 18,
             "maxZoom": 21,
-            "minZoom": 15,
+            "minZoom": 10,
             "noWrap": false,
             "opacity": 1,
             "subdomains": "abc",
@@ -76,14 +76,6 @@
 
 
     function geoJSON_onEachFeature(feature, layer) {
-        // layer.on({
-        //     mouseover: function (event) {
-        //         layer.setStyle({
-        //             color: 'red',
-        //             opacity: 0.8
-        //         })
-        //     }
-
         layer.setStyle({
             color: 'blue',
             opacity: 1,
@@ -111,24 +103,19 @@
         layer.on('mouseout', function (event) {
             layer.closePopup()
         });
-        // if (feature.properties.Type_ == "Existing" || feature.properties.Type_ == "None") {
-        //     layer.bindPopup("OBJECTID:" + feature.properties.OBJECTID + "\nDiameter_m:" + feature.properties
-        //         .Diameter_m + "\nLength_M:" + feature.properties.length_M + "\nPipe_Material:" + feature
-        //         .properties
-        //         .Pipe_Mater + "\nType:" + feature.properties.Type_);
-        // // }
     };
+
+    var marker1 = new L.Marker(L.latLng(parseFloat([22.5726]),parseFloat([88.3639])));
+    var marker2 = new L.Marker(L.latLng(parseFloat([22.5728]),parseFloat([88.3636])));
+    var marker3 = new L.Marker(L.latLng(parseFloat([22.5730]),parseFloat([88.3634])));
+
+    var layerGroup = L.layerGroup([marker1,marker2,marker3]);
+    layerGroup.addTo(mymap);
+    
+
     var geoJSON_data = L.geoJson(null, {
         onEachFeature: geoJSON_onEachFeature,
-        // style: function(feature){
-        //     switch{feature.properties.OBJECTID{
-        //         case 1 : return {color:"red"};
-        //         case 2 : return {color:"green"};
-        //         case 3 : return {color:"yellow"};
-        //     }
 
-        //     }
-        // }
     }).addTo(mymap);
     geoJSON_data.addData({
         "features": [{
