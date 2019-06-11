@@ -6,31 +6,33 @@ wgs84 = Proj(init = 'epsg:4326')
 IrishGrid = Proj(init = 'epsg:29902')
 
 #load in data
-with open(r'/home/hardikkhurana/Documents/Github/talking_network/map_files/converted_files/Existing_Pipe.geojson', 'r') as f:
+with open(r'/Users/hardikkhurana/Documents/GitHub/talking_network/map_files/converted_files/DmaBoundary.geojson, 'r') as f:
     data = json.load(f)
 
 #traverse data in json string
 target = []
 #coord = []
-f =open("Converted_file.geojson","w")
+f =open("Converted_file_DmaBoundary.geojson","w")
 f.write("{\n")
 f.write('"type": "FeatureCollection",\n')
-f.write('"name": "Existing_Pipe",\n')
+f.write('"name": "DmaBoundary",\n')
 f.write('"features": [\n')
 
 for feature in data['features']:
      #print(feature['geometry']['type'])
      target = []
      target = feature['geometry']['coordinates']
-     objid = feature['properties']['OBJECTID']
-     diameter = feature['properties']['Diameter_m']
-     material = feature['properties']['Pipe_Mater']
-     length = feature['properties']['length_M']
-     type = feature['properties']['Type_']
-     f.write('{ "type": "Feature", "properties": { "OBJECTID": %d, "Diameter_m": "%s", "Pipe_Mater": "%s", "length_M": %d, "Type_": "%s"},' % (objid , diameter , material , length , type ))
+     # objid = feature['properties']['OBJECTID']
+     # diameter = feature['properties']['Diameter_m']
+     # material = feature['properties']['Pipe_Mater']
+     # length = feature['properties']['length_M']
+     # type = feature['properties']['Type_']
+     # f.write('{ "type": "Feature", "properties": { "OBJECTID": %d, "Diameter_m": "%s", "Pipe_Mater": "%s", "length_M": %d, "Type_": "%s"},' % (objid , diameter , material , length , type ))
      #print(target)
+     f.write('{"type": "Feature",')
      coord = []
-     f.write('"geometry":{"type":"LineString" , "coordinates": [')
+     # f.write('"geometry":{"type":"LineString" , "coordinates": [')
+     f.write('"geometry":{"type":"Polygon", "coordinates": [')
      count = 0
 
      for northing in target:
@@ -51,3 +53,4 @@ for feature in data['features']:
      print(coord)
 f.write(']')
 f.write('}')
+f.close()
