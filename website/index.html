@@ -105,12 +105,26 @@
         });
     };
 
-
     // json-server --watch /path/to/data/to/be/hosted
 
-    jQuery.getJSON("http://localhost:3000/data", function (data) {
-        L.geoJson(data, {
+    var x = jQuery.getJSON("http://localhost:3000/data", function (data1) {
+        var layer1 = L.geoJson(data1, {
             onEachFeature: geoJSON_onEachFeature,
         }).addTo(mymap);
+        console.log(data1);
     });
+
+    // var y = jQuery.getJSON("http://localhost:4000/data", function (data2) {
+    //     var layer2 = L.geoJson(data2, {
+    //         onEachFeature: geoJSON_onEachFeature,
+    //     }).addTo(mymap);
+    //     //return layer2;
+    // });
+
+
+    console.log(x.XMLHTTPRequest.responseJSON);
+    //console.log();
+
+    // var layersss = L.layerGroup([x.x1, y.y1]);
+    // L.control.layers(my_title_layer, layersss).addTo(mymap);
 </script>
