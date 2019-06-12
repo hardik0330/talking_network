@@ -1,0 +1,2454 @@
+{
+    "data": {
+        "type": "FeatureCollection",
+        "name": "FlowPoint",
+        "crs": {
+            "type": "name",
+            "properties": {
+                "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+            }
+        },
+        "features": [
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "1",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "100",
+                    "Unique_ID": "FP031",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "7/1A, K L Das road, sonu travels",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "6",
+                    "DMA": "6",
+                    "lati": "22.61259264",
+                    "longi": "88.37438526"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.37438525636568,
+                        22.612592637889858
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "2",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "125",
+                    "Unique_ID": "FP027",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "CESC electric box Kventer the north",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "6",
+                    "DMA": "5",
+                    "lati": "22.61253877",
+                    "longi": "88.37709319"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.37709319259856,
+                        22.612538774850293
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "3",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "150",
+                    "Unique_ID": "FP028",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Lock gate road and B T road junction",
+                    "PBK_AS_15_": "FP028",
+                    "Ward_No": "6",
+                    "DMA": "5",
+                    "lati": "22.61623642",
+                    "longi": "88.37882467999999"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.37882468229935,
+                        22.61623642459749
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "4",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "450",
+                    "Unique_ID": "FP033",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "22/1/H/11, khagendra chatterjee road",
+                    "PBK_AS_15_": "FP033",
+                    "Ward_No": "6",
+                    "DMA": "6",
+                    "lati": "22.61880464",
+                    "longi": "88.3734316"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.37343159642965,
+                        22.618804638045784
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "5",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "175",
+                    "Unique_ID": "FP030",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "22/1/H/11, khagendra chatterjee road",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "1",
+                    "DMA": "8",
+                    "lati": "22.61885571",
+                    "longi": "88.37336636000001"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.37336636252819,
+                        22.618855711764837
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "6",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "125",
+                    "Unique_ID": "FP034",
+                    "Updated_BY": "Vasant Joshi/RamaKunj",
+                    "Date_1": "2017/03/06",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "23A/1A, cossipore road",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "1",
+                    "DMA": "8",
+                    "lati": "22.62012543",
+                    "longi": "88.37308806"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.37308806226186,
+                        22.62012543251865
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "7",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "125",
+                    "Unique_ID": "FP032",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "7, K L Das road, cossipore Ambedkar yuva sangh",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "6",
+                    "DMA": "6",
+                    "lati": "22.61262189",
+                    "longi": "88.37441973999999"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.37441973823098,
+                        22.61262189359649
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "8",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "300",
+                    "Unique_ID": "FP001",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "T/31, Barrack pore Trunk Road, Kolkata-700002",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "6",
+                    "DMA": "1",
+                    "lati": "22.60761115",
+                    "longi": "88.37496156"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.37496155842614,
+                        22.607611148634362
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "9",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "225",
+                    "Unique_ID": "FP004",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": null,
+                    "PBK_AS_15_": null,
+                    "Ward_No": "5",
+                    "DMA": "1",
+                    "lati": "22.60550756",
+                    "longi": "88.37438914000001"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.37438914421898,
+                        22.605507559229324
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "10",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "150",
+                    "Unique_ID": "FP002",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": null,
+                    "PBK_AS_15_": null,
+                    "Ward_No": "5",
+                    "DMA": "1",
+                    "lati": "22.60917201",
+                    "longi": "88.37603322"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.3760332173353,
+                        22.609172013390584
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "11",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "100",
+                    "Unique_ID": "FP003",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": null,
+                    "PBK_AS_15_": null,
+                    "Ward_No": "5",
+                    "DMA": "1",
+                    "lati": "22.60916441",
+                    "longi": "88.37606427999999"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.37606428129189,
+                        22.609164410318424
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "12",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "100",
+                    "Unique_ID": "FP007",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": null,
+                    "PBK_AS_15_": null,
+                    "Ward_No": "5",
+                    "DMA": "1",
+                    "lati": "22.60442196",
+                    "longi": "88.38102936"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.38102935758671,
+                        22.60442195827469
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "13",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "300",
+                    "Unique_ID": "FP008",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Eastern Railway, D.D Lines, Chitpur, Near Tallah Pumping Station",
+                    "PBK_AS_15_": "FP008",
+                    "Ward_No": "5",
+                    "DMA": "0",
+                    "lati": "22.60923452",
+                    "longi": "88.37648888"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.37648888182102,
+                        22.609234522099076
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "14",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "150",
+                    "Unique_ID": "FP014",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Gate no 3.Tallaha pumping station",
+                    "PBK_AS_15_": "FP014",
+                    "Ward_No": "5",
+                    "DMA": "2",
+                    "lati": "22.60937536",
+                    "longi": "88.37691664"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.37691663906826,
+                        22.609375356329355
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "15",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "100",
+                    "Unique_ID": "FP009",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Opp to Tiny naught K G school .38.Tara sankar sarani road",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "5",
+                    "DMA": "2",
+                    "lati": "22.60918339",
+                    "longi": "88.37695811"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.37695810890312,
+                        22.609183392136853
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "16",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "300",
+                    "Unique_ID": "FP010",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Talla jheel park",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "5",
+                    "DMA": "3",
+                    "lati": "22.61172848",
+                    "longi": "88.38508106"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.3850955122637,
+                        22.61172209355537
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "17",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "150",
+                    "Unique_ID": "FP011",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "rakshit cakes",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "3",
+                    "DMA": "3",
+                    "lati": "22.61170727",
+                    "longi": "88.38526354"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.38526353865836,
+                        22.611707267684427
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "18",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "225",
+                    "Unique_ID": "FP012",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "64/A Junction of Pikepara and khudi ram Bose sarani",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "3",
+                    "DMA": "4",
+                    "lati": "22.60749559",
+                    "longi": "88.39079005000001"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.39076569193722,
+                        22.607497319909236
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "19",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "250",
+                    "Unique_ID": "FP029",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Opp. To Tala pumping station",
+                    "PBK_AS_15_": "FP029",
+                    "Ward_No": "6",
+                    "DMA": "0",
+                    "lati": "22.61051519",
+                    "longi": "88.37634233"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.37634233060264,
+                        22.610515193707176
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "20",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "250",
+                    "Unique_ID": "FP035",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "7, K L Das road, cossipore, trishul electronics",
+                    "PBK_AS_15_": "FP035",
+                    "Ward_No": "6",
+                    "DMA": "6",
+                    "lati": "22.61255739",
+                    "longi": "88.37434763"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.37434763203765,
+                        22.612557386522358
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "21",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "100",
+                    "Unique_ID": "FP013",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "25/10 A. N. DEB LANE",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "3",
+                    "DMA": "3",
+                    "lati": "22.61151117",
+                    "longi": "88.38559418"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.38559417678572,
+                        22.611511172351634
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "22",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "250",
+                    "Unique_ID": "FP015",
+                    "Updated_BY": "Ramakunj",
+                    "Date_1": "2017/03/06",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Opp.to Acooli Hotel 38/1F Raja mahindra road",
+                    "PBK_AS_15_": "FP015",
+                    "Ward_No": "6",
+                    "DMA": "2",
+                    "lati": "22.61250244",
+                    "longi": "88.37731135"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.3773113461996,
+                        22.612502438160877
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "23",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "250",
+                    "Unique_ID": "FP016",
+                    "Updated_BY": "Ramakunj",
+                    "Date_1": "2017/03/06",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Opp.to HP petrol pump B T Road",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "6",
+                    "DMA": "2",
+                    "lati": "22.61557174",
+                    "longi": "88.37876324"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.37876324018131,
+                        22.615571742850076
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "24",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "100",
+                    "Unique_ID": "FP017",
+                    "Updated_BY": null,
+                    "Date_1": "2017/03/06",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Next to 12A/1 Harsha tower umakto sen lane KMC stand post",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "4",
+                    "DMA": "2",
+                    "lati": "22.61598735",
+                    "longi": "88.38541146999999"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.38541147041677,
+                        22.615987354827528
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "25",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "100",
+                    "Unique_ID": "FP018",
+                    "Updated_BY": "Ramakunj",
+                    "Date_1": "2017/03/06",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Opp 3/1/A rani devendra bala road",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "4",
+                    "DMA": "2",
+                    "lati": "22.61670347",
+                    "longi": "88.38154781"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.38154781047997,
+                        22.616703471551656
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "26",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "100",
+                    "Unique_ID": "FP050",
+                    "Updated_BY": "Vasant Joshi/RamaKunj",
+                    "Date_1": "2017/03/06",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "22/4/H/20 B Pharmaceuticals K C road",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "1",
+                    "DMA": "8",
+                    "lati": "22.61857495",
+                    "longi": "88.37476094"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.3747609431383,
+                        22.618574948235214
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "27",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "150",
+                    "Unique_ID": "FP051",
+                    "Updated_BY": "Vasant Joshi/RamaKunj",
+                    "Date_1": "2017/03/06",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Chiriya more junction of Dumdum road & B T road",
+                    "PBK_AS_15_": "FP051",
+                    "Ward_No": "1",
+                    "DMA": "8",
+                    "lati": "22.6188071",
+                    "longi": "88.37906891999999"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.37906892268343,
+                        22.618807096978426
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "28",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "150",
+                    "Unique_ID": "FP052",
+                    "Updated_BY": "Vasant Joshi/RamaKunj",
+                    "Date_1": "2017/03/06",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Opp to K.Oil shop 37/A/H/1 Cossipore road",
+                    "PBK_AS_15_": "FP052",
+                    "Ward_No": "1",
+                    "DMA": "8",
+                    "lati": "22.62688354",
+                    "longi": "88.37175616"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.37175615692914,
+                        22.626883537924332
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "29",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "100",
+                    "Unique_ID": "FP053",
+                    "Updated_BY": "Vasant Joshi/RamaKunj",
+                    "Date_1": "2017/03/06",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Opp to 6F/H/3 Nand kishore Gupta prannath chowdhury lane",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "1",
+                    "DMA": "8",
+                    "lati": "22.62763716",
+                    "longi": "88.36854902"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.3685810832691,
+                        22.627635173983343
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "30",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "300",
+                    "Unique_ID": "FP054",
+                    "Updated_BY": "Vasant Joshi/RamaKunj",
+                    "Date_1": "2017/03/06",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "37/A/H/1 K.Oil shop Cossipore road",
+                    "PBK_AS_15_": "FP054",
+                    "Ward_No": "1",
+                    "DMA": "8",
+                    "lati": "22.62687572",
+                    "longi": "88.37169445000001"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.37169445084263,
+                        22.626875724571953
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "31",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "225",
+                    "Unique_ID": "FP055",
+                    "Updated_BY": "Vasant Joshi/RamaKunj",
+                    "Date_1": "2017/03/06",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Opp to K.Oil shop 37/A/H/1 Cossipore road",
+                    "PBK_AS_15_": "FP055",
+                    "Ward_No": "1",
+                    "DMA": "8",
+                    "lati": "22.6268876",
+                    "longi": "88.37178892"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.37178891506551,
+                        22.626887600358007
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "32",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "300",
+                    "Unique_ID": "FP036",
+                    "Updated_BY": "Vasant Joshi/RamaKunj",
+                    "Date_1": "2017/03/06",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "23/1B, cossipore road",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "6",
+                    "DMA": "6",
+                    "lati": "22.62012119",
+                    "longi": "88.37299794"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.37299793575008,
+                        22.620121188381578
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "33",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "225",
+                    "Unique_ID": "FP037",
+                    "Updated_BY": "Vasant Joshi/RamaKunj",
+                    "Date_1": "2017/03/06",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "22/1/H/4, KC Road, cossipore road",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "6",
+                    "DMA": "8",
+                    "lati": "22.62012349",
+                    "longi": "88.37306009"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.37306008711265,
+                        22.620123491617232
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "34",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "600",
+                    "Unique_ID": "FP058",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Chiriya more Junction of K C Ghosh road & B T Road",
+                    "PBK_AS_15_": "FP058",
+                    "Ward_No": "1",
+                    "DMA": "9",
+                    "lati": "22.61904278",
+                    "longi": "88.37910100000001"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.37910099646544,
+                        22.619042776568357
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "35",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "150",
+                    "Unique_ID": "FP059",
+                    "Updated_BY": "Ramakunj",
+                    "Date_1": "2017/03/06",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Chiriya more Junction of K C Ghosh road & B T Road",
+                    "PBK_AS_15_": "FP059",
+                    "Ward_No": "1",
+                    "DMA": "9",
+                    "lati": "22.6190417",
+                    "longi": "88.3790753"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.37907529981142,
+                        22.61904169684397
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "36",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "150",
+                    "Unique_ID": "FP056",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Opp to 49 Maa Tara Aquarium B T Road",
+                    "PBK_AS_15_": "FP056",
+                    "Ward_No": "1",
+                    "DMA": "10",
+                    "lati": "22.62929545",
+                    "longi": "88.37860148"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.37860147715618,
+                        22.629295451760846
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "37",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "225",
+                    "Unique_ID": "FP057",
+                    "Updated_BY": "Vasant Joshi/Parmod",
+                    "Date_1": "2017/03/06",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Opp to 49 Maa Tara Aquarium B T road",
+                    "PBK_AS_15_": "FP057",
+                    "Ward_No": "1",
+                    "DMA": "10",
+                    "lati": "22.62910065",
+                    "longi": "88.37861492"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.37860890514128,
+                        22.629104517069315
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "38",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "150",
+                    "Unique_ID": "FP019",
+                    "Updated_BY": "Vasant Joshi",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Opp. Yogamaya sweets junction of Ganguli para lane",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "4",
+                    "DMA": "2",
+                    "lati": "22.61251954",
+                    "longi": "88.38396"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.38399318119578,
+                        22.61251388171909
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "39",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "100",
+                    "Unique_ID": "FP038",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Next to milan hindu hotel.57/7/H/33 BT road",
+                    "PBK_AS_15_": "FP038",
+                    "Ward_No": "1",
+                    "DMA": "9",
+                    "lati": "22.62273512",
+                    "longi": "88.37892134000001"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.37887305149331,
+                        22.622691756140377
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "40",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "300",
+                    "Unique_ID": "FP020",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Opp to 1/1C orbit view",
+                    "PBK_AS_15_": "FP020",
+                    "Ward_No": "4",
+                    "DMA": "4",
+                    "lati": "22.61612931",
+                    "longi": "88.38579831"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.38579830711525,
+                        22.61612931125184
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "41",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "100",
+                    "Unique_ID": "FP021",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "1/1A UK Sen lane",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "4",
+                    "DMA": "4",
+                    "lati": "22.61608239",
+                    "longi": "88.38579577"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.38579577250678,
+                        22.616082385666417
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "42",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "150",
+                    "Unique_ID": "FP022",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "33/1 Health care",
+                    "PBK_AS_15_": "FP022",
+                    "Ward_No": "4",
+                    "DMA": "11",
+                    "lati": "22.61696334",
+                    "longi": "88.38732202"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.3873220191322,
+                        22.61696334309572
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "43",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "150",
+                    "Unique_ID": "FP023",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Opp to 6/2A Chhabi Umakant Sen lane",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "4",
+                    "DMA": "4",
+                    "lati": "22.61599899",
+                    "longi": "88.38812240999999"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.38812241027743,
+                        22.615998986653885
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "44",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "100",
+                    "Unique_ID": "FP024",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Opp to Neel Nirjan 6/V/1A Umakant Sen lane",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "4",
+                    "DMA": "4",
+                    "lati": "22.61591546",
+                    "longi": "88.38850186000001"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.38850186066928,
+                        22.61591546133492
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "45",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "150",
+                    "Unique_ID": "FP025",
+                    "Updated_BY": "Vasant Joshi",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Opp to Regent view 22/1 Beer para lane",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "3",
+                    "DMA": "4",
+                    "lati": "22.6156489",
+                    "longi": "88.39096078999999"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.39096078949576,
+                        22.61564890072618
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "46",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "300",
+                    "Unique_ID": "FP026",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Calcutta sweets",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "3",
+                    "DMA": "4",
+                    "lati": "22.61170329",
+                    "longi": "88.38565620999999"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.38566332422451,
+                        22.611700863567336
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "47",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "100",
+                    "Unique_ID": "FP039",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "57/4 DKB Green,nxt to synthee police station",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "2",
+                    "DMA": "7",
+                    "lati": "22.62480472",
+                    "longi": "88.38254691"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.38254690781875,
+                        22.62480471577891
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "48",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "100",
+                    "Unique_ID": "FP040",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "142D/4 Anup Kumar Garai South Sinthee Road",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "2",
+                    "DMA": "7",
+                    "lati": "22.62439637",
+                    "longi": "88.38372974000001"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.3837297380017,
+                        22.624396374718803
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "49",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "100",
+                    "Unique_ID": "FP041",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "29B/1 Dr Jagat Pradip Sen H K Sett lane",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "2",
+                    "DMA": "7",
+                    "lati": "22.6229007",
+                    "longi": "88.38426588999999"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.38426589054987,
+                        22.62290070385093
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "50",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "100",
+                    "Unique_ID": "FP042",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Opp to nurture.dr sutapa sen",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "2",
+                    "DMA": "7",
+                    "lati": "22.62257112",
+                    "longi": "88.38483478000001"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.38486613819747,
+                        22.622546208405122
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "51",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "225",
+                    "Unique_ID": "FP043",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Opp to amarapali apartmemt",
+                    "PBK_AS_15_": "FP043",
+                    "Ward_No": "2",
+                    "DMA": "7",
+                    "lati": "22.62254582",
+                    "longi": "88.38485137000001"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.3848827286315,
+                        22.622520913756993
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "52",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "225",
+                    "Unique_ID": "FP044",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Opp to 18.dum dum eid milan commitee",
+                    "PBK_AS_15_": "FP044",
+                    "Ward_No": "4",
+                    "DMA": "7",
+                    "lati": "22.61917133",
+                    "longi": "88.38480588"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.38480679906655,
+                        22.619179903123758
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "53",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "150",
+                    "Unique_ID": "FP045",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Opp to 18.Eid milan commitee",
+                    "PBK_AS_15_": "FP045",
+                    "Ward_No": "4",
+                    "DMA": "7",
+                    "lati": "22.6191602",
+                    "longi": "88.38480401"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.38479546554004,
+                        22.6191638246242
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "54",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "300",
+                    "Unique_ID": "FP046",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Cossipore Telephone Exchange, Nilmoni Dey Lane",
+                    "PBK_AS_15_": "FP046",
+                    "Ward_No": "4",
+                    "DMA": "7",
+                    "lati": "22.61729093",
+                    "longi": "88.37962378"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.37962378023785,
+                        22.61729092773823
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "55",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "150",
+                    "Unique_ID": "FP047",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Side of iocl petrol bunk.BT road",
+                    "PBK_AS_15_": "FP047",
+                    "Ward_No": "4",
+                    "DMA": "7",
+                    "lati": "22.61643563",
+                    "longi": "88.37928192"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.37928191933804,
+                        22.616435632179268
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "56",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "300",
+                    "Unique_ID": "FP048",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Opp to CESC distribution office Dumdum road",
+                    "PBK_AS_15_": "FP048",
+                    "Ward_No": "4",
+                    "DMA": "7",
+                    "lati": "22.61871947",
+                    "longi": "88.37943656"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.37943655891726,
+                        22.618719468969864
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "57",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "150",
+                    "Unique_ID": "FP049",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Junction of south sinthe and B T road.opp to govt sponsored high school",
+                    "PBK_AS_15_": "FP049",
+                    "Ward_No": "1",
+                    "DMA": "7",
+                    "lati": "22.62507587",
+                    "longi": "88.37891068"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.37888551200776,
+                        22.625065219324092
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "58",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "250",
+                    "Unique_ID": "FP066",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Opp to indian post office atm",
+                    "PBK_AS_15_": "FP066",
+                    "Ward_No": "2",
+                    "DMA": "11",
+                    "lati": "22.61923326",
+                    "longi": "88.38506503000001"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.38506632120324,
+                        22.61920425575004
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "59",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "0",
+                    "Unique_ID": "FP073",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Rama",
+                    "Date_2": "2017/03/30",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "5/C Set Pukur Road",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "6",
+                    "DMA": "1",
+                    "lati": "22.60815374",
+                    "longi": "88.3701501"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.37015010138788,
+                        22.608153736399146
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "60",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "300",
+                    "Unique_ID": "FP060",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Opp 115 to mondal eng works.kc ghosh road",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "2",
+                    "DMA": "10",
+                    "lati": "22.62910809",
+                    "longi": "88.38818813"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.38818812885633,
+                        22.62910809076114
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "61",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "100",
+                    "Unique_ID": "FP061",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Opp 115 mondol engg works.kv ghosh road",
+                    "PBK_AS_15_": "FP061",
+                    "Ward_No": "2",
+                    "DMA": "10",
+                    "lati": "22.62910518",
+                    "longi": "88.3881578"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.38815780207881,
+                        22.629105175804106
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "62",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "100",
+                    "Unique_ID": "FP062",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "76/C Sub Area cossipore K C Ghosh road",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "2",
+                    "DMA": "10",
+                    "lati": "22.62739496",
+                    "longi": "88.38780456000001"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.3878045581486,
+                        22.627394957421096
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "63",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "225",
+                    "Unique_ID": "FP063",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Rasan dukan Sub area 76/C K C Ghosh road",
+                    "PBK_AS_15_": "FP063",
+                    "Ward_No": "2",
+                    "DMA": "10",
+                    "lati": "22.62736668",
+                    "longi": "88.38779723"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.38779723210955,
+                        22.627366676617225
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "64",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "100",
+                    "Unique_ID": "FP064",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "31D Bholanath banerjee South Sinthee road",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "2",
+                    "DMA": "10",
+                    "lati": "22.62584471",
+                    "longi": "88.38509018000001"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.38509018212527,
+                        22.625844712934793
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "65",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "100",
+                    "Unique_ID": "FP065",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "18 Kalika Misthan bhandar South Sinthee road",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "2",
+                    "DMA": "10",
+                    "lati": "22.62610113",
+                    "longi": "88.38272236"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.38272236115618,
+                        22.626101125372074
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "66",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "100",
+                    "Unique_ID": "FP067",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Opp 24 seven tank lane.make over parlour",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "2",
+                    "DMA": "12",
+                    "lati": "22.62120611",
+                    "longi": "88.38818277999999"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.38818278198889,
+                        22.621206111935845
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "67",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "100",
+                    "Unique_ID": "FP068",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Rainbow Residency 22A kedar nath das lane",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "2",
+                    "DMA": "11",
+                    "lati": "22.62299334",
+                    "longi": "88.38957023"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.38956640532803,
+                        22.622970981472378
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "68",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "225",
+                    "Unique_ID": "FP069",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "122B dilip Kumar chatterjee South Sinthee road",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "2",
+                    "DMA": "11",
+                    "lati": "22.62359689",
+                    "longi": "88.3897971"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.38979709711836,
+                        22.623596888699954
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "69",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "100",
+                    "Unique_ID": "FP070",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Opp.15/2A B K Roy K C sett lane",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "2",
+                    "DMA": "11",
+                    "lati": "22.62327752",
+                    "longi": "88.39216494999999"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.39216495303077,
+                        22.62327752462682
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "70",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "150",
+                    "Unique_ID": "FP071",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Opp.15/2A B K Roy K C sett lane",
+                    "PBK_AS_15_": null,
+                    "Ward_No": "2",
+                    "DMA": "11",
+                    "lati": "22.62326836",
+                    "longi": "88.39217719"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.39217718937459,
+                        22.62326836115703
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "71",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "400",
+                    "Unique_ID": "FP072",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Vasant/Ramakunj",
+                    "Date_2": "2017/03/29",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Opp to 56/1A Tara Maa hotel and restaurant B T Road",
+                    "PBK_AS_15_": "FP072",
+                    "Ward_No": "2",
+                    "DMA": "12",
+                    "lati": "22.62579974",
+                    "longi": "88.37891006"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.37891436352739,
+                        22.62581112158711
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "72",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "0",
+                    "Unique_ID": "FP074",
+                    "Updated_BY": "Vasant",
+                    "Date_1": "2017/03/09",
+                    "Updated__1": "Rama",
+                    "Date_2": "2017/03/30",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": "Junction of Dumdum road & B T road",
+                    "PBK_AS_15_": "FP074",
+                    "Ward_No": "4",
+                    "DMA": "7",
+                    "lati": "22.61869799",
+                    "longi": "88.37932968"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.3793296787569,
+                        22.618697991184284
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "73",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "0",
+                    "Unique_ID": "FP005",
+                    "Updated_BY": "Jawed",
+                    "Date_1": "2017/03/01",
+                    "Updated__1": "Rama",
+                    "Date_2": "2017/03/30",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": null,
+                    "PBK_AS_15_": null,
+                    "Ward_No": "5",
+                    "DMA": "1",
+                    "lati": "22.60557237",
+                    "longi": "88.37452207"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.37452206799654,
+                        22.605572372121962
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "OBJECTID": "74",
+                    "Bore_Statu": null,
+                    "Bore_Size": null,
+                    "Gate_valve": null,
+                    "Type_of_Me": null,
+                    "Measuremen": null,
+                    "Pipe_Dia": "0",
+                    "Unique_ID": "FP006",
+                    "Updated_BY": "Jawed",
+                    "Date_1": "2017/03/01",
+                    "Updated__1": "Rama",
+                    "Date_2": "2017/03/30",
+                    "Updated__2": null,
+                    "Remark": null,
+                    "Location1": null,
+                    "Location_i": null,
+                    "PBK_AS_15_": null,
+                    "Ward_No": "5",
+                    "DMA": "1",
+                    "lati": "22.60516427",
+                    "longi": "88.37713916"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        88.37715002634542,
+                        22.60516006379013
+                    ]
+                }
+            }
+        ]
+    }
+}
