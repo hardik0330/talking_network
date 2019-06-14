@@ -76,6 +76,9 @@
     ).addTo(mymap);
 
 
+
+    //layer pipes selection features colour change, popup etc
+
     // function geoJSON_onEachFeature(feature, layer) {
     //     layer.setStyle({
     //         color: 'blue',
@@ -115,42 +118,29 @@
     //     console.log(data1);
     // });
 
-    // var wmsLayer = L.tileLayer.wms(
-    //     'http://localhost:8080/geoserver/web/wicket/bookmarkable/org.geoserver.web.data.resource.ResourceConfigurationPage?name=AsBuiltPipes&wsName=webmapData', {
-    //         layers: 'AsBuiltPipes'
-    //     }
-    // ).addTo(mymap)
+
+    //defining layers using WMS
+    var dma_boundary = new L.TileLayer.WMS("http://localhost:8080/geoserver/webmapData/wms", {
+        layers: 'shapefiles:DmaBoundary',
+        format: 'image/png',
+        transparent: true
+    });
+
+    var asbuilt = new L.TileLayer.WMS("http://localhost:8080/geoserver/webmapData/wms", {
+        layers: 'shapefiles:AsBuiltPipes',
+        format: 'image/png',
+        transparent: true
+    });
+
+    var boundary_valve = new L.TileLayer.WMS("http://localhost:8080/geoserver/webmapData/wms", {
+        layers: 'shapefiles:Boundary_Valve',
+        format: 'image/png',
+        transparent: true
+    });
 
 
-    // var dma_boundary = new L.TileLayer.WMS("http://localhost:8080/geoserver/webmapData/wms", {
-    //     layers: 'shapefiles:DmaBoundary',
-    //     format: 'image/png',
-    //     transparent: true
-    // });
 
-    // var asbuilt = new L.TileLayer.WMS("http://localhost:8080/geoserver/webmapData/wms", {
-    //     layers: 'shapefiles:AsBuiltPipes',
-    //     format: 'image/png',
-    //     transparent: true
-    // });
-
-    // var boundary_valve = new L.TileLayer.WMS("http://localhost:8080/geoserver/webmapData/wms", {
-    //     layers: 'shapefiles:Boundary_Valve',
-    //     format: 'image/png',
-    //     transparent: true
-    // });
-
-    // var asbuilt = new L.TileLayer.WMS("http://localhost:8080/geoserver/webmapData/wms", {
-    //     layers: 'shapefiles:AsBuiltPipes',
-    //     format: 'image/png',
-    //     transparent: true
-    // }).addTo(mymap);
-
-    // var overlay = L.WMS.TileLayer("http://localhost:8080/geoserver/webmapData/wms", {
-    //     'layers': 'dma_boundary,asbuilt',
-    //     'transparent': true
-    // });
-    // overlay.addTo(mymap);
+    //leaflet.wms.js implementation github leaflet plugin
 
     // var options = {
     //     'transparent': true
@@ -164,13 +154,18 @@
     // })
     // control.addTo(mymap);
 
-    // var baseMaps = {}
-    // var overlayMaps = {
-    //     "AsBuiltPipes": asbuilt,
-    //     "Boundary Valve": boundary_valve,
-    //     "DMA Boundary": dma_boundary
-    // }
-    // L.control.layers(baseMaps, overlayMaps).addTo(mymap);
+
+
+    //generating checklist for viewing layers
+    var baseMaps = {}
+    var overlayMaps = {
+        "AsBuiltPipes": asbuilt,
+        "Boundary Valve": boundary_valve,
+        "DMA Boundary": dma_boundary
+    }
+    L.control.layers(baseMaps, overlayMaps).addTo(mymap);
+
+
 
     // jQuery.getJSON(asbuilt,
     //     function (data2) {
@@ -185,6 +180,10 @@
     // var layersss = L.layerGroup([x.x1, y.y1]);
     // L.control    .layers(my_title_layer, layersss).addTo(mymap);
 
+
+
+
+    //implementing ajax call for WFS
     // var rootUrl = 'http://localhost:8080/geoserver/webmapData/ows';
 
     // var defaultParameters = {
@@ -202,22 +201,22 @@
 
     // console.log(rootUrl + L.Util.getParamString(parameters))
 
-    var x = $.ajax({
-        url: "http://localhost:8080/geoserver/webmapData/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=webmapData%3AAsBuiltPipes&maxFeatures=10000&outputFormat=application%2Fjson",
-        dataType: 'json',
-        jsonpCallback: 'getJson',
-        success: handleJson
-    });
+    // var x = $.ajax({
+    //     url: "http://localhost:8080/geoserver/webmapData/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=webmapData%3AAsBuiltPipes&maxFeatures=10000&outputFormat=application%2Fjson",
+    //     dataType: 'json',
+    //     jsonpCallback: 'getJson',
+    //     success: handleJson
+    // });
 
 
-    function handleJson(data) {
-        L.geoJson(data, {
-            onEachFeature: onEachFeature,
-            pointToLayer: function (feature, latlng) {
-                return L.circleMarker(latlng, geojsonMarkerOptions);
-                //return L.marker(latlng);
-            }
-        }).addTo(mymap);
-    }
-    console.log(x)
+    // function handleJson(data) {
+    //     L.geoJson(data, {
+    //         onEachFeature: onEachFeature,
+    //         pointToLayer: function (feature, latlng) {
+    //             return L.circleMarker(latlng, geojsonMarkerOptions);
+    //             //return L.marker(latlng);
+    //         }
+    //     }).addTo(mymap);
+    // }
+    // console.log(x)
 </script>
