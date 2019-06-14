@@ -1,0 +1,226 @@
+<!-- This file consists code for single layer projection but popup is working -->
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>SUEZ</title>
+    </script>
+    <script>
+        L_NO_TOUCH = false;
+        L_DISABLE_3D = false;
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js">
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css" />
+    <link rel="stylesheet"
+        href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css" />
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>
+        #mymap {
+            position: relative;
+            width: 100.0%;
+            height: 100.0%;
+            left: 0.0%;
+            top: 0.0%;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="folium-map" id="mymap"></div>
+
+</body>
+<script>
+    var mymap = L.map(
+        "mymap", {
+            center: [22.618804308709468, 88.38054656982422],
+            crs: L.CRS.EPSG3857,
+            zoom: 14,
+            preferCanvas: false,
+            zoomControl: true,
+        }
+    );
+    var my_title_layer = L.tileLayer(
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            "attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.",
+            "detectRetina": false,
+            "maxNativeZoom": 18,
+            "maxZoom": 21,
+            "minZoom": 10,
+            "noWrap": false,
+            "opacity": 1,
+            "subdomains": "abc",
+            "tms": false
+        }
+    ).addTo(mymap);
+
+    function geoJSON_onEachFeature(feature, layer) {
+        layer.setStyle({
+            color: 'blue',
+            opacity: 1,
+            weight: 5
+        })
+        layer.on('mouseover', function (event) {
+            layer.setStyle({
+                color: 'red',
+                opacity: 1
+            })
+        });
+        layer.on('mouseover', function (event) {
+            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties.OBJECTID +
+                "<br>Diameter_m:" + feature.properties
+                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" + feature
+                .properties
+                .Pipe_Mater + "<br>Type:" + feature.properties.Type_);
+        });
+        layer.on('mouseout', function (event) {
+            layer.setStyle({
+                color: 'blue',
+                opacity: 1
+            })
+        });
+        layer.on('mouseout', function (event) {
+            layer.closePopup()
+        });
+    };
+    // json-server --watch /path/to/data/to/be/hosted
+    var x = jQuery.getJSON("http://localhost:3000/data", function (data1) {
+        var layer1 = L.geoJson(data1, {
+            onEachFeature: geoJSON_onEachFeature,
+        }).addTo(mymap);
+        console.log(data1);
+    });
+    // var y = jQuery.getJSON("http://localhost:4000/data", function (data2) {
+    //     var layer2 = L.geoJson(data2, {
+    //         onEachFeature: geoJSON_onEachFeature,
+    //     }).addTo(mymap);
+    //     //return layer2;
+    // });
+
+    //console.log();
+    // var layersss = L.layerGroup([x.x1, y.y1]);
+    // L.control.layers(my_title_layer, layersss).addTo(mymap);
+</script>
+
+//defining layers using WMS
+// var dma_boundary = new L.TileLayer.WMS("http://localhost:8080/geoserver/webmapData/wms", {
+// layers: 'shapefiles:DmaBoundary',
+// format: 'image/png',
+// transparent: true
+// });
+
+// var asbuilt = new L.TileLayer.WMS("http://localhost:8080/geoserver/webmapData/wms", {
+// layers: 'shapefiles:AsBuiltPipes',
+// format: 'image/png',
+// transparent: true
+// });
+
+// var boundary_valve = new L.TileLayer.WMS("http://localhost:8080/geoserver/webmapData/wms", {
+// layers: 'shapefiles:Boundary_Valve',
+// format: 'image/png',
+// transparent: true
+// });
+
+
+
+//leaflet.wms.js implementation github leaflet plugin
+
+// var options = {
+// 'transparent': true
+// };
+// var source = L.WMS.source("http://localhost:8080/geoserver/webmapData/wms", options);
+// var layer1 = source.getLayer('shapefiles:Boundary_Valve');
+// var layer2 = source.getLayer('shapefiles:AsBuiltPipes');
+// var control = L.control.layers({}, {
+// 'Boundary_Valve': layer1,
+// 'AsBuiltPipes': layer2
+// })
+// control.addTo(mymap);
+
+
+
+//generating checklist for viewing layers
+// var baseMaps = {}
+// var overlayMaps = {
+// "AsBuiltPipes": asbuilt,
+// "Boundary Valve": boundary_valve,
+// "DMA Boundary": dma_boundary
+// }
+// L.control.layers(baseMaps, overlayMaps).addTo(mymap);
+
+
+
+// jQuery.getJSON(asbuilt,
+// function (data2) {
+// var layer2 = L.geoJson(data2, {
+// onEachFeature: geoJSON_onEachFeature,
+// }).addTo(mymap);
+// });
+
+// console.log(x.XMLHTTPRequest.responseJSON);
+// console.log();
+
+// var layersss = L.layerGroup([x.x1, y.y1]);
+// L.control .layers(my_title_layer, layersss).addTo(mymap);
+
+
+
+
+//implementing ajax call for WFS
+// var rootUrl = 'http://localhost:8080/geoserver/webmapData/ows';
+
+// var defaultParameters = {
+// service: 'WFS',
+// version: '1.0.0',
+// request: 'GetFeature',
+// typeName: 'shapefiles:AsBuiltPipes',
+// maxFeatures: 200,
+// outputFormat: 'json',
+// format_options: 'callback: getJson'
+
+// };
+
+// var parameters = L.Util.extend(defaultParameters);
+
+// console.log(rootUrl + L.Util.getParamString(parameters))
+
+// var x = $.ajax({
+// url:
+"http://localhost:8080/geoserver/webmapData/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=webmapData%3AAsBuiltPipes&maxFeatures=10000&outputFormat=application%2Fjson",
+// dataType: 'json',
+// jsonpCallback: 'getJson',
+// success: handleJson
+// });
+
+
+// function handleJson(data) {
+// L.geoJson(data, {
+// onEachFeature: onEachFeature,
+// pointToLayer: function (feature, latlng) {
+// return L.circleMarker(latlng, geojsonMarkerOptions);
+// //return L.marker(latlng);
+// }
+// }).addTo(mymap);
+// }
+// console.log(x)
+</script>
