@@ -158,15 +158,6 @@
 
 
 
-    //generating checklist for viewing layers
-    // var baseMaps = {}
-    // var overlayMaps = {
-    //     "AsBuiltPipes": asbuilt,
-    //     "Boundary Valve": boundary_valve,
-    //     "DMA Boundary": dma_boundary
-    // }
-    // L.control.layers(baseMaps, overlayMaps).addTo(mymap);
-
 
 
     // jQuery.getJSON(asbuilt,
@@ -223,6 +214,36 @@
     // console.log(x)
 
 
+    function geoJSON_onEachFeature(feature, layer) {
+        layer.setStyle({
+            color: 'blue',
+            opacity: 1,
+            weight: 5
+        })
+        layer.on('mouseover', function (event) {
+            layer.setStyle({
+                color: 'red',
+                opacity: 1
+            })
+        });
+        layer.on('mouseover', function (event) {
+            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties.OBJECTID +
+                "<br>Diameter_m:" + feature.properties
+                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" + feature
+                .properties
+                .Pipe_Mater + "<br>Type:" + feature.properties.Type_);
+        });
+        layer.on('mouseout', function (event) {
+            layer.setStyle({
+                color: 'blue',
+                opacity: 1
+            })
+        });
+        layer.on('mouseout', function (event) {
+            layer.closePopup()
+        });
+    };
+
     //implementing wfs service
     var owsrootUrl = 'http://localhost:8080/geoserver/wfs';
 
@@ -236,35 +257,61 @@
         SrsName: 'EPSG:4326'
     };
 
+
+
     var parameters = L.Util.extend(defaultParameters);
     var URL = owsrootUrl + L.Util.getParamString(parameters);
 
-    console.log(URL)
-
-    var WFSLayer = null;
+    // console.log(URL)
+    var data1;
     var ajax = $.ajax({
         url: URL,
         dataType: 'jsonp',
         jsonpCallback: 'getJson',
-        success: function (response) {
-            WFSLayer = L.geoJson(response, {
-                style: function (feature) {
-                    return {
-                        stroke: false,
-                        fillColor: 'FFFFFF',
-                        fillOpacity: 0
-                    };
-                },
-                onEachFeature: function (feature, layer) {
-                    popupOptions = {
-                        maxWidth: 200
-                    };
-                    layer.bindPopup(
-                        "Popup text, access attributes with feature.properties.ATTRIBUTE_NAME",
-                        popupOptions);
-                }
+        success: function (data1) {
+            var layer1 = L.geoJson(data1, {
+                onEachFeature: geoJSON_onEachFeature,
             }).addTo(mymap);
-            console.log(WFSLayer)
         }
+
     });
+
+    var defaultParameters1 = {
+        service: 'WFS',
+        version: '2.0',
+        request: 'GetFeature',
+        typeName: 'webmapData:DmaBoundary',
+        outputFormat: 'text/javascript',
+        format_options: 'callback:getJson',
+        SrsName: 'EPSG:4326'
+    };
+
+
+
+    var parameters1 = L.Util.extend(defaultParameters1);
+    var URL1 = owsrootUrl + L.Util.getParamString(parameters1);
+
+    // console.log(URL)
+    var data2;
+    var ajax = $.ajax({
+        url: URL1,
+        dataType: 'jsonp',
+        jsonpCallback: 'getJson',
+        success: function (data2) {
+            var layer2 = L.geoJson(data2, {
+                onEachFeature: geoJSON_onEachFeature,
+            }).addTo(mymap);
+        }
+
+    });
+
+
+    //generating checklist for viewing layers
+    var baseMaps = {}
+    var overlayMaps = {
+        "AsBuiltPipes": layer1,
+        // "Boundary Valve": boundary_valve,
+        "DMA Boundary": layer2
+    }
+    L.control.layers(baseMaps, overlayMaps).addTo(mymap);
 </script>
