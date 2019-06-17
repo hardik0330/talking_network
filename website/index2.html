@@ -276,11 +276,11 @@
             var layer1 = L.geoJson(data1, {
                 onEachFeature: geoJSON_onEachFeature,
             }).addTo(mymap);
-            L.control.layers(baseMaps, {layer1}).addTo(mymap);
+            L.control.layers(baseMaps, {layer1});
         }
 
     });
-
+    L.control.layers().addTo(mymap);
     var defaultParameters1 = {
         service: 'WFS',
         version: '2.0',
