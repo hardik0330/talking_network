@@ -212,9 +212,6 @@
     // }
     // console.log(x)
     // var x;
-    var overlayMaps = new L.LayerGroup();
-    var overlayMaps1 = new L.LayerGroup();
-    var baseMaps = {}
     function geoJSON_onEachFeature(feature, layer) {
         layer.setStyle({
             color: 'blue',
@@ -245,42 +242,13 @@
         });
     };
 
-    //implementing wfs service
+    var DmaBoundary= new L.LayerGroup();
+    var AsBuiltPipes = new L.LayerGroup();
+    var baseMaps = {}
+
     var owsrootUrl = 'http://localhost:8080/geoserver/wfs';
 
-    var defaultParameters = {
-        service: 'WFS',
-        version: '2.0',
-        request: 'GetFeature',
-        typeName: 'talking_network:AsBuiltPipes',
-        outputFormat: 'text/javascript',
-        format_options: 'callback:getJson',
-        SrsName: 'EPSG:4326'
-    };
-
-
-
-    var parameters = L.Util.extend(defaultParameters);
-    var URL = owsrootUrl + L.Util.getParamString(parameters);
-
-    // console.log(URL)
-    var Dma_Boundary;
-    var ajax = $.ajax({
-        url: URL,
-        dataType: 'jsonp',
-        jsonpCallback: 'getJson',
-        success: function (Dma_Boundary) {
-            var DmaBoundary = L.geoJson(Dma_Boundary, {
-                onEachFeature: geoJSON_onEachFeature,
-            }).addTo(overlayMaps);
-            // overlayMaps.push(
-                
-            // )
-            //L.control.layers(baseMaps, {DmaBoundary}).addTo(mymap);
-        }
-    });
-    //L.control.layers().addTo(mymap);
-    var defaultParameters1 = {
+    var defaultParameters_dmaboundary = {
         service: 'WFS',
         version: '2.0',
         request: 'GetFeature',
@@ -289,28 +257,18 @@
         format_options: 'callback:getJson',
         SrsName: 'EPSG:4326'
     };
-
-
-
-    var parameters1 = L.Util.extend(defaultParameters1);
-    var URL1 = owsrootUrl + L.Util.getParamString(parameters1);
-
-    // console.log(URL)
-    var As_Built_Pipes;
+    var Dma_Boundary_data;
+    var parameters_dmaboundary = L.Util.extend(defaultParameters_dmaboundary);
+    var URL = owsrootUrl + L.Util.getParamString(parameters_dmaboundary);
     var ajax = $.ajax({
-        url: URL1,
+        url: URL,
         dataType: 'jsonp',
         jsonpCallback: 'getJson',
-        success: function (As_Built_Pipes) {
-            var AsBuiltPipes = L.geoJson(As_Built_Pipes, {
+        success: function (Dma_Boundary_data) {
+            L.geoJson(Dma_Boundary_data, {
                 onEachFeature: geoJSON_onEachFeature,
-            }).addTo(overlayMaps1);
-            //L.control.layers(baseMaps, {AsBuiltPipes}).addTo(mymap);
+            }).addTo(DmaBoundary);
         }
     });
-
-    //generating checklist for viewing layers
-   
-    // console.log(overlayMaps.AsBuiltPipes);
-    L.control.layers(baseMaps, {overlayMaps,overlayMaps1}).addTo(mymap);
+    L.control.layers(baseMaps,{DmaBoundary}).addTo(mymap);
 </script>
