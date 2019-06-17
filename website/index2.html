@@ -15,7 +15,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js">
     </script>
-    <script src="/home/vinayakk/suez_internship/leaflet.wms/src/leaflet.wms.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
@@ -212,8 +211,13 @@
     //     }).addTo(mymap);
     // }
     // console.log(x)
-
-
+    // var x;
+    // var overlayMaps = {
+    //     "AsBuiltPipes": x,
+    //     // "Boundary Valve": boundary_valve,
+    //     "DMA Boundary": 2
+    // }
+    var baseMaps = {}
     function geoJSON_onEachFeature(feature, layer) {
         layer.setStyle({
             color: 'blue',
@@ -251,7 +255,7 @@
         service: 'WFS',
         version: '2.0',
         request: 'GetFeature',
-        typeName: 'webmapData:AsBuiltPipes',
+        typeName: 'talking_network:AsBuiltPipes',
         outputFormat: 'text/javascript',
         format_options: 'callback:getJson',
         SrsName: 'EPSG:4326'
@@ -272,6 +276,7 @@
             var layer1 = L.geoJson(data1, {
                 onEachFeature: geoJSON_onEachFeature,
             }).addTo(mymap);
+            L.control.layers(baseMaps, {layer1}).addTo(mymap);
         }
 
     });
@@ -280,7 +285,7 @@
         service: 'WFS',
         version: '2.0',
         request: 'GetFeature',
-        typeName: 'webmapData:DmaBoundary',
+        typeName: 'talking_network:DmaBoundary',
         outputFormat: 'text/javascript',
         format_options: 'callback:getJson',
         SrsName: 'EPSG:4326'
@@ -301,17 +306,12 @@
             var layer2 = L.geoJson(data2, {
                 onEachFeature: geoJSON_onEachFeature,
             }).addTo(mymap);
+            L.control.layers(baseMaps, {layer2}).addTo(mymap);
         }
-
     });
 
-
     //generating checklist for viewing layers
-    var baseMaps = {}
-    var overlayMaps = {
-        "AsBuiltPipes": layer1,
-        // "Boundary Valve": boundary_valve,
-        "DMA Boundary": layer2
-    }
-    L.control.layers(baseMaps, overlayMaps).addTo(mymap);
+   
+    // console.log(overlayMaps.AsBuiltPipes);
+    // L.control.layers(baseMaps, overlayMaps).addTo(mymap);
 </script>
