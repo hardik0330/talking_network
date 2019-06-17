@@ -4,7 +4,7 @@
 
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <title>SUEZ</title>
+    <title>SUEZ multilayer</title>
     </script>
     <script>
         L_NO_TOUCH = false;
@@ -122,23 +122,23 @@
 
 
     //defining layers using WMS
-    var dma_boundary = new L.TileLayer.WMS("http://localhost:8080/geoserver/webmapData/wms", {
-        layers: 'shapefiles:DmaBoundary',
-        format: 'image/png',
-        transparent: true
-    });
+    // var dma_boundary = new L.TileLayer.WMS("http://localhost:8080/geoserver/webmapData/wms", {
+    //     layers: 'shapefiles:DmaBoundary',
+    //     format: 'image/png',
+    //     transparent: true
+    // });
 
-    var asbuilt = new L.TileLayer.WMS("http://localhost:8080/geoserver/webmapData/wms", {
-        layers: 'shapefiles:AsBuiltPipes',
-        format: 'image/png',
-        transparent: true
-    });
+    // var asbuilt = new L.TileLayer.WMS("http://localhost:8080/geoserver/webmapData/wms", {
+    //     layers: 'shapefiles:AsBuiltPipes',
+    //     format: 'image/png',
+    //     transparent: true
+    // });
 
-    var boundary_valve = new L.TileLayer.WMS("http://localhost:8080/geoserver/webmapData/wms", {
-        layers: 'shapefiles:Boundary_Valve',
-        format: 'image/png',
-        transparent: true
-    });
+    // var boundary_valve = new L.TileLayer.WMS("http://localhost:8080/geoserver/webmapData/wms", {
+    //     layers: 'shapefiles:Boundary_Valve',
+    //     format: 'image/png',
+    //     transparent: true
+    // });
 
 
 
@@ -159,13 +159,13 @@
 
 
     //generating checklist for viewing layers
-    var baseMaps = {}
-    var overlayMaps = {
-        "AsBuiltPipes": asbuilt,
-        "Boundary Valve": boundary_valve,
-        "DMA Boundary": dma_boundary
-    }
-    L.control.layers(baseMaps, overlayMaps).addTo(mymap);
+    // var baseMaps = {}
+    // var overlayMaps = {
+    //     "AsBuiltPipes": asbuilt,
+    //     "Boundary Valve": boundary_valve,
+    //     "DMA Boundary": dma_boundary
+    // }
+    // L.control.layers(baseMaps, overlayMaps).addTo(mymap);
 
 
 
@@ -221,4 +221,50 @@
     //     }).addTo(mymap);
     // }
     // console.log(x)
+
+
+    //implementing wfs service
+    var owsrootUrl = 'http://localhost:8080/geoserver/wfs';
+
+    var defaultParameters = {
+        service: 'WFS',
+        version: '2.0',
+        request: 'GetFeature',
+        typeName: 'webmapData:AsBuiltPipes',
+        outputFormat: 'text/javascript',
+        format_options: 'callback:getJson',
+        SrsName: 'EPSG:4326'
+    };
+
+    var parameters = L.Util.extend(defaultParameters);
+    var URL = owsrootUrl + L.Util.getParamString(parameters);
+
+    console.log(URL)
+
+    var WFSLayer = null;
+    var ajax = $.ajax({
+        url: URL,
+        dataType: 'jsonp',
+        jsonpCallback: 'getJson',
+        success: function (response) {
+            WFSLayer = L.geoJson(response, {
+                style: function (feature) {
+                    return {
+                        stroke: false,
+                        fillColor: 'FFFFFF',
+                        fillOpacity: 0
+                    };
+                },
+                onEachFeature: function (feature, layer) {
+                    popupOptions = {
+                        maxWidth: 200
+                    };
+                    layer.bindPopup(
+                        "Popup text, access attributes with feature.properties.ATTRIBUTE_NAME",
+                        popupOptions);
+                }
+            }).addTo(mymap);
+            console.log(WFSLayer)
+        }
+    });
 </script>
