@@ -212,11 +212,8 @@
     // }
     // console.log(x)
     // var x;
-    // var overlayMaps = {
-    //     "AsBuiltPipes": x,
-    //     // "Boundary Valve": boundary_valve,
-    //     "DMA Boundary": 2
-    // }
+    var overlayMaps = new L.LayerGroup();
+    var overlayMaps1 = new L.LayerGroup();
     var baseMaps = {}
     function geoJSON_onEachFeature(feature, layer) {
         layer.setStyle({
@@ -267,20 +264,22 @@
     var URL = owsrootUrl + L.Util.getParamString(parameters);
 
     // console.log(URL)
-    var data1;
+    var Dma_Boundary;
     var ajax = $.ajax({
         url: URL,
         dataType: 'jsonp',
         jsonpCallback: 'getJson',
-        success: function (data1) {
-            var layer1 = L.geoJson(data1, {
+        success: function (Dma_Boundary) {
+            var DmaBoundary = L.geoJson(Dma_Boundary, {
                 onEachFeature: geoJSON_onEachFeature,
-            }).addTo(mymap);
-            L.control.layers(baseMaps, {layer1});
+            }).addTo(overlayMaps);
+            // overlayMaps.push(
+                
+            // )
+            //L.control.layers(baseMaps, {DmaBoundary}).addTo(mymap);
         }
-
     });
-    L.control.layers().addTo(mymap);
+    //L.control.layers().addTo(mymap);
     var defaultParameters1 = {
         service: 'WFS',
         version: '2.0',
@@ -297,21 +296,21 @@
     var URL1 = owsrootUrl + L.Util.getParamString(parameters1);
 
     // console.log(URL)
-    var data2;
+    var As_Built_Pipes;
     var ajax = $.ajax({
         url: URL1,
         dataType: 'jsonp',
         jsonpCallback: 'getJson',
-        success: function (data2) {
-            var layer2 = L.geoJson(data2, {
+        success: function (As_Built_Pipes) {
+            var AsBuiltPipes = L.geoJson(As_Built_Pipes, {
                 onEachFeature: geoJSON_onEachFeature,
-            }).addTo(mymap);
-            L.control.layers(baseMaps, {layer2}).addTo(mymap);
+            }).addTo(overlayMaps1);
+            //L.control.layers(baseMaps, {AsBuiltPipes}).addTo(mymap);
         }
     });
 
     //generating checklist for viewing layers
    
     // console.log(overlayMaps.AsBuiltPipes);
-    // L.control.layers(baseMaps, overlayMaps).addTo(mymap);
+    L.control.layers(baseMaps, {overlayMaps,overlayMaps1}).addTo(mymap);
 </script>
