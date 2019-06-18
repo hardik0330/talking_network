@@ -242,7 +242,7 @@
         });
     };
 
-    var DmaBoundary= new L.LayerGroup();
+    var DmaBoundary = new L.LayerGroup();
     var AsBuiltPipes = new L.LayerGroup();
     var baseMaps = {}
 
@@ -270,5 +270,31 @@
             }).addTo(DmaBoundary);
         }
     });
-    L.control.layers(baseMaps,{DmaBoundary}).addTo(mymap);
+
+    var defaultParameters = {
+        service: 'WFS',
+        version: '2.0',
+        request: 'GetFeature',
+        typeName: 'talking_network:AsBuiltPipes',
+        outputFormat: 'text/javascript',
+        format_options: 'callback:getJson',
+        SrsName: 'EPSG:4326'
+    };
+    var AsBuiltPipes_data;
+    var parameters_asbuiltpipes = L.Util.extend(defaultParameters);
+    var URL2 = owsrootUrl + L.Util.getParamString(parameters_asbuiltpipes);
+    var ajax = $.ajax({
+        url: URL2,
+        dataType: 'jsonp',
+        jsonpCallback: 'getJson',
+        success: function (AsBuiltPipes_data) {
+            L.geoJson(AsBuiltPipes_data, {
+                onEachFeature: geoJSON_onEachFeature,
+            }).addTo(AsBuiltPipes);
+        }
+    });
+    L.control.layers(baseMaps, {
+        AsBuiltPipes,
+        DmaBoundary
+    }).addTo(mymap);
 </script>
