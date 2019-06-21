@@ -80,39 +80,10 @@
 
     //layer pipes selection features colour change, popup etc
 
-    // function geoJSON_onEachFeature(feature, layer) {
-    //     layer.setStyle({
-    //         color: 'blue',
-    //         opacity: 1,
-    //         weight: 5
-    //     })
-    //     layer.on('mouseover', function (event) {
-    //         layer.setStyle({
-    //             color: 'red',
-    //             opacity: 1
-    //         })
-    //     });
-    //     layer.on('mouseover', function (event) {
-    //         layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties.OBJECTID +
-    //             "<br>Diameter_m:" + feature.properties
-    //             .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" + feature
-    //             .properties
-    //             .Pipe_Mater + "<br>Type:" + feature.properties.Type_);
-    //     });
-    //     layer.on('mouseout', function (event) {
-    //         layer.setStyle({
-    //             color: 'blue',
-    //             opacity: 1
-    //         })
-    //     });
-    //     layer.on('mouseout', function (event) {
-    //         layer.closePopup()
-    //     });
-    // };
 
     // json-server --watch /path/to/data/to/be/hosted
     // var data1;
-    // jQuery.getJSON("http://localhost:3000/data", data1, function (data) {
+    // jQuery.getJSON("http://gisropes.com/Kolkata_json_files/AsBuiltPipes.json", data1, function (data) {
     //     var layer1 = L.geoJson(data1, {
     //         onEachFeature: geoJSON_onEachFeature,
     //     }).addTo(mymap);
@@ -212,12 +183,13 @@
     // }
     // console.log(x)
     // var x;
+
     function geoJSON_onEachFeature(feature, layer) {
-        layer.setStyle({
-            color: 'blue',
-            opacity: 1,
-            weight: 5
-        })
+        // layer.setStyle({
+        //     color: 'blue',
+        //     opacity: 1,
+        //     weight: 5
+        // })
         layer.on('mouseover', function (event) {
             layer.setStyle({
                 color: 'red',
@@ -244,17 +216,24 @@
 
     var DmaBoundary = new L.LayerGroup();
     var AsBuiltPipes = new L.LayerGroup();
+    var Boundary_Valve = new L.LayerGroup();
+    var EMF = new L.LayerGroup();
+    var Existing_Pipe = new L.LayerGroup();
+    var Ferrule = new L.LayerGroup();
+    var FlowDirection = new L.LayerGroup();
+
     var baseMaps = {}
 
     var owsrootUrl = 'http://localhost:8080/geoserver/wfs';
 
+    //DMA Boundary
     var defaultParameters_dmaboundary = {
         service: 'WFS',
         version: '2.0',
         request: 'GetFeature',
         typeName: 'talking_network:DmaBoundary',
         outputFormat: 'text/javascript',
-        format_options: 'callback:getJson',
+        format_options: 'callback:getJson1',
         SrsName: 'EPSG:4326'
     };
     var Dma_Boundary_data;
@@ -263,7 +242,7 @@
     var ajax = $.ajax({
         url: URL,
         dataType: 'jsonp',
-        jsonpCallback: 'getJson',
+        jsonpCallback: 'getJson1',
         success: function (Dma_Boundary_data) {
             L.geoJson(Dma_Boundary_data, {
                 onEachFeature: geoJSON_onEachFeature,
@@ -271,13 +250,14 @@
         }
     });
 
+    //As Built Pipes
     var defaultParameters = {
         service: 'WFS',
         version: '2.0',
         request: 'GetFeature',
         typeName: 'talking_network:AsBuiltPipes',
         outputFormat: 'text/javascript',
-        format_options: 'callback:getJson',
+        format_options: 'callback:getJson2',
         SrsName: 'EPSG:4326'
     };
     var AsBuiltPipes_data;
@@ -286,15 +266,142 @@
     var ajax = $.ajax({
         url: URL2,
         dataType: 'jsonp',
-        jsonpCallback: 'getJson',
+        jsonpCallback: 'getJson2',
         success: function (AsBuiltPipes_data) {
             L.geoJson(AsBuiltPipes_data, {
                 onEachFeature: geoJSON_onEachFeature,
             }).addTo(AsBuiltPipes);
         }
     });
+
+
+    //Boundary Valves
+    var defaultParameters_boundaryValve = {
+        service: 'WFS',
+        version: '2.0',
+        request: 'GetFeature',
+        typeName: 'talking_network:Boundary_Valve',
+        outputFormat: 'text/javascript',
+        format_options: 'callback:getJson3',
+        SrsName: 'EPSG:4326'
+    };
+    var Boundary_Valve_data;
+    var parameters_boundary_valve = L.Util.extend(defaultParameters_boundaryValve);
+    var URL3 = owsrootUrl + L.Util.getParamString(parameters_boundary_valve);
+    var ajax = $.ajax({
+        url: URL3,
+        dataType: 'jsonp',
+        jsonpCallback: 'getJson3',
+        success: function (Boundary_Valve_data) {
+            L.geoJson(Boundary_Valve_data, {
+                onEachFeature: geoJSON_onEachFeature,
+            }).addTo(Boundary_Valve);
+        }
+    });
+
+    //EMF
+    var defaultParameters_EMF = {
+        service: 'WFS',
+        version: '2.0',
+        request: 'GetFeature',
+        typeName: 'talking_network:EMF',
+        outputFormat: 'text/javascript',
+        format_options: 'callback:getJson4',
+        SrsName: 'EPSG:4326'
+    };
+    var Boundary_Valve_data;
+    var parameters_EMF = L.Util.extend(defaultParameters_EMF);
+    var URL4 = owsrootUrl + L.Util.getParamString(parameters_EMF);
+    var ajax = $.ajax({
+        url: URL4,
+        dataType: 'jsonp',
+        jsonpCallback: 'getJson4',
+        success: function (EMF_data) {
+            L.geoJson(EMF_data, {
+                onEachFeature: geoJSON_onEachFeature,
+            }).addTo(EMF);
+        }
+    });
+
+    //Existing_Pipe
+    var defaultParameters_Existing_Pipe = {
+        service: 'WFS',
+        version: '2.0',
+        request: 'GetFeature',
+        typeName: 'talking_network:Existing_pipe',
+        outputFormat: 'text/javascript',
+        format_options: 'callback:getJson5',
+        SrsName: 'EPSG:4326'
+    };
+    var Existing_Pipe_data;
+    var parameters_Existing_Pipe = L.Util.extend(defaultParameters_Existing_Pipe);
+    var URL5 = owsrootUrl + L.Util.getParamString(parameters_Existing_Pipe);
+    var ajax = $.ajax({
+        url: URL5,
+        dataType: 'jsonp',
+        jsonpCallback: 'getJson5',
+        success: function (Existing_Pipe_data) {
+            L.geoJson(Existing_Pipe_data, {
+                onEachFeature: geoJSON_onEachFeature,
+            }).addTo(Existing_Pipe);
+        }
+    });
+
+    //Ferrule
+    var defaultParameters_Ferrule = {
+        service: 'WFS',
+        version: '2.0',
+        request: 'GetFeature',
+        typeName: 'talking_network:Ferrule',
+        outputFormat: 'text/javascript',
+        format_options: 'callback:getJson6',
+        SrsName: 'EPSG:4326'
+    };
+    var Ferrule_data;
+    var parameters_Ferrule = L.Util.extend(defaultParameters_Ferrule);
+    var URL6 = owsrootUrl + L.Util.getParamString(parameters_Ferrule);
+    var ajax = $.ajax({
+        url: URL6,
+        dataType: 'jsonp',
+        jsonpCallback: 'getJson6',
+        success: function (Ferrule_data) {
+            L.geoJson(Ferrule_data, {
+                onEachFeature: geoJSON_onEachFeature,
+            }).addTo(Ferrule);
+        }
+    });
+
+    //Ferrule
+    var defaultParameters_FlowDirection = {
+        service: 'WFS',
+        version: '2.0',
+        request: 'GetFeature',
+        typeName: 'talking_network:FlowDirection',
+        outputFormat: 'text/javascript',
+        format_options: 'callback:getJson7',
+        SrsName: 'EPSG:4326'
+    };
+    var FlowDirection_data;
+    var parameters_FlowDirection = L.Util.extend(defaultParameters_FlowDirection);
+    var URL7 = owsrootUrl + L.Util.getParamString(parameters_FlowDirection);
+    var ajax = $.ajax({
+        url: URL7,
+        dataType: 'jsonp',
+        jsonpCallback: 'getJson7',
+        success: function (FlowDirection_data) {
+            L.geoJson(FlowDirection_data, {
+                onEachFeature: geoJSON_onEachFeature,
+            }).addTo(FlowDirection);
+        }
+    });
+
     L.control.layers(baseMaps, {
         AsBuiltPipes,
-        DmaBoundary
+        DmaBoundary,
+        Boundary_Valve,
+        EMF,
+        Existing_Pipe,
+        Ferrule,
+        FlowDirection
     }).addTo(mymap);
 </script>
