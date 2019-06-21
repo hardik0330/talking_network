@@ -214,6 +214,7 @@
         });
     };
 
+    //Layers
     var DmaBoundary = new L.LayerGroup();
     var AsBuiltPipes = new L.LayerGroup();
     var Boundary_Valve = new L.LayerGroup();
@@ -221,9 +222,14 @@
     var Existing_Pipe = new L.LayerGroup();
     var Ferrule = new L.LayerGroup();
     var FlowDirection = new L.LayerGroup();
+    var FlowPoint = new L.LayerGroup();
+    var IsolationValve = new L.LayerGroup();
+    var Junction = new L.LayerGroup();
 
     var baseMaps = {}
 
+
+    //Base URL
     var owsrootUrl = 'http://localhost:8080/geoserver/wfs';
 
     //DMA Boundary
@@ -371,7 +377,7 @@
         }
     });
 
-    //Ferrule
+    //FlowDirection
     var defaultParameters_FlowDirection = {
         service: 'WFS',
         version: '2.0',
@@ -395,6 +401,79 @@
         }
     });
 
+
+    //FlowPoint
+    var defaultParameters_FlowPoint = {
+        service: 'WFS',
+        version: '2.0',
+        request: 'GetFeature',
+        typeName: 'talking_network:FlowPoint',
+        outputFormat: 'text/javascript',
+        format_options: 'callback:getJson8',
+        SrsName: 'EPSG:4326'
+    };
+    var FlowPoint_data;
+    var parameters_FlowPoint = L.Util.extend(defaultParameters_FlowPoint);
+    var URL8 = owsrootUrl + L.Util.getParamString(parameters_FlowPoint);
+    var ajax = $.ajax({
+        url: URL8,
+        dataType: 'jsonp',
+        jsonpCallback: 'getJson8',
+        success: function (FlowPoint_data) {
+            L.geoJson(FlowPoint_data, {
+                onEachFeature: geoJSON_onEachFeature,
+            }).addTo(FlowPoint);
+        }
+    });
+
+    //IsolationValve
+    var defaultParameters_IsolationValve = {
+        service: 'WFS',
+        version: '2.0',
+        request: 'GetFeature',
+        typeName: 'talking_network:IsolationValve',
+        outputFormat: 'text/javascript',
+        format_options: 'callback:getJson9',
+        SrsName: 'EPSG:4326'
+    };
+    var IsolationValve_data;
+    var parameters_IsolationValve = L.Util.extend(defaultParameters_IsolationValve);
+    var URL9 = owsrootUrl + L.Util.getParamString(parameters_IsolationValve);
+    var ajax = $.ajax({
+        url: URL9,
+        dataType: 'jsonp',
+        jsonpCallback: 'getJson9',
+        success: function (IsolationValve_data) {
+            L.geoJson(IsolationValve_data, {
+                onEachFeature: geoJSON_onEachFeature,
+            }).addTo(IsolationValve);
+        }
+    });
+
+    //Junction
+    var defaultParameters_Junction = {
+        service: 'WFS',
+        version: '2.0',
+        request: 'GetFeature',
+        typeName: 'talking_network:Junction',
+        outputFormat: 'text/javascript',
+        format_options: 'callback:getJson10',
+        SrsName: 'EPSG:4326'
+    };
+    var Junction_data;
+    var parameters_Junction = L.Util.extend(defaultParameters_Junction);
+    var URL10 = owsrootUrl + L.Util.getParamString(parameters_Junction);
+    var ajax = $.ajax({
+        url: URL10,
+        dataType: 'jsonp',
+        jsonpCallback: 'getJson10',
+        success: function (Junction_data) {
+            L.geoJson(Junction_data, {
+                onEachFeature: geoJSON_onEachFeature,
+            }).addTo(Junction);
+        }
+    });
+
     L.control.layers(baseMaps, {
         AsBuiltPipes,
         DmaBoundary,
@@ -402,6 +481,9 @@
         EMF,
         Existing_Pipe,
         Ferrule,
-        FlowDirection
+        FlowDirection,
+        FlowPoint,
+        IsolationValve,
+        Junction
     }).addTo(mymap);
 </script>
