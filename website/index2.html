@@ -38,17 +38,39 @@
         #mymap {
             position: relative;
             width: 100.0%;
-            height: 100.0%;
-            left: 0.0%;
-            top: 0.0%;
+            height: 93.0%;
+        }
+
+        #map-wrapper {
+            width: 100%;
+            height: 100%;
+        }
+
+        #btnTrack {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            font-size: 18px;
         }
     </style>
 
 </head>
 
-<body>
 
-    <div class="folium-map" id="mymap"></div>
+<body>
+    <!-- <div id="mymap">
+        <div class="leaflet-bottom">
+            <button ion-button class="button-action" onclick="myTracking()" block>Action!</button>
+        </div>
+    </div> -->
+
+    <div class="span9" style="height:100%">
+        <div id="map-wrapper">
+            <div id="mymap"></div>
+            <div style="align-items: center">
+                <button id="btnTrack" onclick="myTracking()">Start Tracking My Location</button></div>
+        </div>
+    </div>
 
 </body>
 <script>
@@ -67,8 +89,7 @@
             "attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.",
             "detectRetina": false,
             "maxNativeZoom": 18,
-            "maxZoom": 21,
-            "minZoom": 10,
+            "maxZoom": 22,
             "noWrap": false,
             "opacity": 1,
             "subdomains": "abc",
@@ -667,4 +688,27 @@
         iMeter,
         iValve
     }).addTo(mymap);
+
+    //GPS
+    function myTracking() {
+        var marker, circle;
+
+        function onLocationFound(e) {
+            var radius = e.accuracy / 2;
+
+            if (marker) { // check
+                mymap.removeLayer(marker); // remove
+                mymap.removeLayer(circle); // remove
+            }
+            marker = L.marker(e.latlng).addTo(mymap)
+                .bindPopup("You are within " + radius + " meters from this point").openPopup();
+            circle = L.circle(e.latlng, radius).addTo(mymap);
+        };
+        mymap.on('locationfound', onLocationFound);
+        mymap.locate({
+            setView: true,
+            watch: true,
+            maxZoom: 25
+        });
+    }
 </script>
