@@ -225,7 +225,13 @@
     var FlowPoint = new L.LayerGroup();
     var IsolationValve = new L.LayerGroup();
     var Junction = new L.LayerGroup();
-
+    var ParcelBoundary = new L.LayerGroup();
+    var Pipe = new L.LayerGroup();
+    var PressurePoint = new L.LayerGroup();
+    var iFittings = new L.LayerGroup();
+    var iHscLine = new L.LayerGroup();
+    var iMeter = new L.LayerGroup();
+    var iValve = new L.LayerGroup();
     var baseMaps = {}
 
 
@@ -474,6 +480,174 @@
         }
     });
 
+    //ParcelBoundary
+    var defaultParameters_parcelboundary = {
+        service: 'WFS',
+        version: '2.0',
+        request: 'GetFeature',
+        typeName: 'talking_network:ParcelBoundary',
+        outputFormat: 'text/javascript',
+        format_options: 'callback:getJson11',
+        SrsName: 'EPSG:4326'
+    };
+    var Parcel_Boundary_data;
+    var parameters_parcelboundary = L.Util.extend(defaultParameters_parcelboundary);
+    var URL11 = owsrootUrl + L.Util.getParamString(parameters_parcelboundary);
+    var ajax = $.ajax({
+        url: URL11,
+        dataType: 'jsonp',
+        jsonpCallback: 'getJson11',
+        success: function (Parcel_Boundary_data) {
+            L.geoJson(Parcel_Boundary_data, {
+                onEachFeature: geoJSON_onEachFeature,
+            }).addTo(ParcelBoundary);
+        }
+    });
+
+    //Pipe
+    var defaultParameters_Pipe = {
+        service: 'WFS',
+        version: '2.0',
+        request: 'GetFeature',
+        typeName: 'talking_network:Pipe',
+        outputFormat: 'text/javascript',
+        format_options: 'callback:getJson12',
+        SrsName: 'EPSG:4326'
+    };
+    var Pipe_data;
+    var parameters_Pipe = L.Util.extend(defaultParameters_Pipe);
+    var URL12 = owsrootUrl + L.Util.getParamString(parameters_Pipe);
+    var ajax = $.ajax({
+        url: URL12,
+        dataType: 'jsonp',
+        jsonpCallback: 'getJson12',
+        success: function (Pipe_data) {
+            L.geoJson(Pipe_data, {
+                onEachFeature: geoJSON_onEachFeature,
+            }).addTo(Pipe);
+        }
+    });
+
+    //PressurePoint
+    var defaultParameters_PressurePoint = {
+        service: 'WFS',
+        version: '2.0',
+        request: 'GetFeature',
+        typeName: 'talking_network:Pressure_Point',
+        outputFormat: 'text/javascript',
+        format_options: 'callback:getJson13',
+        SrsName: 'EPSG:4326'
+    };
+    var PressurePoint_data;
+    var parameters_PressurePoint = L.Util.extend(defaultParameters_PressurePoint);
+    var URL13 = owsrootUrl + L.Util.getParamString(parameters_PressurePoint);
+    var ajax = $.ajax({
+        url: URL13,
+        dataType: 'jsonp',
+        jsonpCallback: 'getJson13',
+        success: function (PressurePoint_data) {
+            L.geoJson(PressurePoint_data, {
+                onEachFeature: geoJSON_onEachFeature,
+            }).addTo(PressurePoint);
+        }
+    });
+
+    //iFittings
+    var defaultParameters_iFittings = {
+        service: 'WFS',
+        version: '2.0',
+        request: 'GetFeature',
+        typeName: 'talking_network:iFittings',
+        outputFormat: 'text/javascript',
+        format_options: 'callback:getJson14',
+        SrsName: 'EPSG:4326'
+    };
+    var iFittings_data;
+    var parameters_iFittings = L.Util.extend(defaultParameters_iFittings);
+    var URL14 = owsrootUrl + L.Util.getParamString(parameters_iFittings);
+    var ajax = $.ajax({
+        url: URL14,
+        dataType: 'jsonp',
+        jsonpCallback: 'getJson14',
+        success: function (iFittings_data) {
+            L.geoJson(iFittings_data, {
+                onEachFeature: geoJSON_onEachFeature,
+            }).addTo(iFittings);
+        }
+    });
+
+    //iHscLine
+    var defaultParameters_iHscLine = {
+        service: 'WFS',
+        version: '2.0',
+        request: 'GetFeature',
+        typeName: 'talking_network:iHscLine',
+        outputFormat: 'text/javascript',
+        format_options: 'callback:getJson15',
+        SrsName: 'EPSG:4326'
+    };
+    var iHscLine_data;
+    var parameters_iHscLine = L.Util.extend(defaultParameters_iHscLine);
+    var URL15 = owsrootUrl + L.Util.getParamString(parameters_iHscLine);
+    var ajax = $.ajax({
+        url: URL15,
+        dataType: 'jsonp',
+        jsonpCallback: 'getJson15',
+        success: function (iHscLine_data) {
+            L.geoJson(iHscLine_data, {
+                onEachFeature: geoJSON_onEachFeature,
+            }).addTo(iHscLine);
+        }
+    });
+
+    //iMeter
+    var defaultParameters_iMeter = {
+        service: 'WFS',
+        version: '2.0',
+        request: 'GetFeature',
+        typeName: 'talking_network:iMeter',
+        outputFormat: 'text/javascript',
+        format_options: 'callback:getJson16',
+        SrsName: 'EPSG:4326'
+    };
+    var iMeter_data;
+    var parameters_iMeter = L.Util.extend(defaultParameters_iMeter);
+    var URL16 = owsrootUrl + L.Util.getParamString(parameters_iMeter);
+    var ajax = $.ajax({
+        url: URL16,
+        dataType: 'jsonp',
+        jsonpCallback: 'getJson16',
+        success: function (iMeter_data) {
+            L.geoJson(iMeter_data, {
+                onEachFeature: geoJSON_onEachFeature,
+            }).addTo(iMeter);
+        }
+    });
+
+    //iValve
+    var defaultParameters_iValve = {
+        service: 'WFS',
+        version: '2.0',
+        request: 'GetFeature',
+        typeName: 'talking_network:iValve',
+        outputFormat: 'text/javascript',
+        format_options: 'callback:getJson17',
+        SrsName: 'EPSG:4326'
+    };
+    var iValve_data;
+    var parameters_iValve = L.Util.extend(defaultParameters_iValve);
+    var URL17 = owsrootUrl + L.Util.getParamString(parameters_iValve);
+    var ajax = $.ajax({
+        url: URL17,
+        dataType: 'jsonp',
+        jsonpCallback: 'getJson17',
+        success: function (iValve_data) {
+            L.geoJson(iValve_data, {
+                onEachFeature: geoJSON_onEachFeature,
+            }).addTo(iValve);
+        }
+    });
+
     L.control.layers(baseMaps, {
         AsBuiltPipes,
         DmaBoundary,
@@ -484,6 +658,13 @@
         FlowDirection,
         FlowPoint,
         IsolationValve,
-        Junction
+        Junction,
+        ParcelBoundary,
+        Pipe,
+        PressurePoint,
+        iFittings,
+        iHscLine,
+        iMeter,
+        iValve
     }).addTo(mymap);
 </script>
