@@ -211,12 +211,12 @@
         //     opacity: 1,
         //     weight: 5
         // })
-        layer.on('mouseover', function (event) {
-            layer.setStyle({
-                color: 'red',
-                opacity: 1
-            })
-        });
+        // layer.on('mouseover', function (event) {
+        //     layer.setStyle({
+        //         color: 'red',
+        //         opacity: 1
+        //     })
+        // });
         layer.on('mouseover', function (event) {
             layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties.OBJECTID +
                 "<br>Diameter_m:" + feature.properties
@@ -224,12 +224,12 @@
                 .properties
                 .Pipe_Mater + "<br>Type:" + feature.properties.Type_);
         });
-        layer.on('mouseout', function (event) {
-            layer.setStyle({
-                color: 'blue',
-                opacity: 1
-            })
-        });
+        // layer.on('mouseout', function (event) {
+        //     layer.setStyle({
+        //         color: 'blue',
+        //         opacity: 1
+        //     })
+        // });
         layer.on('mouseout', function (event) {
             layer.closePopup()
         });
@@ -260,6 +260,36 @@
     var owsrootUrl = 'http://localhost:8080/geoserver/wfs';
 
     //DMA Boundary
+    function geoJSON_onEachFeature_DMA_Boundary(feature, layer) {
+        layer.setStyle({
+            color: 'yellow',
+            opacity: 1,
+            weight: 5
+        })
+        layer.on('mouseover', function (event) {
+            layer.setStyle({
+                color: 'red',
+                opacity: 1
+            })
+        });
+        layer.on('mouseover', function (event) {
+            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties.OBJECTID +
+                "<br>Diameter_m:" + feature.properties
+                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" + feature
+                .properties
+                .Pipe_Mater + "<br>Type:" + feature.properties.Type_);
+        });
+        layer.on('mouseout', function (event) {
+            layer.setStyle({
+                color: 'yellow',
+                opacity: 1
+            })
+        });
+        layer.on('mouseout', function (event) {
+            layer.closePopup()
+        });
+    };
+
     var defaultParameters_dmaboundary = {
         service: 'WFS',
         version: '2.0',
@@ -278,12 +308,42 @@
         jsonpCallback: 'getJson1',
         success: function (Dma_Boundary_data) {
             L.geoJson(Dma_Boundary_data, {
-                onEachFeature: geoJSON_onEachFeature,
+                onEachFeature: geoJSON_onEachFeature_DMA_Boundary,
             }).addTo(DmaBoundary);
         }
     });
 
     //As Built Pipes
+    function geoJSON_onEachFeature_As_Built_Pipe(feature, layer) {
+        layer.setStyle({
+            color: 'black',
+            opacity: 1,
+            weight: 5
+        })
+        layer.on('mouseover', function (event) {
+            layer.setStyle({
+                color: 'red',
+                opacity: 1
+            })
+        });
+        layer.on('mouseover', function (event) {
+            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties.OBJECTID +
+                "<br>Diameter_m:" + feature.properties
+                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" + feature
+                .properties
+                .Pipe_Mater + "<br>Type:" + feature.properties.Type_);
+        });
+        layer.on('mouseout', function (event) {
+            layer.setStyle({
+                color: 'black',
+                opacity: 1
+            })
+        });
+        layer.on('mouseout', function (event) {
+            layer.closePopup()
+        });
+    };
+
     var defaultParameters = {
         service: 'WFS',
         version: '2.0',
@@ -302,13 +362,39 @@
         jsonpCallback: 'getJson2',
         success: function (AsBuiltPipes_data) {
             L.geoJson(AsBuiltPipes_data, {
-                onEachFeature: geoJSON_onEachFeature,
+                onEachFeature: geoJSON_onEachFeature_As_Built_Pipe,
             }).addTo(AsBuiltPipes);
         }
     });
 
 
     //Boundary Valves
+
+    function geoJSON_onEachFeature_Boundary_Valves(feature, layer) {
+        // layer.on('mouseover', function (event) {
+        //     layer.setStyle({
+        //         color: 'red',
+        //         opacity: 1
+        //     })
+        // });
+        layer.on('mouseover', function (event) {
+            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties.OBJECTID +
+                "<br>Diameter_m:" + feature.properties
+                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" + feature
+                .properties
+                .Pipe_Mater + "<br>Type:" + feature.properties.Type_);
+        });
+        // layer.on('mouseout', function (event) {
+        //     layer.setStyle({
+        //         color: 'black',
+        //         opacity: 1
+        //     })
+        // });
+        layer.on('mouseout', function (event) {
+            layer.closePopup()
+        });
+    };
+
     var defaultParameters_boundaryValve = {
         service: 'WFS',
         version: '2.0',
@@ -327,7 +413,7 @@
         jsonpCallback: 'getJson3',
         success: function (Boundary_Valve_data) {
             L.geoJson(Boundary_Valve_data, {
-                onEachFeature: geoJSON_onEachFeature,
+                onEachFeature: geoJSON_onEachFeature_Boundary_Valves,
             }).addTo(Boundary_Valve);
         }
     });
@@ -357,6 +443,36 @@
     });
 
     //Existing_Pipe
+    function geoJSON_onEachFeature_Existing_Pipe(feature, layer) {
+        layer.setStyle({
+            color: 'green',
+            opacity: 1,
+            weight: 5
+        })
+        layer.on('mouseover', function (event) {
+            layer.setStyle({
+                color: 'red',
+                opacity: 1
+            })
+        });
+        layer.on('mouseover', function (event) {
+            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties.OBJECTID +
+                "<br>Diameter_m:" + feature.properties
+                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" + feature
+                .properties
+                .Pipe_Mater + "<br>Type:" + feature.properties.Type_);
+        });
+        layer.on('mouseout', function (event) {
+            layer.setStyle({
+                color: 'green',
+                opacity: 1
+            })
+        });
+        layer.on('mouseout', function (event) {
+            layer.closePopup()
+        });
+    };
+
     var defaultParameters_Existing_Pipe = {
         service: 'WFS',
         version: '2.0',
@@ -375,10 +491,11 @@
         jsonpCallback: 'getJson5',
         success: function (Existing_Pipe_data) {
             L.geoJson(Existing_Pipe_data, {
-                onEachFeature: geoJSON_onEachFeature,
+                onEachFeature: geoJSON_onEachFeature_Existing_Pipe,
             }).addTo(Existing_Pipe);
         }
     });
+
 
     //Ferrule
     var defaultParameters_Ferrule = {
