@@ -58,12 +58,6 @@
 
 
 <body>
-    <!-- <div id="mymap">
-        <div class="leaflet-bottom">
-            <button ion-button class="button-action" onclick="myTracking()" block>Action!</button>
-        </div>
-    </div> -->
-
     <div class="span9" style="height:100%">
         <div id="map-wrapper">
             <div id="mymap"></div>
@@ -302,7 +296,8 @@
                 "<br>Diameter_m:" + feature.properties
                 .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" + feature
                 .properties
-                .Pipe_Mater + "<br>Type:" + feature.properties.Type_);
+                .Pipe_Mater + "<br>Type:" + feature.properties.Type_
+            );
         });
         layer.on('mouseout', function (event) {
             layer.setStyle({
@@ -314,6 +309,7 @@
             layer.closePopup()
         });
     };
+
 
     var defaultParameters = {
         service: 'WFS',
@@ -441,6 +437,12 @@
 
 
     //Existing_Pipe
+
+    function read_as_built_info() {
+        var msg = new SpeechSynthesisUtterance('Pipe Material C I');
+        window.speechSynthesis.speak(msg);
+    }
+
     function geoJSON_onEachFeature_Existing_Pipe(feature, layer) {
         layer.setStyle({
             color: 'green',
@@ -454,11 +456,12 @@
             })
         });
         layer.on('mouseover', function (event) {
-            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties.OBJECTID +
-                "<br>Diameter_m:" + feature.properties
-                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" + feature
-                .properties
-                .Pipe_Mater + "<br>Type:" + feature.properties.Type_);
+            layer.bindPopup("<strong> Pipe Details: </strong> " + " <br> OBJECTID: " + feature.properties
+                .OBJECTID +
+                "<br>Diameter_m:" + feature.properties.Diameter_m + "<br>Length_M:" + feature.properties
+                .length_M + "<br>Pipe_Material:" + feature.properties
+                .Pipe_Mater + "<br>Type:" + feature.properties.Type_ + "<br><br>" +
+                "<button onclick=read_as_built_info()>btn</button>");
         });
         layer.on('mouseout', function (event) {
             layer.setStyle({
@@ -466,9 +469,9 @@
                 opacity: 1
             })
         });
-        layer.on('mouseout', function (event) {
-            layer.closePopup()
-        });
+        // layer.on('mouseout', function (event) {
+        //     layer.closePopup()
+        // });
     };
 
     var defaultParameters_Existing_Pipe = {
