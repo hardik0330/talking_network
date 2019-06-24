@@ -206,17 +206,17 @@
     // var x;
 
     function geoJSON_onEachFeature(feature, layer) {
-        // layer.setStyle({
-        //     color: 'blue',
-        //     opacity: 1,
-        //     weight: 5
-        // })
-        // layer.on('mouseover', function (event) {
-        //     layer.setStyle({
-        //         color: 'red',
-        //         opacity: 1
-        //     })
-        // });
+        layer.setStyle({
+            color: 'blue',
+            opacity: 1,
+            weight: 5
+        })
+        layer.on('mouseover', function (event) {
+            layer.setStyle({
+                color: 'red',
+                opacity: 1
+            })
+        });
         layer.on('mouseover', function (event) {
             layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties.OBJECTID +
                 "<br>Diameter_m:" + feature.properties
@@ -224,12 +224,12 @@
                 .properties
                 .Pipe_Mater + "<br>Type:" + feature.properties.Type_);
         });
-        // layer.on('mouseout', function (event) {
-        //     layer.setStyle({
-        //         color: 'blue',
-        //         opacity: 1
-        //     })
-        // });
+        layer.on('mouseout', function (event) {
+            layer.setStyle({
+                color: 'blue',
+                opacity: 1
+            })
+        });
         layer.on('mouseout', function (event) {
             layer.closePopup()
         });
