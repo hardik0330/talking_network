@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css" />
     <link rel="stylesheet"
@@ -438,10 +438,7 @@
 
     //Existing_Pipe
 
-    function read_as_built_info() {
-        var msg = new SpeechSynthesisUtterance('Pipe Material C I');
-        window.speechSynthesis.speak(msg);
-    }
+    var msg
 
     function geoJSON_onEachFeature_Existing_Pipe(feature, layer) {
         layer.setStyle({
@@ -455,13 +452,36 @@
                 opacity: 1
             })
         });
+        layer.on('click', function (event) {
+            msg1 = new SpeechSynthesisUtterance("Object I D is " +
+                feature.properties.OBJECTID);
+            msg2 = new SpeechSynthesisUtterance("Diameter in meters is   " + feature.properties
+                .Diameter_m)
+            msg3 = new SpeechSynthesisUtterance("Length in meters is   " + feature.properties
+                .length_M)
+            msg4 = new SpeechSynthesisUtterance("Pipe Material is   " + feature.properties
+                .Pipe_Mater)
+            msg5 = new SpeechSynthesisUtterance("This is an " + feature.properties
+                .Type_ + " pipe")
+            window.speechSynthesis.speak(msg1);
+            setTimeout({}, 500)
+            window.speechSynthesis.speak(msg2);
+            setTimeout({}, 500)
+            window.speechSynthesis.speak(msg3);
+            setTimeout({}, 500)
+            window.speechSynthesis.speak(msg4);
+            setTimeout({}, 500)
+            window.speechSynthesis.speak(msg5);
+        });
+
         layer.on('mouseover', function (event) {
-            layer.bindPopup("<strong> Pipe Details: </strong> " + " <br> OBJECTID: " + feature.properties
-                .OBJECTID +
-                "<br>Diameter_m:" + feature.properties.Diameter_m + "<br>Length_M:" + feature.properties
-                .length_M + "<br>Pipe_Material:" + feature.properties
-                .Pipe_Mater + "<br>Type:" + feature.properties.Type_ + "<br><br>" +
-                "<button onclick=read_as_built_info()>btn</button>");
+
+            layer.bindPopup(
+                " <strong> Pipe Details: </strong> " + " <br> OBJECTID: " +
+                feature.properties.OBJECTID + "<br>Diameter_m:" + feature.properties.Diameter_m +
+                "<br>Length_M:" + feature.properties
+                .length_M + "<br>Pipe_Material:" + feature.properties.Pipe_Mater + "<br>Type:" +
+                feature.properties.Type_)
         });
         layer.on('mouseout', function (event) {
             layer.setStyle({
@@ -507,9 +527,11 @@
         //     })
         // });
         layer.on('mouseover', function (event) {
-            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties.OBJECTID +
+            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties
+                .OBJECTID +
                 "<br>Diameter_m:" + feature.properties
-                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" + feature
+                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" +
+                feature
                 .properties
                 .Pipe_Mater + "<br>Type:" + feature.properties.Type_);
         });
@@ -562,9 +584,11 @@
             })
         });
         layer.on('mouseover', function (event) {
-            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties.OBJECTID +
+            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties
+                .OBJECTID +
                 "<br>Diameter_m:" + feature.properties
-                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" + feature
+                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" +
+                feature
                 .properties
                 .Pipe_Mater + "<br>Type:" + feature.properties.Type_);
         });
@@ -613,9 +637,11 @@
         //     })
         // });
         layer.on('mouseover', function (event) {
-            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties.OBJECTID +
+            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties
+                .OBJECTID +
                 "<br>Diameter_m:" + feature.properties
-                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" + feature
+                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" +
+                feature
                 .properties
                 .Pipe_Mater + "<br>Type:" + feature.properties.Type_);
         });
@@ -663,9 +689,11 @@
         //     })
         // });
         layer.on('mouseover', function (event) {
-            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties.OBJECTID +
+            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties
+                .OBJECTID +
                 "<br>Diameter_m:" + feature.properties
-                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" + feature
+                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" +
+                feature
                 .properties
                 .Pipe_Mater + "<br>Type:" + feature.properties.Type_);
         });
@@ -713,9 +741,11 @@
         //     })
         // });
         layer.on('mouseover', function (event) {
-            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties.OBJECTID +
+            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties
+                .OBJECTID +
                 "<br>Diameter_m:" + feature.properties
-                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" + feature
+                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" +
+                feature
                 .properties
                 .Pipe_Mater + "<br>Type:" + feature.properties.Type_);
         });
@@ -768,9 +798,11 @@
             })
         });
         layer.on('mouseover', function (event) {
-            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties.OBJECTID +
+            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties
+                .OBJECTID +
                 "<br>Diameter_m:" + feature.properties
-                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" + feature
+                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" +
+                feature
                 .properties
                 .Pipe_Mater + "<br>Type:" + feature.properties.Type_);
         });
@@ -823,9 +855,11 @@
             })
         });
         layer.on('mouseover', function (event) {
-            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties.OBJECTID +
+            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties
+                .OBJECTID +
                 "<br>Diameter_m:" + feature.properties
-                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" + feature
+                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" +
+                feature
                 .properties
                 .Pipe_Mater + "<br>Type:" + feature.properties.Type_);
         });
@@ -873,9 +907,11 @@
         //     })
         // });
         layer.on('mouseover', function (event) {
-            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties.OBJECTID +
+            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties
+                .OBJECTID +
                 "<br>Diameter_m:" + feature.properties
-                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" + feature
+                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" +
+                feature
                 .properties
                 .Pipe_Mater + "<br>Type:" + feature.properties.Type_);
         });
@@ -923,9 +959,11 @@
         //     })
         // });
         layer.on('mouseover', function (event) {
-            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties.OBJECTID +
+            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties
+                .OBJECTID +
                 "<br>Diameter_m:" + feature.properties
-                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" + feature
+                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" +
+                feature
                 .properties
                 .Pipe_Mater + "<br>Type:" + feature.properties.Type_);
         });
@@ -978,9 +1016,11 @@
             })
         });
         layer.on('mouseover', function (event) {
-            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties.OBJECTID +
+            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties
+                .OBJECTID +
                 "<br>Diameter_m:" + feature.properties
-                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" + feature
+                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" +
+                feature
                 .properties
                 .Pipe_Mater + "<br>Type:" + feature.properties.Type_);
         });
@@ -1028,9 +1068,11 @@
         //     })
         // });
         layer.on('mouseover', function (event) {
-            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties.OBJECTID +
+            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties
+                .OBJECTID +
                 "<br>Diameter_m:" + feature.properties
-                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" + feature
+                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" +
+                feature
                 .properties
                 .Pipe_Mater + "<br>Type:" + feature.properties.Type_);
         });
@@ -1078,9 +1120,11 @@
         //     })
         // });
         layer.on('mouseover', function (event) {
-            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties.OBJECTID +
+            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties
+                .OBJECTID +
                 "<br>Diameter_m:" + feature.properties
-                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" + feature
+                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" +
+                feature
                 .properties
                 .Pipe_Mater + "<br>Type:" + feature.properties.Type_);
         });
