@@ -527,6 +527,7 @@
 
 
 
+
     //FlowDirection
 
     function geoJSON_onEachFeature_Flow_Direction(feature, layer) {
@@ -540,6 +541,10 @@
                 color: 'red',
                 opacity: 1
             })
+        });
+        layer.on('click', function (event) {
+            var msg = new SpeechSynthesisUtterance("This is a Ferrule of size " + feature.properties.Ferrule_Si);
+            window.speechSynthesis.speak(msg);
         });
         layer.on('mouseover', function (event) {
             layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties
@@ -555,9 +560,6 @@
                 color: 'purple',
                 opacity: 1
             })
-        });
-        layer.on('mouseout', function (event) {
-            layer.closePopup()
         });
     };
 
