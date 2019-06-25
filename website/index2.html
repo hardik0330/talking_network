@@ -1,5 +1,4 @@
 <!-- This file consists code for multiple layer projections but no popup for layers -->
-
 <!DOCTYPE html>
 
 <head>
@@ -222,9 +221,9 @@
 
 
     //Base URL
-    var owsrootUrl = 'http://localhost:8080/geoserver/wfs';
+    var owsrootUrl = 'http://gisropes.com:9005/geoserver/talking_network/wfs';
 
-    //DMA Boundary
+    // DMA Boundary
     function geoJSON_onEachFeature_DMA_Boundary(feature, layer) {
         layer.setStyle({
             color: 'yellow',
@@ -323,6 +322,8 @@
     var AsBuiltPipes_data;
     var parameters_asbuiltpipes = L.Util.extend(defaultParameters);
     var URL2 = owsrootUrl + L.Util.getParamString(parameters_asbuiltpipes);
+
+    console.log(URL2)
     var ajax = $.ajax({
         url: URL2,
         dataType: 'jsonp',
@@ -335,7 +336,7 @@
     });
 
 
-    //Boundary Valves
+    // //Boundary Valves
 
     function geoJSON_onEachFeature_Boundary_Valves(feature, layer) {
         // layer.on('mouseover', function (event) {
