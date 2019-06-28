@@ -919,15 +919,6 @@
 
     //iMeter
     function geoJSON_onEachFeature_iMeter(feature, layer) {
-        layer.on('mouseover', function (event) {
-            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties
-                .OBJECTID +
-                "<br>Diameter_m:" + feature.properties
-                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" +
-                feature
-                .properties
-                .Pipe_Mater + "<br>Type:" + feature.properties.Type_);
-        });
         layer.on('click', function (event) {
             var msg = new SpeechSynthesisUtterance("This is an i meter of " + feature.properties.Con_Type + "Connection type and " + feature.properties.Con_Catego + "Connection category and meter size " + feature.properties.Meter_Size);
             window.speechSynthesis.speak(msg);
@@ -966,32 +957,17 @@
 
     //iValve
     function geoJSON_onEachFeature_iValve(feature, layer) {
-        // layer.on('mouseover', function (event) {
-        //     layer.setStyle({
-        //         color: 'red',
-        //         opacity: 1
-        //     })
-        // });
-        layer.on('mouseover', function (event) {
-            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties
-                .OBJECTID +
-                "<br>Diameter_m:" + feature.properties
-                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" +
-                feature
-                .properties
-                .Pipe_Mater + "<br>Type:" + feature.properties.Type_);
+        layer.on('click', function (event) {
+            var msg = new SpeechSynthesisUtterance("This is an i valve of " + feature.properties.Valve_Type + "type having diameter " + feature.properties.Diameter + "milimeters. The Material of the valve is " + feature.properties.Material);
+            window.speechSynthesis.speak(msg);
         });
-        // layer.on('mouseout', function (event) {
-        //     layer.setStyle({
-        //         color: 'black',
-        //         opacity: 1
-        //     })
-        // });
+        layer.on('mouseover', function (event) {
+            layer.bindPopup("<strong>iValve Details:</strong>" + "<br>OBJECTID: " + feature.properties.OBJECTID + "<br>Valve Type: " + feature.properties.Valve_Type + "<br>Diameter in mm: " + feature.properties.Valve_Type + "<br>Material: " + feature.properties.Material + "<br>Installation Data: " + feature.properties.Install_Da + "<br>Label: " + feature.properties.Label);
+        });
         layer.on('mouseout', function (event) {
             layer.closePopup()
         });
     };
-
     var defaultParameters_iValve = {
         service: 'WFS',
         version: '2.0',
