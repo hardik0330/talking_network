@@ -789,7 +789,7 @@
     //PressurePoint
     function geoJSON_onEachFeature_Pressure_Point(feature, layer) {
         layer.on('click', function (event) {
-            var msg = new SpeechSynthesisUtterance("This is a Pressure Point in DMA" + feature.properties.DMA + "              and Ward number" + feature.properties.Ward + ".The Material of the pipe is" + feature.properties.pipe_mater);
+            var msg = new SpeechSynthesisUtterance("This is a Pressure Point in DMA" + feature.properties.DMA + "and Ward number" + feature.properties.Ward + ".The Material of the pipe is" + feature.properties.pipe_mater);
             window.speechSynthesis.speak(msg);
         });
         layer.on('mouseover', function (event) {
@@ -826,32 +826,17 @@
 
     //iFittings
     function geoJSON_onEachFeature_iFittings(feature, layer) {
-        // layer.on('mouseover', function (event) {
-        //     layer.setStyle({
-        //         color: 'red',
-        //         opacity: 1
-        //     })
-        // });
-        layer.on('mouseover', function (event) {
-            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties
-                .OBJECTID +
-                "<br>Diameter_m:" + feature.properties
-                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" +
-                feature
-                .properties
-                .Pipe_Mater + "<br>Type:" + feature.properties.Type_);
+        layer.on('click', function (event) {
+            var msg = new SpeechSynthesisUtterance("This is an ifitting of Diameter" + feature.properties.Diameter + "milimeters and fitting type is " + feature.properties.Fitting_Ty + ".The Material of the pipe is" + feature.properties.Material);
+            window.speechSynthesis.speak(msg);
         });
-        // layer.on('mouseout', function (event) {
-        //     layer.setStyle({
-        //         color: 'black',
-        //         opacity: 1
-        //     })
-        // });
+        layer.on('mouseover', function (event) {
+            layer.bindPopup("<strong>iFitting Details:</strong>" + "<br>OBJECTID: " + feature.properties.OBJECTID + "<br>Diameter in mm: " + feature.properties.Diameter + "<br>material: " + feature.properties.Material + "<br>Fitting Type: " + feature.properties.Fitting_Ty + "<br>DMA: " + feature.properties.DMA);
+        });
         layer.on('mouseout', function (event) {
             layer.closePopup()
         });
     };
-
     var defaultParameters_iFittings = {
         service: 'WFS',
         version: '2.0',
@@ -875,8 +860,9 @@
         }
     });
 
-    //iHscLine
 
+
+    //iHscLine
     function geoJSON_onEachFeature_iHscLine(feature, layer) {
         layer.setStyle({
             color: 'olive',
@@ -889,14 +875,12 @@
                 opacity: 1
             })
         });
+        layer.on('click', function (event) {
+            var msg = new SpeechSynthesisUtterance("This is an i HSC line of Diameter" + feature.properties.Diameter + "milimeters and length " + feature.properties.Diameter + ".The Material of the pipe is" + feature.properties.Material);
+            window.speechSynthesis.speak(msg);
+        });
         layer.on('mouseover', function (event) {
-            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties
-                .OBJECTID +
-                "<br>Diameter_m:" + feature.properties
-                .Diameter_m + "<br>Length_M:" + feature.properties.length_M + "<br>Pipe_Material:" +
-                feature
-                .properties
-                .Pipe_Mater + "<br>Type:" + feature.properties.Type_);
+            layer.bindPopup("<strong>iHSCline Details:</strong>" + "<br>OBJECTID: " + feature.properties.OBJECTID + "<br>Diameter in mm: " + feature.properties.Diameter + "<br>Length: " + feature.properties.Length + "<br>Material: " + feature.properties.Material + "<br>Category: " + feature.properties.Category + "<br>DMA: " + feature.properties.DMA);
         });
         layer.on('mouseout', function (event) {
             layer.setStyle({
