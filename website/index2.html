@@ -290,11 +290,17 @@
             })
         });
         layer.on('click', function (event) {
-            var msg = new SpeechSynthesisUtterance("This is an AsBuilt Pipe having Diameter" + feature.properties.Pipe_Dia_m + "milimeters and length" + feature.properties.Length_Mtr + "meters. The Material of the pipe is" + feature.properties.Pipe_Mater);
+            var msg = new SpeechSynthesisUtterance("This is an AsBuilt Pipe having Diameter" + feature
+                .properties.Pipe_Dia_m + "milimeters and length" + feature.properties.Length_Mtr +
+                "meters. The Material of the pipe is" + feature.properties.Pipe_Mater);
             window.speechSynthesis.speak(msg);
         });
         layer.on('mouseover', function (event) {
-            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties.OBJECTID + "<br>Pipe ID:" + feature.properties.PipeID_GIS + "<br>Diameter in mm:" + feature.properties.Pipe_Dia_m + "<br>Length in Meters:" + feature.properties.Length_Mtr + "<br>DMA:" + feature.properties.DMA + "<br>Pipe Material:" + feature.properties.Pipe_Mater + "<br>Road Name:" + feature.properties.Road_Name + "<br>Pipe Status:" + feature.properties.AsBuilt_St);
+            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties.OBJECTID +
+                "<br>Pipe ID:" + feature.properties.PipeID_GIS + "<br>Diameter in mm:" + feature.properties
+                .Pipe_Dia_m + "<br>Length in Meters:" + feature.properties.Length_Mtr + "<br>DMA:" + feature
+                .properties.DMA + "<br>Pipe Material:" + feature.properties.Pipe_Mater + "<br>Road Name:" +
+                feature.properties.Road_Name + "<br>Pipe Status:" + feature.properties.AsBuilt_St);
         });
         layer.on('mouseout', function (event) {
             layer.setStyle({
@@ -339,11 +345,16 @@
         //     })
         // });
         layer.on('click', function (event) {
-            var msg = new SpeechSynthesisUtterance("This is a Boundary Valve installed on a pipe of" + feature.properties.Pipe_Matri + "Material and Diameter "+ feature.properties.Pipe_dia + "milimeters. The Boundary Valve type is " + feature.properties.BV_NO);
+            var msg = new SpeechSynthesisUtterance("This is a Boundary Valve installed on a pipe of" + feature
+                .properties.Pipe_Matri + "Material and Diameter " + feature.properties.Pipe_dia +
+                "milimeters. The Boundary Valve type is " + feature.properties.BV_NO);
             window.speechSynthesis.speak(msg);
         });
         layer.on('mouseover', function (event) {
-            layer.bindPopup("<strong>Boundary Valve Details:</strong>" + "<br>OBJECTID:" + feature.properties.OBJECTID + "<br>Pipe Material:" + feature.properties.Pipe_Matri + "<br>Pipe Diameter in mm:" + feature.properties.Pipe_dia + "<br>Installed Pipe Diameter:" + feature.properties.Installed_ + "<br>Boundary Valve No:" + feature.properties.BV_NO);
+            layer.bindPopup("<strong>Boundary Valve Details:</strong>" + "<br>OBJECTID:" + feature.properties
+                .OBJECTID + "<br>Pipe Material:" + feature.properties.Pipe_Matri +
+                "<br>Pipe Diameter in mm:" + feature.properties.Pipe_dia + "<br>Installed Pipe Diameter:" +
+                feature.properties.Installed_ + "<br>Boundary Valve No:" + feature.properties.BV_NO);
         });
         // layer.on('mouseout', function (event) {
         //     layer.setStyle({
@@ -441,11 +452,16 @@
             })
         });
         layer.on('click', function (event) {
-            var msg = new SpeechSynthesisUtterance("This is an Existing Pipe having Diameter" + feature.properties.Diameter_m + "milimeters and length" + feature.properties.length_M + "meters. The Material of the pipe is" + feature.properties.Pipe_Mater);
+            var msg = new SpeechSynthesisUtterance("This is an Existing Pipe having Diameter" + feature
+                .properties.Diameter_m + "milimeters and length" + feature.properties.length_M +
+                "meters. The Material of the pipe is" + feature.properties.Pipe_Mater);
             window.speechSynthesis.speak(msg);
         });
         layer.on('mouseover', function (event) {
-            layer.bindPopup("<strong>Pipe Details: </strong> " + " <br>OBJECTID:" + feature.properties.OBJECTID + "<br>Diameter in mm:" + feature.properties.Diameter_m +"<br>Length in Meters:" + feature.properties.length_M + "<br>Pipe Material:" + feature.properties.Pipe_Mater + "<br>Type:" +feature.properties.Type_);
+            layer.bindPopup("<strong>Pipe Details: </strong> " + " <br>OBJECTID:" + feature.properties
+                .OBJECTID + "<br>Diameter in mm:" + feature.properties.Diameter_m +
+                "<br>Length in Meters:" + feature.properties.length_M + "<br>Pipe Material:" + feature
+                .properties.Pipe_Mater + "<br>Type:" + feature.properties.Type_);
         });
         layer.on('mouseout', function (event) {
             layer.setStyle({
@@ -489,11 +505,15 @@
         //     })
         // });
         layer.on('click', function (event) {
-            var msg = new SpeechSynthesisUtterance("This is a Ferrule of size " + feature.properties.Ferrule_Si);
+            var msg = new SpeechSynthesisUtterance("This is a Ferrule of size " + feature.properties
+                .Ferrule_Si);
             window.speechSynthesis.speak(msg);
         });
         layer.on('mouseover', function (event) {
-            layer.bindPopup("<strong>Ferrule Details:</strong>" + "<br>Object ID: " + feature.properties.OBJECTID + "<br>Ferrule Size: " + feature.properties.Ferrule_Si + "<br>Account: " + feature.properties.Account + "<br>Refernce GIS ID: " + feature.properties.Ref_GISID + "<br>DMA: " + feature.properties.DMA + "<br>" );
+            layer.bindPopup("<strong>Ferrule Details:</strong>" + "<br>Object ID: " + feature.properties
+                .OBJECTID + "<br>Ferrule Size: " + feature.properties.Ferrule_Si + "<br>Account: " + feature
+                .properties.Account + "<br>Refernce GIS ID: " + feature.properties.Ref_GISID + "<br>DMA: " +
+                feature.properties.DMA + "<br>");
         });
         // layer.on('mouseout', function (event) {
         //     layer.setStyle({
@@ -564,11 +584,16 @@
     //FlowPoint
     function geoJSON_onEachFeature_Flow_Point(feature, layer) {
         layer.on('click', function (event) {
-            var msg = new SpeechSynthesisUtterance("This is a Flow point having Diameter" + feature.properties.Pipe_Dia + "milimeters, located in ward Number" + feature.properties.Ward_No + "and DMA number" + feature.properties.DMA);
+            var msg = new SpeechSynthesisUtterance("This is a Flow point having Diameter" + feature.properties
+                .Pipe_Dia + "milimeters, located in ward Number" + feature.properties.Ward_No +
+                "and DMA number" + feature.properties.DMA);
             window.speechSynthesis.speak(msg);
         });
         layer.on('mouseover', function (event) {
-            layer.bindPopup("<strong>Flow Point Details:</strong>" + "<br>Object ID: " + feature.properties.OBJECTID + "<br>Pipe Diameter in mm: " + feature.properties.Pipe_Dia + "<br>Unique ID: " + feature.properties.Unique_ID + "<br>Location: " + feature.properties.Location_i + "<br>DMA: " + feature.properties.DMA + "<br>Ward No:" + feature.properties.Ward_No );
+            layer.bindPopup("<strong>Flow Point Details:</strong>" + "<br>Object ID: " + feature.properties
+                .OBJECTID + "<br>Pipe Diameter in mm: " + feature.properties.Pipe_Dia + "<br>Unique ID: " +
+                feature.properties.Unique_ID + "<br>Location: " + feature.properties.Location_i +
+                "<br>DMA: " + feature.properties.DMA + "<br>Ward No:" + feature.properties.Ward_No);
         });
         layer.on('mouseout', function (event) {
             layer.closePopup()
@@ -603,11 +628,15 @@
     //IsolationValve
     function geoJSON_onEachFeature_Isolation_Valve(feature, layer) {
         layer.on('click', function (event) {
-            var msg = new SpeechSynthesisUtterance("This is an Isolation Valve of" + feature.properties.Valve_Type + "type, located in zone ID" + feature.properties.ZONEID);
+            var msg = new SpeechSynthesisUtterance("This is an Isolation Valve of" + feature.properties
+                .Valve_Type + "type, located in zone ID" + feature.properties.ZONEID);
             window.speechSynthesis.speak(msg);
         });
         layer.on('mouseover', function (event) {
-            layer.bindPopup("<strong>Isolation Valve Details:</strong>" + "<br>Object ID: " + feature.properties.OBJECTID + "<br>Reference Pipe ID: " + feature.properties.REF_PIPEID + "<br>Refer Pipe: " + feature.properties.REFER_PIPE + "<br>Zone ID: " + feature.properties.ZONEID + "<br>Valve Type: " + feature.properties.Valve_Type);
+            layer.bindPopup("<strong>Isolation Valve Details:</strong>" + "<br>Object ID: " + feature.properties
+                .OBJECTID + "<br>Reference Pipe ID: " + feature.properties.REF_PIPEID + "<br>Refer Pipe: " +
+                feature.properties.REFER_PIPE + "<br>Zone ID: " + feature.properties.ZONEID +
+                "<br>Valve Type: " + feature.properties.Valve_Type);
         });
         layer.on('mouseout', function (event) {
             layer.closePopup()
@@ -645,7 +674,9 @@
             window.speechSynthesis.speak(msg);
         });
         layer.on('mouseover', function (event) {
-            layer.bindPopup("<strong>Junction Details:</strong>" + "<br>Object ID: " + feature.properties.OBJECTID + "<br>ID: " + feature.properties.ID + "<br>Label: " + feature.properties.LABEL + "<br>Zone ID: " + feature.properties.ZONEID + "<br>DMA: " + feature.properties.ZONE);
+            layer.bindPopup("<strong>Junction Details:</strong>" + "<br>Object ID: " + feature.properties
+                .OBJECTID + "<br>ID: " + feature.properties.ID + "<br>Label: " + feature.properties.LABEL +
+                "<br>Zone ID: " + feature.properties.ZONEID + "<br>DMA: " + feature.properties.ZONE);
         });
         layer.on('mouseout', function (event) {
             layer.closePopup()
@@ -694,7 +725,9 @@
             window.speechSynthesis.speak(msg);
         });
         layer.on('mouseover', function (event) {
-            layer.bindPopup("<strong>Parcel Boundary Details:</strong>" + "<br>GIS ID: " + feature.properties.GISID + "<br>Address: " + feature.properties.Address + "<br>Premises No: " + feature.properties.Premises_N);
+            layer.bindPopup("<strong>Parcel Boundary Details:</strong>" + "<br>GIS ID: " + feature.properties
+                .GISID + "<br>Address: " + feature.properties.Address + "<br>Premises No: " + feature
+                .properties.Premises_N);
         });
         layer.on('mouseout', function (event) {
             layer.setStyle({
@@ -745,11 +778,16 @@
             })
         });
         layer.on('click', function (event) {
-            var msg = new SpeechSynthesisUtterance("This is a Pipe having Diameter" + feature.properties.D + "milimeters and length" + feature.properties.L + "meters. The Material of the pipe is" + feature.properties.MATERIAL);
+            var msg = new SpeechSynthesisUtterance("This is a Pipe having Diameter" + feature.properties.D +
+                "milimeters and length" + feature.properties.L + "meters. The Material of the pipe is" +
+                feature.properties.MATERIAL);
             window.speechSynthesis.speak(msg);
         });
         layer.on('mouseover', function (event) {
-            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID: " + feature.properties.OBJECTID + "<br>Diameter in mm: " + feature.properties.D + "<br>Length in meters: " + feature.properties.L + "<br>DMA: " + feature.properties.ZONE + "<br>ID: " + feature.properties.ID + "<br>Label" + feature.properties.LABEL + "<br>Material: " + feature.properties.MATERIAL);
+            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID: " + feature.properties.OBJECTID +
+                "<br>Diameter in mm: " + feature.properties.D + "<br>Length in meters: " + feature
+                .properties.L + "<br>DMA: " + feature.properties.ZONE + "<br>ID: " + feature.properties.ID +
+                "<br>Label" + feature.properties.LABEL + "<br>Material: " + feature.properties.MATERIAL);
         });
         layer.on('mouseout', function (event) {
             layer.setStyle({
@@ -789,11 +827,17 @@
     //PressurePoint
     function geoJSON_onEachFeature_Pressure_Point(feature, layer) {
         layer.on('click', function (event) {
-            var msg = new SpeechSynthesisUtterance("This is a Pressure Point in DMA" + feature.properties.DMA + "and Ward number" + feature.properties.Ward + ".The Material of the pipe is" + feature.properties.pipe_mater);
+            var msg = new SpeechSynthesisUtterance("This is a Pressure Point in DMA" + feature.properties.DMA +
+                "and Ward number" + feature.properties.Ward + ".The Material of the pipe is" + feature
+                .properties.pipe_mater);
             window.speechSynthesis.speak(msg);
         });
         layer.on('mouseover', function (event) {
-            layer.bindPopup("<strong>Pressure Point Details:</strong>" + "<br>OBJECTID: " + feature.properties.OBJECTID + "<br>Location: " + feature.properties.location_d + "<br>ID: " + feature.properties.id + "<br>DMA: " + feature.properties.DMA + "<br>Ward No: " + feature.properties.Ward + "<br>Pipe Material: " + feature.properties.pipe_mater + "<br>External Pipe Condition: " + feature.properties.external_p);
+            layer.bindPopup("<strong>Pressure Point Details:</strong>" + "<br>OBJECTID: " + feature.properties
+                .OBJECTID + "<br>Location: " + feature.properties.location_d + "<br>ID: " + feature
+                .properties.id + "<br>DMA: " + feature.properties.DMA + "<br>Ward No: " + feature.properties
+                .Ward + "<br>Pipe Material: " + feature.properties.pipe_mater +
+                "<br>External Pipe Condition: " + feature.properties.external_p);
         });
         layer.on('mouseout', function (event) {
             layer.closePopup()
@@ -827,11 +871,16 @@
     //iFittings
     function geoJSON_onEachFeature_iFittings(feature, layer) {
         layer.on('click', function (event) {
-            var msg = new SpeechSynthesisUtterance("This is an ifitting of Diameter" + feature.properties.Diameter + "milimeters and fitting type is " + feature.properties.Fitting_Ty + ".The Material of the pipe is" + feature.properties.Material);
+            var msg = new SpeechSynthesisUtterance("This is an ifitting of Diameter" + feature.properties
+                .Diameter + "milimeters and fitting type is " + feature.properties.Fitting_Ty +
+                ".The Material of the pipe is" + feature.properties.Material);
             window.speechSynthesis.speak(msg);
         });
         layer.on('mouseover', function (event) {
-            layer.bindPopup("<strong>iFitting Details:</strong>" + "<br>OBJECTID: " + feature.properties.OBJECTID + "<br>Diameter in mm: " + feature.properties.Diameter + "<br>material: " + feature.properties.Material + "<br>Fitting Type: " + feature.properties.Fitting_Ty + "<br>DMA: " + feature.properties.DMA);
+            layer.bindPopup("<strong>iFitting Details:</strong>" + "<br>OBJECTID: " + feature.properties
+                .OBJECTID + "<br>Diameter in mm: " + feature.properties.Diameter + "<br>material: " +
+                feature.properties.Material + "<br>Fitting Type: " + feature.properties.Fitting_Ty +
+                "<br>DMA: " + feature.properties.DMA);
         });
         layer.on('mouseout', function (event) {
             layer.closePopup()
@@ -876,11 +925,16 @@
             })
         });
         layer.on('click', function (event) {
-            var msg = new SpeechSynthesisUtterance("This is an i HSC line of Diameter" + feature.properties.Diameter + "milimeters and length " + feature.properties.Diameter + ".The Material of the pipe is" + feature.properties.Material);
+            var msg = new SpeechSynthesisUtterance("This is an i HSC line of Diameter" + feature.properties
+                .Diameter + "milimeters and length " + feature.properties.Diameter +
+                ".The Material of the pipe is" + feature.properties.Material);
             window.speechSynthesis.speak(msg);
         });
         layer.on('mouseover', function (event) {
-            layer.bindPopup("<strong>iHSCline Details:</strong>" + "<br>OBJECTID: " + feature.properties.OBJECTID + "<br>Diameter in mm: " + feature.properties.Diameter + "<br>Length: " + feature.properties.Length + "<br>Material: " + feature.properties.Material + "<br>Category: " + feature.properties.Category + "<br>DMA: " + feature.properties.DMA);
+            layer.bindPopup("<strong>iHSCline Details:</strong>" + "<br>OBJECTID: " + feature.properties
+                .OBJECTID + "<br>Diameter in mm: " + feature.properties.Diameter + "<br>Length: " + feature
+                .properties.Length + "<br>Material: " + feature.properties.Material + "<br>Category: " +
+                feature.properties.Category + "<br>DMA: " + feature.properties.DMA);
         });
         layer.on('mouseout', function (event) {
             layer.setStyle({
@@ -920,11 +974,19 @@
     //iMeter
     function geoJSON_onEachFeature_iMeter(feature, layer) {
         layer.on('click', function (event) {
-            var msg = new SpeechSynthesisUtterance("This is an i meter of " + feature.properties.Con_Type + "Connection type and " + feature.properties.Con_Catego + "Connection category and meter size " + feature.properties.Meter_Size);
+            var msg = new SpeechSynthesisUtterance("This is an i meter of " + feature.properties.Con_Type +
+                "Connection type and " + feature.properties.Con_Catego +
+                "Connection category and meter size " + feature.properties.Meter_Size);
             window.speechSynthesis.speak(msg);
         });
         layer.on('mouseover', function (event) {
-            layer.bindPopup("<strong>iMeter Details:</strong>" + "<br>OBJECTID: " + feature.properties.OBJECTID + "<br>Account: " + feature.properties.Account + "<br>Consumer Name: " + feature.properties.Consumer_N + "<br>Connection Type: " + feature.properties.Con_Type + "<br>Connection Category: " + feature.properties.Con_Catego + "<br>Meter No: " + feature.properties.Meter_No + "<br>Meter Size: " + feature.properties.Meter_Size + "<br>Reference GIS ID: " + feature.properties.Ref_GISID + "<br>Location: " + feature.properties.Location);
+            layer.bindPopup("<strong>iMeter Details:</strong>" + "<br>OBJECTID: " + feature.properties
+                .OBJECTID + "<br>Account: " + feature.properties.Account + "<br>Consumer Name: " + feature
+                .properties.Consumer_N + "<br>Connection Type: " + feature.properties.Con_Type +
+                "<br>Connection Category: " + feature.properties.Con_Catego + "<br>Meter No: " + feature
+                .properties.Meter_No + "<br>Meter Size: " + feature.properties.Meter_Size +
+                "<br>Reference GIS ID: " + feature.properties.Ref_GISID + "<br>Location: " + feature
+                .properties.Location);
         });
         layer.on('mouseout', function (event) {
             layer.closePopup()
@@ -958,11 +1020,17 @@
     //iValve
     function geoJSON_onEachFeature_iValve(feature, layer) {
         layer.on('click', function (event) {
-            var msg = new SpeechSynthesisUtterance("This is an i valve of " + feature.properties.Valve_Type + "type having diameter " + feature.properties.Diameter + "milimeters. The Material of the valve is " + feature.properties.Material);
+            var msg = new SpeechSynthesisUtterance("This is an i valve of " + feature.properties.Valve_Type +
+                "type having diameter " + feature.properties.Diameter +
+                "milimeters. The Material of the valve is " + feature.properties.Material);
             window.speechSynthesis.speak(msg);
         });
         layer.on('mouseover', function (event) {
-            layer.bindPopup("<strong>iValve Details:</strong>" + "<br>OBJECTID: " + feature.properties.OBJECTID + "<br>Valve Type: " + feature.properties.Valve_Type + "<br>Diameter in mm: " + feature.properties.Valve_Type + "<br>Material: " + feature.properties.Material + "<br>Installation Data: " + feature.properties.Install_Da + "<br>Label: " + feature.properties.Label);
+            layer.bindPopup("<strong>iValve Details:</strong>" + "<br>OBJECTID: " + feature.properties
+                .OBJECTID + "<br>Valve Type: " + feature.properties.Valve_Type + "<br>Diameter in mm: " +
+                feature.properties.Valve_Type + "<br>Material: " + feature.properties.Material +
+                "<br>Installation Data: " + feature.properties.Install_Da + "<br>Label: " + feature
+                .properties.Label);
         });
         layer.on('mouseout', function (event) {
             layer.closePopup()
