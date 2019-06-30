@@ -92,114 +92,6 @@
     ).addTo(mymap);
 
 
-
-    //layer pipes selection features colour change, popup etc
-
-
-    // json-server --watch /path/to/data/to/be/hosted
-    // var data1;
-    // jQuery.getJSON("http://gisropes.com/Kolkata_json_files/AsBuiltPipes.json", data1, function (data) {
-    //     var layer1 = L.geoJson(data1, {
-    //         onEachFeature: geoJSON_onEachFeature,
-    //     }).addTo(mymap);
-    //     console.log(data1);
-    // });
-
-
-    //defining layers using WMS
-    // var dma_boundary = new L.TileLayer.WMS("http://localhost:8080/geoserver/webmapData/wms", {
-    //     layers: 'shapefiles:DmaBoundary',
-    //     format: 'image/png',
-    //     transparent: true
-    // });
-
-    // var asbuilt = new L.TileLayer.WMS("http://localhost:8080/geoserver/webmapData/wms", {
-    //     layers: 'shapefiles:AsBuiltPipes',
-    //     format: 'image/png',
-    //     transparent: true
-    // });
-
-    // var boundary_valve = new L.TileLayer.WMS("http://localhost:8080/geoserver/webmapData/wms", {
-    //     layers: 'shapefiles:Boundary_Valve',
-    //     format: 'image/png',
-    //     transparent: true
-    // });
-
-
-
-    //leaflet.wms.js implementation github leaflet plugin
-
-    // var options = {
-    //     'transparent': true
-    // };
-    // var source = L.WMS.source("http://localhost:8080/geoserver/webmapData/wms", options);
-    // var layer1 = source.getLayer('shapefiles:Boundary_Valve');
-    // var layer2 = source.getLayer('shapefiles:AsBuiltPipes');
-    // var control = L.control.layers({}, {
-    //     'Boundary_Valve': layer1,
-    //     'AsBuiltPipes': layer2
-    // })
-    // control.addTo(mymap);
-
-
-
-
-
-    // jQuery.getJSON(asbuilt,
-    //     function (data2) {
-    //         var layer2 = L.geoJson(data2, {
-    //             onEachFeature: geoJSON_onEachFeature,
-    //         }).addTo(mymap);
-    //     });
-
-    // console.log(x.XMLHTTPRequest.responseJSON);
-    // console.log();
-
-    // var layersss = L.layerGroup([x.x1, y.y1]);
-    // L.control    .layers(my_title_layer, layersss).addTo(mymap);
-
-
-
-
-    //implementing ajax call for WFS
-    // var rootUrl = 'http://localhost:8080/geoserver/webmapData/ows';
-
-    // var defaultParameters = {
-    //     service: 'WFS',
-    //     version: '1.0.0',
-    //     request: 'GetFeature',
-    //     typeName: 'shapefiles:AsBuiltPipes',
-    //     maxFeatures: 200,
-    //     outputFormat: 'json',
-    //     format_options: 'callback: getJson'
-
-    // };
-
-    // var parameters = L.Util.extend(defaultParameters);
-
-    // console.log(rootUrl + L.Util.getParamString(parameters))
-
-    // var x = $.ajax({
-    //     url: "http://localhost:8080/geoserver/webmapData/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=webmapData%3AAsBuiltPipes&maxFeatures=10000&outputFormat=application%2Fjson",
-    //     dataType: 'json',
-    //     jsonpCallback: 'getJson',
-    //     success: handleJson
-    // });
-
-
-    // function handleJson(data) {
-    //     L.geoJson(data, {
-    //         onEachFeature: onEachFeature,
-    //         pointToLayer: function (feature, latlng) {
-    //             return L.circleMarker(latlng, geojsonMarkerOptions);
-    //             //return L.marker(latlng);
-    //         }
-    //     }).addTo(mymap);
-    // }
-    // console.log(x)
-    // var x;
-
-
     //Layers
     var DmaBoundary = new L.LayerGroup();
     var AsBuiltPipes = new L.LayerGroup();
@@ -340,21 +232,14 @@
         }
     });
 
-
-
-
     // //Boundary Valves
     function geoJSON_onEachFeature_Boundary_Valves(feature, layer) {
-        // layer.on('mouseover', function (event) {
-        //     layer.setStyle({
-        //         color: 'red',
-        //         opacity: 1
-        //     })
-        // });
+
         layer.on('click', function (event) {
-            var msg = new SpeechSynthesisUtterance("This is a Boundary Valve installed on a pipe of " + feature
-                .properties.Pipe_Matri + " Material and Diameter " + feature.properties.Pipe_dia +
-                "milimeters. The Boundary Valve type is " + feature.properties.BV_NO);
+            var msg = new SpeechSynthesisUtterance(
+                "This is a Boundary Valve installed on a pipe of Material: " + feature
+                .properties.Pipe_Matri + ".  and Diameter: " + feature.properties.Pipe_dia +
+                "milimeters. The Boundary Valve type is: " + feature.properties.BV_NO);
             msg.rate = 0.85;
             window.speechSynthesis.speak(msg);
         });
@@ -365,10 +250,7 @@
                 feature.properties.Installed_ + "<br>Boundary Valve No:" + feature.properties.BV_NO);
         });
         layer.on('mouseout', function (event) {
-            //     layer.setStyle({
-            //         color: 'black',
-            //         opacity: 1
-            //     })
+
             layer.closePopup();
             window.speechSynthesis.cancel();
 
@@ -383,6 +265,12 @@
         format_options: 'callback:getJson3',
         SrsName: 'EPSG:4326'
     };
+
+    var boundaryValveMarker = L.AwesomeMarkers.icon({
+        icon: 'https://cdn1.iconfinder.com/data/icons/unigrid-bluetone-nature-vol-1/60/009_029_faucet_valve_pipe_water_burst_trouble_payments-512.png',
+        markerColor: 'red'
+    });
+
     var Boundary_Valve_data;
     var parameters_boundary_valve = L.Util.extend(defaultParameters_boundaryValve);
     var URL3 = owsrootUrl + L.Util.getParamString(parameters_boundary_valve);
@@ -392,6 +280,11 @@
         jsonpCallback: 'getJson3',
         success: function (Boundary_Valve_data) {
             L.geoJson(Boundary_Valve_data, {
+                pointToLayer: function (feature, layer) {
+                    return L.marker(layer, {
+                        icon: boundaryValveMarker
+                    })
+                },
                 onEachFeature: geoJSON_onEachFeature_Boundary_Valves,
             }).addTo(Boundary_Valve);
         }
@@ -403,12 +296,7 @@
 
     //EMF
     function geoJSON_onEachFeature_EMF(feature, layer) {
-        // layer.on('mouseover', function (event) {
-        //     layer.setStyle({
-        //         color: 'red',
-        //         opacity: 1
-        //     })
-        // });
+
         layer.on('click', function (event) {
             var msg = new SpeechSynthesisUtterance("This is an EMF");
             msg.rate = 0.85;
@@ -418,10 +306,7 @@
             layer.bindPopup("<strong>EMF:</strong>" + "<br>Notes:" + feature.properties.NOTES);
         });
         layer.on('mouseout', function (event) {
-            //     layer.setStyle({
-            //         color: 'black',
-            //         opacity: 1
-            //     })
+
             layer.closePopup();
             window.speechSynthesis.cancel();
 
@@ -436,7 +321,12 @@
         format_options: 'callback:getJson4',
         SrsName: 'EPSG:4326'
     };
-    var Boundary_Valve_data;
+
+    var EMFMarker = L.AwesomeMarkers.icon({
+        icon: 'https://cdn1.iconfinder.com/data/icons/unigrid-bluetone-nature-vol-1/60/009_029_faucet_valve_pipe_water_burst_trouble_payments-512.png',
+        markerColor: 'green'
+    });
+
     var parameters_EMF = L.Util.extend(defaultParameters_EMF);
     var URL4 = owsrootUrl + L.Util.getParamString(parameters_EMF);
     var ajax = $.ajax({
@@ -445,6 +335,11 @@
         jsonpCallback: 'getJson4',
         success: function (EMF_data) {
             L.geoJson(EMF_data, {
+                pointToLayer: function (feature, layer) {
+                    return L.marker(layer, {
+                        icon: EMFMarker
+                    })
+                },
                 onEachFeature: geoJSON_onEachFeature_EMF,
             }).addTo(EMF);
         }
@@ -516,12 +411,7 @@
 
     //Ferrule
     function geoJSON_onEachFeature_Ferrule(feature, layer) {
-        // layer.on('mouseover', function (event) {
-        //     layer.setStyle({
-        //         color: 'red',
-        //         opacity: 1
-        //     })
-        // });
+
         layer.on('click', function (event) {
             var msg = new SpeechSynthesisUtterance("This is a Ferrule of size " + feature.properties
                 .Ferrule_Si);
@@ -535,10 +425,7 @@
                 feature.properties.DMA + "<br>");
         });
         layer.on('mouseout', function (event) {
-            //     layer.setStyle({
-            //         color: 'black',
-            //         opacity: 1
-            //     })
+
             layer.closePopup();
             window.speechSynthesis.cancel();
 
@@ -553,6 +440,12 @@
         format_options: 'callback:getJson6',
         SrsName: 'EPSG:4326'
     };
+
+    var FerruleMarker = L.AwesomeMarkers.icon({
+        icon: 'https://cdn1.iconfinder.com/data/icons/unigrid-bluetone-nature-vol-1/60/009_029_faucet_valve_pipe_water_burst_trouble_payments-512.png',
+        markerColor: 'pink'
+    });
+
     var Ferrule_data;
     var parameters_Ferrule = L.Util.extend(defaultParameters_Ferrule);
     var URL6 = owsrootUrl + L.Util.getParamString(parameters_Ferrule);
@@ -562,6 +455,11 @@
         jsonpCallback: 'getJson6',
         success: function (Ferrule_data) {
             L.geoJson(Ferrule_data, {
+                pointToLayer: function (feature, layer) {
+                    return L.marker(layer, {
+                        icon: FerruleMarker
+                    })
+                },
                 onEachFeature: geoJSON_onEachFeature_Ferrule,
             }).addTo(Ferrule);
         }
@@ -634,6 +532,12 @@
         format_options: 'callback:getJson8',
         SrsName: 'EPSG:4326'
     };
+
+    var FlowPointMarker = L.AwesomeMarkers.icon({
+        icon: 'https://cdn1.iconfinder.com/data/icons/unigrid-bluetone-nature-vol-1/60/009_029_faucet_valve_pipe_water_burst_trouble_payments-512.png',
+        markerColor: 'purple'
+    });
+
     var FlowPoint_data;
     var parameters_FlowPoint = L.Util.extend(defaultParameters_FlowPoint);
     var URL8 = owsrootUrl + L.Util.getParamString(parameters_FlowPoint);
@@ -643,6 +547,11 @@
         jsonpCallback: 'getJson8',
         success: function (FlowPoint_data) {
             L.geoJson(FlowPoint_data, {
+                pointToLayer: function (feature, layer) {
+                    return L.marker(layer, {
+                        icon: FlowPointMarker
+                    })
+                },
                 onEachFeature: geoJSON_onEachFeature_Flow_Point,
             }).addTo(FlowPoint);
         }
@@ -679,6 +588,10 @@
         SrsName: 'EPSG:4326'
     };
     var IsolationValve_data;
+    var IsolationValveMarker = L.AwesomeMarkers.icon({
+        icon: 'https://cdn1.iconfinder.com/data/icons/unigrid-bluetone-nature-vol-1/60/009_029_faucet_valve_pipe_water_burst_trouble_payments-512.png',
+        markerColor: 'white'
+    });
     var parameters_IsolationValve = L.Util.extend(defaultParameters_IsolationValve);
     var URL9 = owsrootUrl + L.Util.getParamString(parameters_IsolationValve);
     var ajax = $.ajax({
@@ -687,6 +600,11 @@
         jsonpCallback: 'getJson9',
         success: function (IsolationValve_data) {
             L.geoJson(IsolationValve_data, {
+                pointToLayer: function (feature, layer) {
+                    return L.marker(layer, {
+                        icon: IsolationValveMarker
+                    })
+                },
                 onEachFeature: geoJSON_onEachFeature_Isolation_Valve,
             }).addTo(IsolationValve);
         }
@@ -723,6 +641,10 @@
         SrsName: 'EPSG:4326'
     };
     var Junction_data;
+    var JunctionMarker = L.AwesomeMarkers.icon({
+        icon: 'https://cdn1.iconfinder.com/data/icons/unigrid-bluetone-nature-vol-1/60/009_029_faucet_valve_pipe_water_burst_trouble_payments-512.png',
+        markerColor: 'orange'
+    });
     var parameters_Junction = L.Util.extend(defaultParameters_Junction);
     var URL10 = owsrootUrl + L.Util.getParamString(parameters_Junction);
     var ajax = $.ajax({
@@ -731,6 +653,11 @@
         jsonpCallback: 'getJson10',
         success: function (Junction_data) {
             L.geoJson(Junction_data, {
+                pointToLayer: function (feature, layer) {
+                    return L.marker(layer, {
+                        icon: JunctionMarker
+                    })
+                },
                 onEachFeature: geoJSON_onEachFeature_Junction,
             }).addTo(Junction);
         }
@@ -897,6 +824,11 @@
         format_options: 'callback:getJson13',
         SrsName: 'EPSG:4326'
     };
+
+    var PressurePointMarker = L.AwesomeMarkers.icon({
+        icon: 'https://cdn1.iconfinder.com/data/icons/unigrid-bluetone-nature-vol-1/60/009_029_faucet_valve_pipe_water_burst_trouble_payments-512.png',
+        markerColor: 'gray'
+    });
     var PressurePoint_data;
     var parameters_PressurePoint = L.Util.extend(defaultParameters_PressurePoint);
     var URL13 = owsrootUrl + L.Util.getParamString(parameters_PressurePoint);
@@ -906,6 +838,11 @@
         jsonpCallback: 'getJson13',
         success: function (PressurePoint_data) {
             L.geoJson(PressurePoint_data, {
+                pointToLayer: function (feature, layer) {
+                    return L.marker(layer, {
+                        icon: PressurePointMarker
+                    })
+                },
                 onEachFeature: geoJSON_onEachFeature_Pressure_Point,
             }).addTo(PressurePoint);
         }
@@ -945,6 +882,10 @@
         SrsName: 'EPSG:4326'
     };
     var iFittings_data;
+    var iFittingsMarker = L.AwesomeMarkers.icon({
+        icon: 'https://cdn1.iconfinder.com/data/icons/unigrid-bluetone-nature-vol-1/60/009_029_faucet_valve_pipe_water_burst_trouble_payments-512.png',
+        markerColor: 'black'
+    });
     var parameters_iFittings = L.Util.extend(defaultParameters_iFittings);
     var URL14 = owsrootUrl + L.Util.getParamString(parameters_iFittings);
     var ajax = $.ajax({
@@ -953,6 +894,11 @@
         jsonpCallback: 'getJson14',
         success: function (iFittings_data) {
             L.geoJson(iFittings_data, {
+                pointToLayer: function (feature, layer) {
+                    return L.marker(layer, {
+                        icon: iFittingsMarker
+                    })
+                },
                 onEachFeature: geoJSON_onEachFeature_iFittings,
             }).addTo(iFittings);
         }
@@ -1060,6 +1006,10 @@
         SrsName: 'EPSG:4326'
     };
     var iMeter_data;
+    var iMeterMarker = L.AwesomeMarkers.icon({
+        icon: 'https://cdn1.iconfinder.com/data/icons/unigrid-bluetone-nature-vol-1/60/009_029_faucet_valve_pipe_water_burst_trouble_payments-512.png',
+        markerColor: 'blue'
+    });
     var parameters_iMeter = L.Util.extend(defaultParameters_iMeter);
     var URL16 = owsrootUrl + L.Util.getParamString(parameters_iMeter);
     var ajax = $.ajax({
@@ -1068,6 +1018,11 @@
         jsonpCallback: 'getJson16',
         success: function (iMeter_data) {
             L.geoJson(iMeter_data, {
+                pointToLayer: function (feature, layer) {
+                    return L.marker(layer, {
+                        icon: iMeterMarker
+                    })
+                },
                 onEachFeature: geoJSON_onEachFeature_iMeter,
             }).addTo(iMeter);
         }
@@ -1108,6 +1063,10 @@
         SrsName: 'EPSG:4326'
     };
     var iValve_data;
+    var iValveMarker = L.AwesomeMarkers.icon({
+        icon: 'https://cdn1.iconfinder.com/data/icons/unigrid-bluetone-nature-vol-1/60/009_029_faucet_valve_pipe_water_burst_trouble_payments-512.png',
+        markerColor: 'red'
+    });
     var parameters_iValve = L.Util.extend(defaultParameters_iValve);
     var URL17 = owsrootUrl + L.Util.getParamString(parameters_iValve);
     var ajax = $.ajax({
@@ -1116,6 +1075,11 @@
         jsonpCallback: 'getJson17',
         success: function (iValve_data) {
             L.geoJson(iValve_data, {
+                pointToLayer: function (feature, layer) {
+                    return L.marker(layer, {
+                        icon: iValveMarker
+                    })
+                },
                 onEachFeature: geoJSON_onEachFeature_iValve,
             }).addTo(iValve);
         }
