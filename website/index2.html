@@ -1,4 +1,5 @@
-<!-- This file consists code for multiple layer projections but no popup for layers -->
+<!-- TRIED MARKER LOGOS HERE -->
+
 <!DOCTYPE html>
 
 <head>
@@ -238,7 +239,8 @@
             })
         });
         layer.on('click', function (event) {
-            var msg = new SpeechSynthesisUtterance("This is" + feature.properties.DMA_a);
+            var msg = new SpeechSynthesisUtterance("This is " + feature.properties.DMA_a);
+            msg.rate = 0.85;
             window.speechSynthesis.speak(msg);
         });
         layer.on('mouseover', function (event) {
@@ -249,6 +251,8 @@
                 color: 'yellow',
                 opacity: 1
             })
+            layer.closePopup();
+            window.speechSynthesis.cancel();
         });
     };
     var defaultParameters_dmaboundary = {
@@ -290,9 +294,10 @@
             })
         });
         layer.on('click', function (event) {
-            var msg = new SpeechSynthesisUtterance("This is an AsBuilt Pipe having Diameter" + feature
-                .properties.Pipe_Dia_m + "milimeters and length" + feature.properties.Length_Mtr +
-                "meters. The Material of the pipe is" + feature.properties.Pipe_Mater);
+            var msg = new SpeechSynthesisUtterance("This is an AsBuilt Pipe having Diameter " + feature
+                .properties.Pipe_Dia_m + " milimeters and length " + feature.properties.Length_Mtr +
+                "meters. The Material of the pipe is " + feature.properties.Pipe_Mater);
+            msg.rate = 0.85;
             window.speechSynthesis.speak(msg);
         });
         layer.on('mouseover', function (event) {
@@ -307,6 +312,8 @@
                 color: 'black',
                 opacity: 1
             })
+            layer.closePopup();
+            window.speechSynthesis.cancel();
         });
     };
     var defaultParameters = {
@@ -345,9 +352,10 @@
         //     })
         // });
         layer.on('click', function (event) {
-            var msg = new SpeechSynthesisUtterance("This is a Boundary Valve installed on a pipe of" + feature
-                .properties.Pipe_Matri + "Material and Diameter " + feature.properties.Pipe_dia +
+            var msg = new SpeechSynthesisUtterance("This is a Boundary Valve installed on a pipe of " + feature
+                .properties.Pipe_Matri + " Material and Diameter " + feature.properties.Pipe_dia +
                 "milimeters. The Boundary Valve type is " + feature.properties.BV_NO);
+            msg.rate = 0.85;
             window.speechSynthesis.speak(msg);
         });
         layer.on('mouseover', function (event) {
@@ -356,12 +364,15 @@
                 "<br>Pipe Diameter in mm:" + feature.properties.Pipe_dia + "<br>Installed Pipe Diameter:" +
                 feature.properties.Installed_ + "<br>Boundary Valve No:" + feature.properties.BV_NO);
         });
-        // layer.on('mouseout', function (event) {
-        //     layer.setStyle({
-        //         color: 'black',
-        //         opacity: 1
-        //     })
-        // });
+        layer.on('mouseout', function (event) {
+            //     layer.setStyle({
+            //         color: 'black',
+            //         opacity: 1
+            //     })
+            layer.closePopup();
+            window.speechSynthesis.cancel();
+
+        });
     };
     var defaultParameters_boundaryValve = {
         service: 'WFS',
@@ -400,17 +411,21 @@
         // });
         layer.on('click', function (event) {
             var msg = new SpeechSynthesisUtterance("This is an EMF");
+            msg.rate = 0.85;
             window.speechSynthesis.speak(msg);
         });
         layer.on('mouseover', function (event) {
             layer.bindPopup("<strong>EMF:</strong>" + "<br>Notes:" + feature.properties.NOTES);
         });
-        // layer.on('mouseout', function (event) {
-        //     layer.setStyle({
-        //         color: 'black',
-        //         opacity: 1
-        //     })
-        // });
+        layer.on('mouseout', function (event) {
+            //     layer.setStyle({
+            //         color: 'black',
+            //         opacity: 1
+            //     })
+            layer.closePopup();
+            window.speechSynthesis.cancel();
+
+        });
     };
     var defaultParameters_EMF = {
         service: 'WFS',
@@ -452,9 +467,10 @@
             })
         });
         layer.on('click', function (event) {
-            var msg = new SpeechSynthesisUtterance("This is an Existing Pipe having Diameter" + feature
-                .properties.Diameter_m + "milimeters and length" + feature.properties.length_M +
-                "meters. The Material of the pipe is" + feature.properties.Pipe_Mater);
+            var msg = new SpeechSynthesisUtterance("This is an Existing Pipe having Diameter " + feature
+                .properties.Diameter_m + " milimeters and length " + feature.properties.length_M +
+                "meters. The Material of the pipe is " + feature.properties.Pipe_Mater);
+            msg.rate = 0.85;
             window.speechSynthesis.speak(msg);
         });
         layer.on('mouseover', function (event) {
@@ -468,6 +484,8 @@
                 color: 'green',
                 opacity: 1
             })
+            layer.closePopup();
+            window.speechSynthesis.cancel();
         });
     };
     var defaultParameters_Existing_Pipe = {
@@ -507,6 +525,7 @@
         layer.on('click', function (event) {
             var msg = new SpeechSynthesisUtterance("This is a Ferrule of size " + feature.properties
                 .Ferrule_Si);
+            msg.rate = 0.85;
             window.speechSynthesis.speak(msg);
         });
         layer.on('mouseover', function (event) {
@@ -515,12 +534,15 @@
                 .properties.Account + "<br>Refernce GIS ID: " + feature.properties.Ref_GISID + "<br>DMA: " +
                 feature.properties.DMA + "<br>");
         });
-        // layer.on('mouseout', function (event) {
-        //     layer.setStyle({
-        //         color: 'black',
-        //         opacity: 1
-        //     })
-        // });
+        layer.on('mouseout', function (event) {
+            //     layer.setStyle({
+            //         color: 'black',
+            //         opacity: 1
+            //     })
+            layer.closePopup();
+            window.speechSynthesis.cancel();
+
+        });
     };
     var defaultParameters_Ferrule = {
         service: 'WFS',
@@ -584,9 +606,10 @@
     //FlowPoint
     function geoJSON_onEachFeature_Flow_Point(feature, layer) {
         layer.on('click', function (event) {
-            var msg = new SpeechSynthesisUtterance("This is a Flow point having Diameter" + feature.properties
-                .Pipe_Dia + "milimeters, located in ward Number" + feature.properties.Ward_No +
-                "and DMA number" + feature.properties.DMA);
+            var msg = new SpeechSynthesisUtterance("This is a Flow point having Diameter " + feature.properties
+                .Pipe_Dia + " milimeters, located in ward Number " + feature.properties.Ward_No +
+                " and DMA number " + feature.properties.DMA);
+            msg.rate = 0.85;
             window.speechSynthesis.speak(msg);
         });
         layer.on('mouseover', function (event) {
@@ -597,6 +620,8 @@
         });
         layer.on('mouseout', function (event) {
             layer.closePopup()
+            window.speechSynthesis.cancel();
+
         });
     };
 
@@ -628,8 +653,9 @@
     //IsolationValve
     function geoJSON_onEachFeature_Isolation_Valve(feature, layer) {
         layer.on('click', function (event) {
-            var msg = new SpeechSynthesisUtterance("This is an Isolation Valve of" + feature.properties
-                .Valve_Type + "type, located in zone ID" + feature.properties.ZONEID);
+            var msg = new SpeechSynthesisUtterance("This is an Isolation Valve of " + feature.properties
+                .Valve_Type + ".. type, located in zone I D " + feature.properties.ZONEID);
+            msg.rate = 0.85;
             window.speechSynthesis.speak(msg);
         });
         layer.on('mouseover', function (event) {
@@ -639,7 +665,8 @@
                 "<br>Valve Type: " + feature.properties.Valve_Type);
         });
         layer.on('mouseout', function (event) {
-            layer.closePopup()
+            layer.closePopup();
+            window.speechSynthesis.cancel();
         });
     };
     var defaultParameters_IsolationValve = {
@@ -670,7 +697,8 @@
     //Junction
     function geoJSON_onEachFeature_Junction(feature, layer) {
         layer.on('click', function (event) {
-            var msg = new SpeechSynthesisUtterance("This is a Junction in" + feature.properties.ZONE);
+            var msg = new SpeechSynthesisUtterance("This is a Junction in " + feature.properties.ZONE);
+            msg.rate = 0.85;
             window.speechSynthesis.speak(msg);
         });
         layer.on('mouseover', function (event) {
@@ -679,7 +707,10 @@
                 "<br>Zone ID: " + feature.properties.ZONEID + "<br>DMA: " + feature.properties.ZONE);
         });
         layer.on('mouseout', function (event) {
-            layer.closePopup()
+
+            layer.closePopup();
+            window.speechSynthesis.cancel();
+
         });
     };
     var defaultParameters_Junction = {
@@ -722,6 +753,7 @@
         });
         layer.on('click', function (event) {
             var msg = new SpeechSynthesisUtterance("This is a Parcel Boundary");
+            msg.rate = 0.85;
             window.speechSynthesis.speak(msg);
         });
         layer.on('mouseover', function (event) {
@@ -734,6 +766,10 @@
                 color: 'brown',
                 opacity: 1
             })
+
+            layer.closePopup();
+            window.speechSynthesis.cancel();
+
         });
         layer.on('mouseout', function (event) {
             layer.closePopup()
@@ -778,10 +814,12 @@
             })
         });
         layer.on('click', function (event) {
-            var msg = new SpeechSynthesisUtterance("This is a Pipe having Diameter" + feature.properties.D +
-                "milimeters and length" + feature.properties.L + "meters. The Material of the pipe is" +
+            var msg = new SpeechSynthesisUtterance("This is a Pipe having Diameter " + feature.properties.D +
+                " milimeters and length " + feature.properties.L + " meters. The Material of the pipe is " +
                 feature.properties.MATERIAL);
+            msg.rate = 0.85
             window.speechSynthesis.speak(msg);
+            console.log(msg)
         });
         layer.on('mouseover', function (event) {
             layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID: " + feature.properties.OBJECTID +
@@ -796,7 +834,10 @@
             })
         });
         layer.on('mouseout', function (event) {
-            layer.closePopup()
+
+            layer.closePopup();
+            window.speechSynthesis.cancel();
+
         });
     };
     var defaultParameters_Pipe = {
@@ -830,6 +871,7 @@
             var msg = new SpeechSynthesisUtterance("This is a Pressure Point in DMA" + feature.properties.DMA +
                 "and Ward number" + feature.properties.Ward + ".The Material of the pipe is" + feature
                 .properties.pipe_mater);
+            msg.rate = 0.85;
             window.speechSynthesis.speak(msg);
         });
         layer.on('mouseover', function (event) {
@@ -840,7 +882,10 @@
                 "<br>External Pipe Condition: " + feature.properties.external_p);
         });
         layer.on('mouseout', function (event) {
-            layer.closePopup()
+
+            layer.closePopup();
+            window.speechSynthesis.cancel();
+
         });
     };
     var defaultParameters_PressurePoint = {
@@ -871,9 +916,10 @@
     //iFittings
     function geoJSON_onEachFeature_iFittings(feature, layer) {
         layer.on('click', function (event) {
-            var msg = new SpeechSynthesisUtterance("This is an ifitting of Diameter" + feature.properties
+            var msg = new SpeechSynthesisUtterance("This is a fitting of Diameter" + feature.properties
                 .Diameter + "milimeters and fitting type is " + feature.properties.Fitting_Ty +
-                ".The Material of the pipe is" + feature.properties.Material);
+                ".The Material of the pipe is " + feature.properties.Material);
+            msg.rate = 0.85;
             window.speechSynthesis.speak(msg);
         });
         layer.on('mouseover', function (event) {
@@ -883,7 +929,10 @@
                 "<br>DMA: " + feature.properties.DMA);
         });
         layer.on('mouseout', function (event) {
-            layer.closePopup()
+
+            layer.closePopup();
+            window.speechSynthesis.cancel();
+
         });
     };
     var defaultParameters_iFittings = {
@@ -928,6 +977,7 @@
             var msg = new SpeechSynthesisUtterance("This is an i HSC line of Diameter" + feature.properties
                 .Diameter + "milimeters and length " + feature.properties.Diameter +
                 ".The Material of the pipe is" + feature.properties.Material);
+            msg.rate = 0.85;
             window.speechSynthesis.speak(msg);
         });
         layer.on('mouseover', function (event) {
@@ -943,7 +993,10 @@
             })
         });
         layer.on('mouseout', function (event) {
-            layer.closePopup()
+
+            layer.closePopup();
+            window.speechSynthesis.cancel();
+
         });
     };
     var defaultParameters_iHscLine = {
@@ -974,9 +1027,11 @@
     //iMeter
     function geoJSON_onEachFeature_iMeter(feature, layer) {
         layer.on('click', function (event) {
-            var msg = new SpeechSynthesisUtterance("This is an i meter of " + feature.properties.Con_Type +
-                "Connection type and " + feature.properties.Con_Catego +
-                "Connection category and meter size " + feature.properties.Meter_Size);
+            var msg = new SpeechSynthesisUtterance("This is an i meter of Connection Type: " + feature
+                .properties.Con_Type +
+                ".. and Connection category: " + feature.properties.Con_Catego +
+                ". and meter size: " + feature.properties.Meter_Size);
+            msg.rate = 0.85;
             window.speechSynthesis.speak(msg);
         });
         layer.on('mouseover', function (event) {
@@ -989,7 +1044,10 @@
                 .properties.Location);
         });
         layer.on('mouseout', function (event) {
-            layer.closePopup()
+
+            layer.closePopup();
+            window.speechSynthesis.cancel();
+
         });
     };
     var defaultParameters_iMeter = {
@@ -1021,8 +1079,9 @@
     function geoJSON_onEachFeature_iValve(feature, layer) {
         layer.on('click', function (event) {
             var msg = new SpeechSynthesisUtterance("This is an i valve of " + feature.properties.Valve_Type +
-                "type having diameter " + feature.properties.Diameter +
+                " type having diameter " + feature.properties.Diameter +
                 "milimeters. The Material of the valve is " + feature.properties.Material);
+            msg.rate = 0.85;
             window.speechSynthesis.speak(msg);
         });
         layer.on('mouseover', function (event) {
@@ -1033,7 +1092,10 @@
                 .properties.Label);
         });
         layer.on('mouseout', function (event) {
-            layer.closePopup()
+
+            layer.closePopup();
+            window.speechSynthesis.cancel();
+
         });
     };
     var defaultParameters_iValve = {
