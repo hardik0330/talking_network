@@ -39,7 +39,7 @@
         #mymap {
             position: relative;
             width: 100.0%;
-            height: 93.0%;
+            height: 94.5%;
         }
 
         #map-wrapper {
@@ -49,9 +49,38 @@
 
         #btnTrack {
             position: absolute;
-            bottom: 20px;
+            bottom: 2px;
             width: 100%;
-            font-size: 18px;
+            font-size: 24px;
+            color: #EEF4ED;
+            border: 2px solid #EEF4ED;
+            background-color: #13315C;
+        }
+
+        #btnTrack:hover {
+            position: absolute;
+            bottom: 2px;
+            width: 100%;
+            font-size: 24px;
+            color: #EEF4ED;
+            border: 2px solid #EEF4ED;
+            background-color: #8DA9C4;
+        }
+
+        .leaflet-control-layers-toggle {
+            background-size: 30px 30px;
+        }
+
+        .leaflet-control-layers-expanded {
+            color: #EEF4ED;
+            background-color: #13315C;
+            font-size: 16px;
+            width: 200px;
+            line-height: 200%;
+        }
+
+        .leaflet-control-layers-group-name:active {
+            background: #8DA9C4;
         }
     </style>
 
