@@ -1,0 +1,1165 @@
+<!-- This file consists code for multiple layer projections but no popup for layers -->
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>SUEZ multilayer</title>
+    </script>
+    <script>
+        L_NO_TOUCH = false;
+        L_DISABLE_3D = false;
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js">
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css" />
+    <link rel="stylesheet"
+        href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css" />
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>
+        #mymap {
+            position: relative;
+            width: 100.0%;
+            height: 93.0%;
+        }
+
+        #map-wrapper {
+            width: 100%;
+            height: 100%;
+        }
+
+        #btnTrack {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            font-size: 18px;
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <div class="span9" style="height:100%">
+        <div id="map-wrapper">
+            <div id="mymap"></div>
+            <div style="align-items: center">
+                <button id="btnTrack" onclick="myTracking()">Start Tracking My Location</button></div>
+        </div>
+    </div>
+
+</body>
+<script>
+    var mymap = L.map(
+        "mymap", {
+            center: [22.618804308709468, 88.38054656982422],
+            crs: L.CRS.EPSG3857,
+            zoom: 14,
+            preferCanvas: false,
+            zoomControl: true,
+        }
+    );
+
+    var my_title_layer = L.tileLayer(
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            "attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.",
+            "detectRetina": false,
+            "maxNativeZoom": 18,
+            "maxZoom": 22,
+            "noWrap": false,
+            "opacity": 1,
+            "subdomains": "abc",
+            "tms": false
+        }
+    ).addTo(mymap);
+
+
+
+    //layer pipes selection features colour change, popup etc
+
+
+    // json-server --watch /path/to/data/to/be/hosted
+    // var data1;
+    // jQuery.getJSON("http://gisropes.com/Kolkata_json_files/AsBuiltPipes.json", data1, function (data) {
+    //     var layer1 = L.geoJson(data1, {
+    //         onEachFeature: geoJSON_onEachFeature,
+    //     }).addTo(mymap);
+    //     console.log(data1);
+    // });
+
+
+    //defining layers using WMS
+    // var dma_boundary = new L.TileLayer.WMS("http://localhost:8080/geoserver/webmapData/wms", {
+    //     layers: 'shapefiles:DmaBoundary',
+    //     format: 'image/png',
+    //     transparent: true
+    // });
+
+    // var asbuilt = new L.TileLayer.WMS("http://localhost:8080/geoserver/webmapData/wms", {
+    //     layers: 'shapefiles:AsBuiltPipes',
+    //     format: 'image/png',
+    //     transparent: true
+    // });
+
+    // var boundary_valve = new L.TileLayer.WMS("http://localhost:8080/geoserver/webmapData/wms", {
+    //     layers: 'shapefiles:Boundary_Valve',
+    //     format: 'image/png',
+    //     transparent: true
+    // });
+
+
+
+    //leaflet.wms.js implementation github leaflet plugin
+
+    // var options = {
+    //     'transparent': true
+    // };
+    // var source = L.WMS.source("http://localhost:8080/geoserver/webmapData/wms", options);
+    // var layer1 = source.getLayer('shapefiles:Boundary_Valve');
+    // var layer2 = source.getLayer('shapefiles:AsBuiltPipes');
+    // var control = L.control.layers({}, {
+    //     'Boundary_Valve': layer1,
+    //     'AsBuiltPipes': layer2
+    // })
+    // control.addTo(mymap);
+
+
+
+
+
+    // jQuery.getJSON(asbuilt,
+    //     function (data2) {
+    //         var layer2 = L.geoJson(data2, {
+    //             onEachFeature: geoJSON_onEachFeature,
+    //         }).addTo(mymap);
+    //     });
+
+    // console.log(x.XMLHTTPRequest.responseJSON);
+    // console.log();
+
+    // var layersss = L.layerGroup([x.x1, y.y1]);
+    // L.control    .layers(my_title_layer, layersss).addTo(mymap);
+
+
+
+
+    //implementing ajax call for WFS
+    // var rootUrl = 'http://localhost:8080/geoserver/webmapData/ows';
+
+    // var defaultParameters = {
+    //     service: 'WFS',
+    //     version: '1.0.0',
+    //     request: 'GetFeature',
+    //     typeName: 'shapefiles:AsBuiltPipes',
+    //     maxFeatures: 200,
+    //     outputFormat: 'json',
+    //     format_options: 'callback: getJson'
+
+    // };
+
+    // var parameters = L.Util.extend(defaultParameters);
+
+    // console.log(rootUrl + L.Util.getParamString(parameters))
+
+    // var x = $.ajax({
+    //     url: "http://localhost:8080/geoserver/webmapData/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=webmapData%3AAsBuiltPipes&maxFeatures=10000&outputFormat=application%2Fjson",
+    //     dataType: 'json',
+    //     jsonpCallback: 'getJson',
+    //     success: handleJson
+    // });
+
+
+    // function handleJson(data) {
+    //     L.geoJson(data, {
+    //         onEachFeature: onEachFeature,
+    //         pointToLayer: function (feature, latlng) {
+    //             return L.circleMarker(latlng, geojsonMarkerOptions);
+    //             //return L.marker(latlng);
+    //         }
+    //     }).addTo(mymap);
+    // }
+    // console.log(x)
+    // var x;
+
+
+    //Layers
+    var DmaBoundary = new L.LayerGroup();
+    var AsBuiltPipes = new L.LayerGroup();
+    var Boundary_Valve = new L.LayerGroup();
+    var EMF = new L.LayerGroup();
+    var Existing_Pipe = new L.LayerGroup();
+    var Ferrule = new L.LayerGroup();
+    var FlowDirection = new L.LayerGroup();
+    var FlowPoint = new L.LayerGroup();
+    var IsolationValve = new L.LayerGroup();
+    var Junction = new L.LayerGroup();
+    var ParcelBoundary = new L.LayerGroup();
+    var Pipe = new L.LayerGroup();
+    var PressurePoint = new L.LayerGroup();
+    var iFittings = new L.LayerGroup();
+    var iHscLine = new L.LayerGroup();
+    var iMeter = new L.LayerGroup();
+    var iValve = new L.LayerGroup();
+    var baseMaps = {}
+
+
+    //Base URL
+    var owsrootUrl = 'http://gisropes.com:9005/geoserver/talking_network/wfs';
+    // var owsrootUrl = 'http://localhost:8080/geoserver/talking_network/wfs'
+
+    // DMA Boundary
+    function geoJSON_onEachFeature_DMA_Boundary(feature, layer) {
+        layer.setStyle({
+            color: 'yellow',
+            opacity: 1,
+            weight: 5
+        })
+        layer.on('mouseover', function (event) {
+            layer.setStyle({
+                color: 'red',
+                opacity: 1
+            })
+        });
+        layer.on('click', function (event) {
+            var msg = new SpeechSynthesisUtterance("This is " + feature.properties.DMA_a);
+            msg.rate = 0.85;
+            window.speechSynthesis.speak(msg);
+        });
+        layer.on('mouseover', function (event) {
+            layer.bindPopup("<strong>Dma Details:</strong>" + "<br>" + feature.properties.DMA_a);
+        });
+        layer.on('mouseout', function (event) {
+            layer.setStyle({
+                color: 'yellow',
+                opacity: 1
+            })
+            layer.closePopup();
+            window.speechSynthesis.cancel();
+        });
+    };
+    var defaultParameters_dmaboundary = {
+        service: 'WFS',
+        version: '2.0',
+        request: 'GetFeature',
+        typeName: 'talking_network:DmaBoundary',
+        outputFormat: 'text/javascript',
+        format_options: 'callback:getJson1',
+        SrsName: 'EPSG:4326'
+    };
+    var Dma_Boundary_data;
+    var parameters_dmaboundary = L.Util.extend(defaultParameters_dmaboundary);
+    var URL = owsrootUrl + L.Util.getParamString(parameters_dmaboundary);
+    var ajax = $.ajax({
+        url: URL,
+        dataType: 'jsonp',
+        jsonpCallback: 'getJson1',
+        success: function (Dma_Boundary_data) {
+            L.geoJson(Dma_Boundary_data, {
+                onEachFeature: geoJSON_onEachFeature_DMA_Boundary,
+            }).addTo(DmaBoundary);
+        }
+    });
+
+
+
+    //As Built Pipes
+    function geoJSON_onEachFeature_As_Built_Pipe(feature, layer) {
+        layer.setStyle({
+            color: 'black',
+            opacity: 1,
+            weight: 5
+        })
+        layer.on('mouseover', function (event) {
+            layer.setStyle({
+                color: 'red',
+                opacity: 1
+            })
+        });
+        layer.on('click', function (event) {
+            var msg = new SpeechSynthesisUtterance("This is an AsBuilt Pipe having Diameter " + feature
+                .properties.Pipe_Dia_m + " milimeters and length " + feature.properties.Length_Mtr +
+                "meters. The Material of the pipe is " + feature.properties.Pipe_Mater);
+            msg.rate = 0.85;
+            window.speechSynthesis.speak(msg);
+        });
+        layer.on('mouseover', function (event) {
+            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID:" + feature.properties.OBJECTID +
+                "<br>Pipe ID:" + feature.properties.PipeID_GIS + "<br>Diameter in mm:" + feature.properties
+                .Pipe_Dia_m + "<br>Length in Meters:" + feature.properties.Length_Mtr + "<br>DMA:" + feature
+                .properties.DMA + "<br>Pipe Material:" + feature.properties.Pipe_Mater + "<br>Road Name:" +
+                feature.properties.Road_Name + "<br>Pipe Status:" + feature.properties.AsBuilt_St);
+        });
+        layer.on('mouseout', function (event) {
+            layer.setStyle({
+                color: 'black',
+                opacity: 1
+            })
+            layer.closePopup();
+            window.speechSynthesis.cancel();
+        });
+    };
+    var defaultParameters = {
+        service: 'WFS',
+        version: '2.0',
+        request: 'GetFeature',
+        typeName: 'talking_network:AsBuiltPipes',
+        outputFormat: 'text/javascript',
+        format_options: 'callback:getJson2',
+        SrsName: 'EPSG:4326'
+    };
+    var AsBuiltPipes_data;
+    var parameters_asbuiltpipes = L.Util.extend(defaultParameters);
+    var URL2 = owsrootUrl + L.Util.getParamString(parameters_asbuiltpipes);
+    //console.log(URL2)
+    var ajax = $.ajax({
+        url: URL2,
+        dataType: 'jsonp',
+        jsonpCallback: 'getJson2',
+        success: function (AsBuiltPipes_data) {
+            L.geoJson(AsBuiltPipes_data, {
+                onEachFeature: geoJSON_onEachFeature_As_Built_Pipe,
+            }).addTo(AsBuiltPipes);
+        }
+    });
+
+
+
+
+    // //Boundary Valves
+    function geoJSON_onEachFeature_Boundary_Valves(feature, layer) {
+        // layer.on('mouseover', function (event) {
+        //     layer.setStyle({
+        //         color: 'red',
+        //         opacity: 1
+        //     })
+        // });
+        layer.on('click', function (event) {
+            var msg = new SpeechSynthesisUtterance("This is a Boundary Valve installed on a pipe of " + feature
+                .properties.Pipe_Matri + " Material and Diameter " + feature.properties.Pipe_dia +
+                "milimeters. The Boundary Valve type is " + feature.properties.BV_NO);
+            msg.rate = 0.85;
+            window.speechSynthesis.speak(msg);
+        });
+        layer.on('mouseover', function (event) {
+            layer.bindPopup("<strong>Boundary Valve Details:</strong>" + "<br>OBJECTID:" + feature.properties
+                .OBJECTID + "<br>Pipe Material:" + feature.properties.Pipe_Matri +
+                "<br>Pipe Diameter in mm:" + feature.properties.Pipe_dia + "<br>Installed Pipe Diameter:" +
+                feature.properties.Installed_ + "<br>Boundary Valve No:" + feature.properties.BV_NO);
+        });
+        layer.on('mouseout', function (event) {
+            //     layer.setStyle({
+            //         color: 'black',
+            //         opacity: 1
+            //     })
+            layer.closePopup();
+            window.speechSynthesis.cancel();
+
+        });
+    };
+    var defaultParameters_boundaryValve = {
+        service: 'WFS',
+        version: '2.0',
+        request: 'GetFeature',
+        typeName: 'talking_network:Boundary_Valve',
+        outputFormat: 'text/javascript',
+        format_options: 'callback:getJson3',
+        SrsName: 'EPSG:4326'
+    };
+    var Boundary_Valve_data;
+    var parameters_boundary_valve = L.Util.extend(defaultParameters_boundaryValve);
+    var URL3 = owsrootUrl + L.Util.getParamString(parameters_boundary_valve);
+    var ajax = $.ajax({
+        url: URL3,
+        dataType: 'jsonp',
+        jsonpCallback: 'getJson3',
+        success: function (Boundary_Valve_data) {
+            L.geoJson(Boundary_Valve_data, {
+                onEachFeature: geoJSON_onEachFeature_Boundary_Valves,
+            }).addTo(Boundary_Valve);
+        }
+    });
+
+
+
+
+
+    //EMF
+    function geoJSON_onEachFeature_EMF(feature, layer) {
+        // layer.on('mouseover', function (event) {
+        //     layer.setStyle({
+        //         color: 'red',
+        //         opacity: 1
+        //     })
+        // });
+        layer.on('click', function (event) {
+            var msg = new SpeechSynthesisUtterance("This is an EMF");
+            msg.rate = 0.85;
+            window.speechSynthesis.speak(msg);
+        });
+        layer.on('mouseover', function (event) {
+            layer.bindPopup("<strong>EMF:</strong>" + "<br>Notes:" + feature.properties.NOTES);
+        });
+        layer.on('mouseout', function (event) {
+            //     layer.setStyle({
+            //         color: 'black',
+            //         opacity: 1
+            //     })
+            layer.closePopup();
+            window.speechSynthesis.cancel();
+
+        });
+    };
+    var defaultParameters_EMF = {
+        service: 'WFS',
+        version: '2.0',
+        request: 'GetFeature',
+        typeName: 'talking_network:EMF',
+        outputFormat: 'text/javascript',
+        format_options: 'callback:getJson4',
+        SrsName: 'EPSG:4326'
+    };
+    var Boundary_Valve_data;
+    var parameters_EMF = L.Util.extend(defaultParameters_EMF);
+    var URL4 = owsrootUrl + L.Util.getParamString(parameters_EMF);
+    var ajax = $.ajax({
+        url: URL4,
+        dataType: 'jsonp',
+        jsonpCallback: 'getJson4',
+        success: function (EMF_data) {
+            L.geoJson(EMF_data, {
+                onEachFeature: geoJSON_onEachFeature_EMF,
+            }).addTo(EMF);
+        }
+    });
+
+
+
+
+    //Existing_Pipe
+    function geoJSON_onEachFeature_Existing_Pipe(feature, layer) {
+        layer.setStyle({
+            color: 'green',
+            opacity: 1,
+            weight: 5
+        })
+        layer.on('mouseover', function (event) {
+            layer.setStyle({
+                color: 'red',
+                opacity: 1
+            })
+        });
+        layer.on('click', function (event) {
+            var msg = new SpeechSynthesisUtterance("This is an Existing Pipe having Diameter " + feature
+                .properties.Diameter_m + " milimeters and length " + feature.properties.length_M +
+                "meters. The Material of the pipe is " + feature.properties.Pipe_Mater);
+            msg.rate = 0.85;
+            window.speechSynthesis.speak(msg);
+        });
+        layer.on('mouseover', function (event) {
+            layer.bindPopup("<strong>Pipe Details: </strong> " + " <br>OBJECTID:" + feature.properties
+                .OBJECTID + "<br>Diameter in mm:" + feature.properties.Diameter_m +
+                "<br>Length in Meters:" + feature.properties.length_M + "<br>Pipe Material:" + feature
+                .properties.Pipe_Mater + "<br>Type:" + feature.properties.Type_);
+        });
+        layer.on('mouseout', function (event) {
+            layer.setStyle({
+                color: 'green',
+                opacity: 1
+            })
+            layer.closePopup();
+            window.speechSynthesis.cancel();
+        });
+    };
+    var defaultParameters_Existing_Pipe = {
+        service: 'WFS',
+        version: '2.0',
+        request: 'GetFeature',
+        typeName: 'talking_network:Existing_pipe',
+        outputFormat: 'text/javascript',
+        format_options: 'callback:getJson5',
+        SrsName: 'EPSG:4326'
+    };
+    var Existing_Pipe_data;
+    var parameters_Existing_Pipe = L.Util.extend(defaultParameters_Existing_Pipe);
+    var URL5 = owsrootUrl + L.Util.getParamString(parameters_Existing_Pipe);
+    var ajax = $.ajax({
+        url: URL5,
+        dataType: 'jsonp',
+        jsonpCallback: 'getJson5',
+        success: function (Existing_Pipe_data) {
+            L.geoJson(Existing_Pipe_data, {
+                onEachFeature: geoJSON_onEachFeature_Existing_Pipe,
+            }).addTo(Existing_Pipe);
+        }
+    });
+
+
+
+
+    //Ferrule
+    function geoJSON_onEachFeature_Ferrule(feature, layer) {
+        // layer.on('mouseover', function (event) {
+        //     layer.setStyle({
+        //         color: 'red',
+        //         opacity: 1
+        //     })
+        // });
+        layer.on('click', function (event) {
+            var msg = new SpeechSynthesisUtterance("This is a Ferrule of size " + feature.properties
+                .Ferrule_Si);
+            msg.rate = 0.85;
+            window.speechSynthesis.speak(msg);
+        });
+        layer.on('mouseover', function (event) {
+            layer.bindPopup("<strong>Ferrule Details:</strong>" + "<br>Object ID: " + feature.properties
+                .OBJECTID + "<br>Ferrule Size: " + feature.properties.Ferrule_Si + "<br>Account: " + feature
+                .properties.Account + "<br>Refernce GIS ID: " + feature.properties.Ref_GISID + "<br>DMA: " +
+                feature.properties.DMA + "<br>");
+        });
+        layer.on('mouseout', function (event) {
+            //     layer.setStyle({
+            //         color: 'black',
+            //         opacity: 1
+            //     })
+            layer.closePopup();
+            window.speechSynthesis.cancel();
+
+        });
+    };
+    var defaultParameters_Ferrule = {
+        service: 'WFS',
+        version: '2.0',
+        request: 'GetFeature',
+        typeName: 'talking_network:Ferrule',
+        outputFormat: 'text/javascript',
+        format_options: 'callback:getJson6',
+        SrsName: 'EPSG:4326'
+    };
+    var Ferrule_data;
+    var parameters_Ferrule = L.Util.extend(defaultParameters_Ferrule);
+    var URL6 = owsrootUrl + L.Util.getParamString(parameters_Ferrule);
+    var ajax = $.ajax({
+        url: URL6,
+        dataType: 'jsonp',
+        jsonpCallback: 'getJson6',
+        success: function (Ferrule_data) {
+            L.geoJson(Ferrule_data, {
+                onEachFeature: geoJSON_onEachFeature_Ferrule,
+            }).addTo(Ferrule);
+        }
+    });
+
+
+
+
+    //FlowDirection
+    function geoJSON_onEachFeature_Flow_Direction(feature, layer) {
+        layer.setStyle({
+            color: 'purple',
+            opacity: 1,
+            weight: 5
+        })
+    };
+    var defaultParameters_FlowDirection = {
+        service: 'WFS',
+        version: '2.0',
+        request: 'GetFeature',
+        typeName: 'talking_network:FlowDirection',
+        outputFormat: 'text/javascript',
+        format_options: 'callback:getJson7',
+        SrsName: 'EPSG:4326'
+    };
+    var FlowDirection_data;
+    var parameters_FlowDirection = L.Util.extend(defaultParameters_FlowDirection);
+    var URL7 = owsrootUrl + L.Util.getParamString(parameters_FlowDirection);
+    var ajax = $.ajax({
+        url: URL7,
+        dataType: 'jsonp',
+        jsonpCallback: 'getJson7',
+        success: function (FlowDirection_data) {
+            L.geoJson(FlowDirection_data, {
+                onEachFeature: geoJSON_onEachFeature_Flow_Direction,
+            }).addTo(FlowDirection);
+        }
+    });
+
+
+
+    //FlowPoint
+    function geoJSON_onEachFeature_Flow_Point(feature, layer) {
+        layer.on('click', function (event) {
+            var msg = new SpeechSynthesisUtterance("This is a Flow point having Diameter " + feature.properties
+                .Pipe_Dia + " milimeters, located in ward Number " + feature.properties.Ward_No +
+                " and DMA number " + feature.properties.DMA);
+            msg.rate = 0.85;
+            window.speechSynthesis.speak(msg);
+        });
+        layer.on('mouseover', function (event) {
+            layer.bindPopup("<strong>Flow Point Details:</strong>" + "<br>Object ID: " + feature.properties
+                .OBJECTID + "<br>Pipe Diameter in mm: " + feature.properties.Pipe_Dia + "<br>Unique ID: " +
+                feature.properties.Unique_ID + "<br>Location: " + feature.properties.Location_i +
+                "<br>DMA: " + feature.properties.DMA + "<br>Ward No:" + feature.properties.Ward_No);
+        });
+        layer.on('mouseout', function (event) {
+            layer.closePopup()
+            window.speechSynthesis.cancel();
+
+        });
+    };
+
+    var defaultParameters_FlowPoint = {
+        service: 'WFS',
+        version: '2.0',
+        request: 'GetFeature',
+        typeName: 'talking_network:FlowPoint',
+        outputFormat: 'text/javascript',
+        format_options: 'callback:getJson8',
+        SrsName: 'EPSG:4326'
+    };
+    var FlowPoint_data;
+    var parameters_FlowPoint = L.Util.extend(defaultParameters_FlowPoint);
+    var URL8 = owsrootUrl + L.Util.getParamString(parameters_FlowPoint);
+    var ajax = $.ajax({
+        url: URL8,
+        dataType: 'jsonp',
+        jsonpCallback: 'getJson8',
+        success: function (FlowPoint_data) {
+            L.geoJson(FlowPoint_data, {
+                onEachFeature: geoJSON_onEachFeature_Flow_Point,
+            }).addTo(FlowPoint);
+        }
+    });
+
+
+
+    //IsolationValve
+    function geoJSON_onEachFeature_Isolation_Valve(feature, layer) {
+        layer.on('click', function (event) {
+            var msg = new SpeechSynthesisUtterance("This is an Isolation Valve of " + feature.properties
+                .Valve_Type + ".. type, located in zone I D " + feature.properties.ZONEID);
+            msg.rate = 0.85;
+            window.speechSynthesis.speak(msg);
+        });
+        layer.on('mouseover', function (event) {
+            layer.bindPopup("<strong>Isolation Valve Details:</strong>" + "<br>Object ID: " + feature.properties
+                .OBJECTID + "<br>Reference Pipe ID: " + feature.properties.REF_PIPEID + "<br>Refer Pipe: " +
+                feature.properties.REFER_PIPE + "<br>Zone ID: " + feature.properties.ZONEID +
+                "<br>Valve Type: " + feature.properties.Valve_Type);
+        });
+        layer.on('mouseout', function (event) {
+            layer.closePopup();
+            window.speechSynthesis.cancel();
+        });
+    };
+    var defaultParameters_IsolationValve = {
+        service: 'WFS',
+        version: '2.0',
+        request: 'GetFeature',
+        typeName: 'talking_network:IsolationValve',
+        outputFormat: 'text/javascript',
+        format_options: 'callback:getJson9',
+        SrsName: 'EPSG:4326'
+    };
+    var IsolationValve_data;
+    var parameters_IsolationValve = L.Util.extend(defaultParameters_IsolationValve);
+    var URL9 = owsrootUrl + L.Util.getParamString(parameters_IsolationValve);
+    var ajax = $.ajax({
+        url: URL9,
+        dataType: 'jsonp',
+        jsonpCallback: 'getJson9',
+        success: function (IsolationValve_data) {
+            L.geoJson(IsolationValve_data, {
+                onEachFeature: geoJSON_onEachFeature_Isolation_Valve,
+            }).addTo(IsolationValve);
+        }
+    });
+
+
+
+    //Junction
+    function geoJSON_onEachFeature_Junction(feature, layer) {
+        layer.on('click', function (event) {
+            var msg = new SpeechSynthesisUtterance("This is a Junction in " + feature.properties.ZONE);
+            msg.rate = 0.85;
+            window.speechSynthesis.speak(msg);
+        });
+        layer.on('mouseover', function (event) {
+            layer.bindPopup("<strong>Junction Details:</strong>" + "<br>Object ID: " + feature.properties
+                .OBJECTID + "<br>ID: " + feature.properties.ID + "<br>Label: " + feature.properties.LABEL +
+                "<br>Zone ID: " + feature.properties.ZONEID + "<br>DMA: " + feature.properties.ZONE);
+        });
+        layer.on('mouseout', function (event) {
+
+            layer.closePopup();
+            window.speechSynthesis.cancel();
+
+        });
+    };
+    var defaultParameters_Junction = {
+        service: 'WFS',
+        version: '2.0',
+        request: 'GetFeature',
+        typeName: 'talking_network:Junction',
+        outputFormat: 'text/javascript',
+        format_options: 'callback:getJson10',
+        SrsName: 'EPSG:4326'
+    };
+    var Junction_data;
+    var parameters_Junction = L.Util.extend(defaultParameters_Junction);
+    var URL10 = owsrootUrl + L.Util.getParamString(parameters_Junction);
+    var ajax = $.ajax({
+        url: URL10,
+        dataType: 'jsonp',
+        jsonpCallback: 'getJson10',
+        success: function (Junction_data) {
+            L.geoJson(Junction_data, {
+                onEachFeature: geoJSON_onEachFeature_Junction,
+            }).addTo(Junction);
+        }
+    });
+
+
+
+    //ParcelBoundary
+    function geoJSON_onEachFeature_Parcel_Boundary(feature, layer) {
+        layer.setStyle({
+            color: 'brown',
+            opacity: 1,
+            weight: 5
+        })
+        layer.on('mouseover', function (event) {
+            layer.setStyle({
+                color: 'red',
+                opacity: 1
+            })
+        });
+        layer.on('click', function (event) {
+            var msg = new SpeechSynthesisUtterance("This is a Parcel Boundary");
+            msg.rate = 0.85;
+            window.speechSynthesis.speak(msg);
+        });
+        layer.on('mouseover', function (event) {
+            layer.bindPopup("<strong>Parcel Boundary Details:</strong>" + "<br>GIS ID: " + feature.properties
+                .GISID + "<br>Address: " + feature.properties.Address + "<br>Premises No: " + feature
+                .properties.Premises_N);
+        });
+        layer.on('mouseout', function (event) {
+            layer.setStyle({
+                color: 'brown',
+                opacity: 1
+            })
+
+            layer.closePopup();
+            window.speechSynthesis.cancel();
+
+        });
+        layer.on('mouseout', function (event) {
+            layer.closePopup()
+        });
+    };
+    var defaultParameters_parcelboundary = {
+        service: 'WFS',
+        version: '2.0',
+        request: 'GetFeature',
+        typeName: 'talking_network:ParcelBoundary',
+        outputFormat: 'text/javascript',
+        format_options: 'callback:getJson11',
+        SrsName: 'EPSG:4326'
+    };
+    var Parcel_Boundary_data;
+    var parameters_parcelboundary = L.Util.extend(defaultParameters_parcelboundary);
+    var URL11 = owsrootUrl + L.Util.getParamString(parameters_parcelboundary);
+    var ajax = $.ajax({
+        url: URL11,
+        dataType: 'jsonp',
+        jsonpCallback: 'getJson11',
+        success: function (Parcel_Boundary_data) {
+            L.geoJson(Parcel_Boundary_data, {
+                onEachFeature: geoJSON_onEachFeature_Parcel_Boundary,
+            }).addTo(ParcelBoundary);
+        }
+    });
+
+
+
+    //Pipe
+    function geoJSON_onEachFeature_Pipe(feature, layer) {
+        layer.setStyle({
+            color: 'navy',
+            opacity: 1,
+            weight: 5
+        })
+        layer.on('mouseover', function (event) {
+            layer.setStyle({
+                color: 'red',
+                opacity: 1
+            })
+        });
+        layer.on('click', function (event) {
+            var msg = new SpeechSynthesisUtterance("This is a Pipe having Diameter " + feature.properties.D +
+                " milimeters and length " + feature.properties.L + " meters. The Material of the pipe is " +
+                feature.properties.MATERIAL);
+            msg.rate = 0.85
+            window.speechSynthesis.speak(msg);
+            console.log(msg)
+        });
+        layer.on('mouseover', function (event) {
+            layer.bindPopup("<strong>Pipe Details:</strong>" + "<br>OBJECTID: " + feature.properties.OBJECTID +
+                "<br>Diameter in mm: " + feature.properties.D + "<br>Length in meters: " + feature
+                .properties.L + "<br>DMA: " + feature.properties.ZONE + "<br>ID: " + feature.properties.ID +
+                "<br>Label" + feature.properties.LABEL + "<br>Material: " + feature.properties.MATERIAL);
+        });
+        layer.on('mouseout', function (event) {
+            layer.setStyle({
+                color: 'navy',
+                opacity: 1
+            })
+        });
+        layer.on('mouseout', function (event) {
+
+            layer.closePopup();
+            window.speechSynthesis.cancel();
+
+        });
+    };
+    var defaultParameters_Pipe = {
+        service: 'WFS',
+        version: '2.0',
+        request: 'GetFeature',
+        typeName: 'talking_network:Pipe',
+        outputFormat: 'text/javascript',
+        format_options: 'callback:getJson12',
+        SrsName: 'EPSG:4326'
+    };
+    var Pipe_data;
+    var parameters_Pipe = L.Util.extend(defaultParameters_Pipe);
+    var URL12 = owsrootUrl + L.Util.getParamString(parameters_Pipe);
+    var ajax = $.ajax({
+        url: URL12,
+        dataType: 'jsonp',
+        jsonpCallback: 'getJson12',
+        success: function (Pipe_data) {
+            L.geoJson(Pipe_data, {
+                onEachFeature: geoJSON_onEachFeature_Pipe,
+            }).addTo(Pipe);
+        }
+    });
+
+
+
+    //PressurePoint
+    function geoJSON_onEachFeature_Pressure_Point(feature, layer) {
+        layer.on('click', function (event) {
+            var msg = new SpeechSynthesisUtterance("This is a Pressure Point in DMA" + feature.properties.DMA +
+                "and Ward number" + feature.properties.Ward + ".The Material of the pipe is" + feature
+                .properties.pipe_mater);
+            msg.rate = 0.85;
+            window.speechSynthesis.speak(msg);
+        });
+        layer.on('mouseover', function (event) {
+            layer.bindPopup("<strong>Pressure Point Details:</strong>" + "<br>OBJECTID: " + feature.properties
+                .OBJECTID + "<br>Location: " + feature.properties.location_d + "<br>ID: " + feature
+                .properties.id + "<br>DMA: " + feature.properties.DMA + "<br>Ward No: " + feature.properties
+                .Ward + "<br>Pipe Material: " + feature.properties.pipe_mater +
+                "<br>External Pipe Condition: " + feature.properties.external_p);
+        });
+        layer.on('mouseout', function (event) {
+
+            layer.closePopup();
+            window.speechSynthesis.cancel();
+
+        });
+    };
+    var defaultParameters_PressurePoint = {
+        service: 'WFS',
+        version: '2.0',
+        request: 'GetFeature',
+        typeName: 'talking_network:Pressure_Point',
+        outputFormat: 'text/javascript',
+        format_options: 'callback:getJson13',
+        SrsName: 'EPSG:4326'
+    };
+    var PressurePoint_data;
+    var parameters_PressurePoint = L.Util.extend(defaultParameters_PressurePoint);
+    var URL13 = owsrootUrl + L.Util.getParamString(parameters_PressurePoint);
+    var ajax = $.ajax({
+        url: URL13,
+        dataType: 'jsonp',
+        jsonpCallback: 'getJson13',
+        success: function (PressurePoint_data) {
+            L.geoJson(PressurePoint_data, {
+                onEachFeature: geoJSON_onEachFeature_Pressure_Point,
+            }).addTo(PressurePoint);
+        }
+    });
+
+
+
+    //iFittings
+    function geoJSON_onEachFeature_iFittings(feature, layer) {
+        layer.on('click', function (event) {
+            var msg = new SpeechSynthesisUtterance("This is a fitting of Diameter" + feature.properties
+                .Diameter + "milimeters and fitting type is " + feature.properties.Fitting_Ty +
+                ".The Material of the pipe is " + feature.properties.Material);
+            msg.rate = 0.85;
+            window.speechSynthesis.speak(msg);
+        });
+        layer.on('mouseover', function (event) {
+            layer.bindPopup("<strong>iFitting Details:</strong>" + "<br>OBJECTID: " + feature.properties
+                .OBJECTID + "<br>Diameter in mm: " + feature.properties.Diameter + "<br>material: " +
+                feature.properties.Material + "<br>Fitting Type: " + feature.properties.Fitting_Ty +
+                "<br>DMA: " + feature.properties.DMA);
+        });
+        layer.on('mouseout', function (event) {
+
+            layer.closePopup();
+            window.speechSynthesis.cancel();
+
+        });
+    };
+    var defaultParameters_iFittings = {
+        service: 'WFS',
+        version: '2.0',
+        request: 'GetFeature',
+        typeName: 'talking_network:iFittings',
+        outputFormat: 'text/javascript',
+        format_options: 'callback:getJson14',
+        SrsName: 'EPSG:4326'
+    };
+    var iFittings_data;
+    var parameters_iFittings = L.Util.extend(defaultParameters_iFittings);
+    var URL14 = owsrootUrl + L.Util.getParamString(parameters_iFittings);
+    var ajax = $.ajax({
+        url: URL14,
+        dataType: 'jsonp',
+        jsonpCallback: 'getJson14',
+        success: function (iFittings_data) {
+            L.geoJson(iFittings_data, {
+                onEachFeature: geoJSON_onEachFeature_iFittings,
+            }).addTo(iFittings);
+        }
+    });
+
+
+
+    //iHscLine
+    function geoJSON_onEachFeature_iHscLine(feature, layer) {
+        layer.setStyle({
+            color: 'olive',
+            opacity: 1,
+            weight: 5
+        })
+        layer.on('mouseover', function (event) {
+            layer.setStyle({
+                color: 'red',
+                opacity: 1
+            })
+        });
+        layer.on('click', function (event) {
+            var msg = new SpeechSynthesisUtterance("This is an i HSC line of Diameter" + feature.properties
+                .Diameter + "milimeters and length " + feature.properties.Diameter +
+                ".The Material of the pipe is" + feature.properties.Material);
+            msg.rate = 0.85;
+            window.speechSynthesis.speak(msg);
+        });
+        layer.on('mouseover', function (event) {
+            layer.bindPopup("<strong>iHSCline Details:</strong>" + "<br>OBJECTID: " + feature.properties
+                .OBJECTID + "<br>Diameter in mm: " + feature.properties.Diameter + "<br>Length: " + feature
+                .properties.Length + "<br>Material: " + feature.properties.Material + "<br>Category: " +
+                feature.properties.Category + "<br>DMA: " + feature.properties.DMA);
+        });
+        layer.on('mouseout', function (event) {
+            layer.setStyle({
+                color: 'olive',
+                opacity: 1
+            })
+        });
+        layer.on('mouseout', function (event) {
+
+            layer.closePopup();
+            window.speechSynthesis.cancel();
+
+        });
+    };
+    var defaultParameters_iHscLine = {
+        service: 'WFS',
+        version: '2.0',
+        request: 'GetFeature',
+        typeName: 'talking_network:iHscLine',
+        outputFormat: 'text/javascript',
+        format_options: 'callback:getJson15',
+        SrsName: 'EPSG:4326'
+    };
+    var iHscLine_data;
+    var parameters_iHscLine = L.Util.extend(defaultParameters_iHscLine);
+    var URL15 = owsrootUrl + L.Util.getParamString(parameters_iHscLine);
+    var ajax = $.ajax({
+        url: URL15,
+        dataType: 'jsonp',
+        jsonpCallback: 'getJson15',
+        success: function (iHscLine_data) {
+            L.geoJson(iHscLine_data, {
+                onEachFeature: geoJSON_onEachFeature_iHscLine,
+            }).addTo(iHscLine);
+        }
+    });
+
+
+
+    //iMeter
+    function geoJSON_onEachFeature_iMeter(feature, layer) {
+        layer.on('click', function (event) {
+            var msg = new SpeechSynthesisUtterance("This is an i meter of Connection Type: " + feature
+                .properties.Con_Type +
+                ".. and Connection category: " + feature.properties.Con_Catego +
+                ". and meter size: " + feature.properties.Meter_Size);
+            msg.rate = 0.85;
+            window.speechSynthesis.speak(msg);
+        });
+        layer.on('mouseover', function (event) {
+            layer.bindPopup("<strong>iMeter Details:</strong>" + "<br>OBJECTID: " + feature.properties
+                .OBJECTID + "<br>Account: " + feature.properties.Account + "<br>Consumer Name: " + feature
+                .properties.Consumer_N + "<br>Connection Type: " + feature.properties.Con_Type +
+                "<br>Connection Category: " + feature.properties.Con_Catego + "<br>Meter No: " + feature
+                .properties.Meter_No + "<br>Meter Size: " + feature.properties.Meter_Size +
+                "<br>Reference GIS ID: " + feature.properties.Ref_GISID + "<br>Location: " + feature
+                .properties.Location);
+        });
+        layer.on('mouseout', function (event) {
+
+            layer.closePopup();
+            window.speechSynthesis.cancel();
+
+        });
+    };
+    var defaultParameters_iMeter = {
+        service: 'WFS',
+        version: '2.0',
+        request: 'GetFeature',
+        typeName: 'talking_network:iMeter',
+        outputFormat: 'text/javascript',
+        format_options: 'callback:getJson16',
+        SrsName: 'EPSG:4326'
+    };
+    var iMeter_data;
+    var parameters_iMeter = L.Util.extend(defaultParameters_iMeter);
+    var URL16 = owsrootUrl + L.Util.getParamString(parameters_iMeter);
+    var ajax = $.ajax({
+        url: URL16,
+        dataType: 'jsonp',
+        jsonpCallback: 'getJson16',
+        success: function (iMeter_data) {
+            L.geoJson(iMeter_data, {
+                onEachFeature: geoJSON_onEachFeature_iMeter,
+            }).addTo(iMeter);
+        }
+    });
+
+
+
+    //iValve
+    function geoJSON_onEachFeature_iValve(feature, layer) {
+        layer.on('click', function (event) {
+            var msg = new SpeechSynthesisUtterance("This is an i valve of " + feature.properties.Valve_Type +
+                " type having diameter " + feature.properties.Diameter +
+                "milimeters. The Material of the valve is " + feature.properties.Material);
+            msg.rate = 0.85;
+            window.speechSynthesis.speak(msg);
+        });
+        layer.on('mouseover', function (event) {
+            layer.bindPopup("<strong>iValve Details:</strong>" + "<br>OBJECTID: " + feature.properties
+                .OBJECTID + "<br>Valve Type: " + feature.properties.Valve_Type + "<br>Diameter in mm: " +
+                feature.properties.Valve_Type + "<br>Material: " + feature.properties.Material +
+                "<br>Installation Data: " + feature.properties.Install_Da + "<br>Label: " + feature
+                .properties.Label);
+        });
+        layer.on('mouseout', function (event) {
+
+            layer.closePopup();
+            window.speechSynthesis.cancel();
+
+        });
+    };
+    var defaultParameters_iValve = {
+        service: 'WFS',
+        version: '2.0',
+        request: 'GetFeature',
+        typeName: 'talking_network:iValve',
+        outputFormat: 'text/javascript',
+        format_options: 'callback:getJson17',
+        SrsName: 'EPSG:4326'
+    };
+    var iValve_data;
+    var parameters_iValve = L.Util.extend(defaultParameters_iValve);
+    var URL17 = owsrootUrl + L.Util.getParamString(parameters_iValve);
+    var ajax = $.ajax({
+        url: URL17,
+        dataType: 'jsonp',
+        jsonpCallback: 'getJson17',
+        success: function (iValve_data) {
+            L.geoJson(iValve_data, {
+                onEachFeature: geoJSON_onEachFeature_iValve,
+            }).addTo(iValve);
+        }
+    });
+
+    L.control.layers(baseMaps, {
+        AsBuiltPipes,
+        Boundary_Valve,
+        EMF,
+        Existing_Pipe,
+        Ferrule,
+        FlowDirection,
+        FlowPoint,
+        IsolationValve,
+        Junction,
+        Pipe,
+        PressurePoint,
+        iFittings,
+        iHscLine,
+        iMeter,
+        iValve,
+        DmaBoundary,
+        ParcelBoundary
+    }).addTo(mymap);
+
+    //GPS
+    function myTracking() {
+        var marker, circle;
+
+        function onLocationFound(e) {
+            var radius = e.accuracy / 2;
+
+            if (marker) { // check
+                mymap.removeLayer(marker); // remove
+                mymap.removeLayer(circle); // remove
+            }
+            marker = L.marker(e.latlng).addTo(mymap)
+                .bindPopup("You are within " + radius + " meters from this point").openPopup();
+            circle = L.circle(e.latlng, radius).addTo(mymap);
+        };
+        mymap.on('locationfound', onLocationFound);
+        mymap.locate({
+            setView: true,
+            watch: true,
+            maxZoom: 25
+        });
+    }
+</script>
