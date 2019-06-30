@@ -15,6 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js">
     </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
@@ -267,8 +268,9 @@
     };
 
     var boundaryValveMarker = L.AwesomeMarkers.icon({
-        icon: 'https://cdn1.iconfinder.com/data/icons/unigrid-bluetone-nature-vol-1/60/009_029_faucet_valve_pipe_water_burst_trouble_payments-512.png',
-        markerColor: 'red'
+        icon: 'glyphicon glyphicon-asterisk',
+        markerColor: 'red',
+        iconColor: 'white'
     });
 
     var Boundary_Valve_data;
@@ -323,7 +325,7 @@
     };
 
     var EMFMarker = L.AwesomeMarkers.icon({
-        icon: 'https://cdn1.iconfinder.com/data/icons/unigrid-bluetone-nature-vol-1/60/009_029_faucet_valve_pipe_water_burst_trouble_payments-512.png',
+        icon: 'glyphicon glyphicon-stop',
         markerColor: 'green'
     });
 
@@ -442,8 +444,8 @@
     };
 
     var FerruleMarker = L.AwesomeMarkers.icon({
-        icon: 'https://cdn1.iconfinder.com/data/icons/unigrid-bluetone-nature-vol-1/60/009_029_faucet_valve_pipe_water_burst_trouble_payments-512.png',
-        markerColor: 'pink'
+        icon: 'glyphicon glyphicon-plus',
+        markerColor: 'darkred'
     });
 
     var Ferrule_data;
@@ -534,7 +536,7 @@
     };
 
     var FlowPointMarker = L.AwesomeMarkers.icon({
-        icon: 'https://cdn1.iconfinder.com/data/icons/unigrid-bluetone-nature-vol-1/60/009_029_faucet_valve_pipe_water_burst_trouble_payments-512.png',
+        icon: 'glyphicon glyphicon-sort',
         markerColor: 'purple'
     });
 
@@ -589,8 +591,8 @@
     };
     var IsolationValve_data;
     var IsolationValveMarker = L.AwesomeMarkers.icon({
-        icon: 'https://cdn1.iconfinder.com/data/icons/unigrid-bluetone-nature-vol-1/60/009_029_faucet_valve_pipe_water_burst_trouble_payments-512.png',
-        markerColor: 'white'
+        icon: 'glyphicon glyphicon-cog',
+        markerColor: 'darkpurple'
     });
     var parameters_IsolationValve = L.Util.extend(defaultParameters_IsolationValve);
     var URL9 = owsrootUrl + L.Util.getParamString(parameters_IsolationValve);
@@ -642,7 +644,7 @@
     };
     var Junction_data;
     var JunctionMarker = L.AwesomeMarkers.icon({
-        icon: 'https://cdn1.iconfinder.com/data/icons/unigrid-bluetone-nature-vol-1/60/009_029_faucet_valve_pipe_water_burst_trouble_payments-512.png',
+        icon: 'glyphicon glyphicon-move',
         markerColor: 'orange'
     });
     var parameters_Junction = L.Util.extend(defaultParameters_Junction);
@@ -826,7 +828,7 @@
     };
 
     var PressurePointMarker = L.AwesomeMarkers.icon({
-        icon: 'https://cdn1.iconfinder.com/data/icons/unigrid-bluetone-nature-vol-1/60/009_029_faucet_valve_pipe_water_burst_trouble_payments-512.png',
+        icon: 'glyphicon glyphicon-sort-by-attributes',
         markerColor: 'gray'
     });
     var PressurePoint_data;
@@ -883,7 +885,7 @@
     };
     var iFittings_data;
     var iFittingsMarker = L.AwesomeMarkers.icon({
-        icon: 'https://cdn1.iconfinder.com/data/icons/unigrid-bluetone-nature-vol-1/60/009_029_faucet_valve_pipe_water_burst_trouble_payments-512.png',
+        icon: 'glyphicon glyphicon-pushpin',
         markerColor: 'black'
     });
     var parameters_iFittings = L.Util.extend(defaultParameters_iFittings);
@@ -1006,10 +1008,11 @@
         SrsName: 'EPSG:4326'
     };
     var iMeter_data;
+
     var iMeterMarker = L.AwesomeMarkers.icon({
-        icon: 'https://cdn1.iconfinder.com/data/icons/unigrid-bluetone-nature-vol-1/60/009_029_faucet_valve_pipe_water_burst_trouble_payments-512.png',
-        markerColor: 'blue'
+        icon: 'glyphicon glyphicon-ok'
     });
+
     var parameters_iMeter = L.Util.extend(defaultParameters_iMeter);
     var URL16 = owsrootUrl + L.Util.getParamString(parameters_iMeter);
     var ajax = $.ajax({
@@ -1064,8 +1067,8 @@
     };
     var iValve_data;
     var iValveMarker = L.AwesomeMarkers.icon({
-        icon: 'https://cdn1.iconfinder.com/data/icons/unigrid-bluetone-nature-vol-1/60/009_029_faucet_valve_pipe_water_burst_trouble_payments-512.png',
-        markerColor: 'red'
+        icon: 'glyphicon glyphicon-asterisk',
+        markerColor: 'darkgreen'
     });
     var parameters_iValve = L.Util.extend(defaultParameters_iValve);
     var URL17 = owsrootUrl + L.Util.getParamString(parameters_iValve);
