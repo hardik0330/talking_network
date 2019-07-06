@@ -595,6 +595,9 @@
         layer.on('click', function (event) {
             var msg = new SpeechSynthesisUtterance("This is an Isolation Valve of " + feature.properties
                 .Valve_Type + ".. type, located in zone I D " + feature.properties.ZONEID);
+                // var msg = new SpeechSynthesisUtterance(" Yah ek isolation valve hai " + feature.properties
+                // .Valve_Type + " type ka... or yeh zone " + feature.properties.ZONEID + " mai hai");
+            // msg.lang = 'hi-IN';    
             msg.rate = 0.85;
             window.speechSynthesis.speak(msg);
         });
